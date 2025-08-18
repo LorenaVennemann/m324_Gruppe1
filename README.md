@@ -1,7 +1,7 @@
 # m324_Gruppe1
 
 ## Dokumentation
-[Dokumentation](/Dokumentation/Dokumentation.md)
+[Dokumentation](/Dokumentation/README.md)
 
 ## Theorie
 [T1 Calms](/Theorie/T1-Calms.md)
