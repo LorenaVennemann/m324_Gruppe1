@@ -5,7 +5,8 @@
 
 ## Theorie
 [T1 Calms](/Theorie/T1_Calms.md)
-[T1 The Three Ways](/Theorie/T2_The_Three_Ways.md)
+
+[T2 The Three Ways](/Theorie/T2_The_Three_Ways.md)
 
 ## Lernjournal
 
