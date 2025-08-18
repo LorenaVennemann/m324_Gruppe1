@@ -3,11 +3,11 @@
 ## 1. Herausforderungen
 - Welche spezifischen Herausforderungen führten dazu, dass TechNova Solutions sich für eine DevOps-Transformation entschied?
 
-TechNova brauchte super lange, um Software zu entwickeln – oft über 6 Monate. Kundenfeedback kam immer zu spät und die Qualität der Software war nicht so gut. Außerdem arbeiteten die Teams getrennt und es passierten viele Fehler, weil vieles noch manuell gemacht wurde.
+TechNova brauchte super lange, um Software zu entwickeln – oft über 6 Monate. Kundenfeedback kam immer zu spät und die Qualität der Software war nicht so gut. Ausserdem arbeiteten die Teams getrennt und es passierten viele Fehler, weil vieles noch manuell gemacht wurde.
 
 
 ## 2. Kulturelle Veränderung
-- Wie wurde die kulturelle Veränderung bei TechNova angegangen und welche konkreten Maßnahmen wurden ergriffen?
+- Wie wurde die kulturelle Veränderung bei TechNova angegangen und welche konkreten Massnahmen wurden ergriffen?
 
 Es gab Workshops und Teambuilding-Aktionen, damit die Teams besser zusammenarbeiten. Leute haben in andere Abteilungen gewechselt, um andere Perspektiven zu sehen. So wuchs das Vertrauen zwischen den Teams.
 
@@ -33,7 +33,7 @@ Gemessen wurden z.B. wie oft Deployments gemacht werden, wie lange es dauert, bi
 ## 6. Wissensaustausch & Zusammenarbeit
 - Welche Methoden nutzte TechNova, um Wissensaustausch und Zusammenarbeit zu fördern?
 
-Es gab ein internes Wiki und regelmäßige Lunch-and-Learn-Treffen. Mitarbeiter wurden ermutigt, Wissen auf Konferenzen oder in Blogs weiterzugeben.
+Es gab ein internes Wiki und regelmässige Lunch-and-Learn-Treffen. Mitarbeiter wurden ermutigt, Wissen auf Konferenzen oder in Blogs weiterzugeben.
 
 
 ## 7. Herausforderungen während der Transformation
