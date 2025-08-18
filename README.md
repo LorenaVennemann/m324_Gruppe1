@@ -1,5 +1,8 @@
 # m324_Gruppe1
 
+## Dokumentation
+[Dokumentation](/Dokumentation/Dokumentation.md)
+
 ## Lernjournal
 
 [Linus](/Lernjournal/Linus.md)
