@@ -42,12 +42,12 @@ Schnelles Feedback zeigt Fehler sofort. Entwickler können sie direkt beheben, b
 ## 8. Welche Herausforderungen können beim Implementieren des „Systems Thinking“ auftreten und wie können diese überwunden werden?
 - Identifizieren Sie potenzielle Hindernisse bei der Einführung des „Systems Thinking“ und entwickeln Sie Strategien, um diese zu überwinden.
 
-Experimente helfen, Neues auszuprobieren und bessere Loesungen zu finden. Am besten in kleinen Schritten machen, mit Unterstuützung der Führung und ohne Angst vor Fehlern.
+Experimente helfen, Neues auszuprobieren und bessere Lösungen zu finden. Am besten in kleinen Schritten machen, mit Unterstuützung der Führung und ohne Angst vor Fehlern.
 
 ## 9. Analysieren Sie, wie die Prinzipien der „Three Ways“ die Zusammenarbeit zwischen Entwicklungsteams und Betriebsteams verbessern können.
 - Diskutieren Sie, wie die Anwendung der „Three Ways“ zu einer besseren Integration und Zusammenarbeit der Teams führen kann.
 
-Viele Teams arbeiten isoliert und sehen nur ihren Teil. Das kann man loesen, indem man alles sichtbar macht, Transparenz schafft und Teams enger zusammenarbeiten lässt.
+Viele Teams arbeiten isoliert und sehen nur ihren Teil. Das kann man lösen, indem man alles sichtbar macht, Transparenz schafft und Teams enger zusammenarbeiten lässt.
 
 ## 10. Entwickeln Sie einen Plan zur Implementierung von „The Three Ways“ in einem Unternehmen, das noch keine DevOps-Praktiken eingeführt hat.
 - Entwerfen Sie einen detaillierten Implementierungsplan, der die Schritte und Massnahmen zur Einführung der „Three Ways“ in einem traditionellen Unternehmen beschreibt.
@@ -63,5 +63,4 @@ Die Prinzipien bauen Barrieren ab und schaffen Vertrauen. Entwickler und Betrieb
 
 ## 12. Erörtern Sie, wie die Prinzipien von „The Three Ways“ in einer Organisation, die stark hierarchisch strukturiert ist, umgesetzt werden können.
 - Diskutieren Sie die Herausforderungen und möglichen Lösungsansätze für die Implementierung der „Three Ways“ in einer stark hierarchischen Organisation.
-- 
 - Schnelles Feedback zeigt Fehler sofort und hilft, sie schnell zu beheben. So spart man Zeit und Geld und verbessert die Software kontinuierlich.
