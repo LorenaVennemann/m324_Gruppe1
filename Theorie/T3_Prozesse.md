@@ -4,8 +4,8 @@
 
 SDLC heisst Software Development Life Cycle. Es ist ein Ablauf, wie Software geplant, gebaut, getestet und betrieben wird. Ziel ist es, gute und sichere Software in klaren Schritten zu entwickeln.
 
-![SDLC](sdlc.png)
- 
+![Agile vs Waterfall](agile-waterfall.png)
+
  
 ***Welche Schritte umfasst der SDLC, und wie tragen diese zur Entwicklung und Bereitstellung von Software bei?***
  
@@ -82,7 +82,6 @@ Der DevOps Lifecycle wird als ein kollaborativer Ansatz definiert, der die Lück
  
 Der DevOps Lifecycle zielt darauf ab, die Entwicklungszeit zu verkürzen, die Qualität zu steigern und eine engere Zusammenarbeit zwischen Teams zu fördern, im Gegensatz zu traditionellen Ansätzen wie dem Wasserfall-Modell, die sequentiell und silobasiert sind. Im Vergleich zu klassischen Methoden reduziert er Risiken durch Automatisierung und kontinuierliches Feedback, was schnellere Releases und bessere Anpassungsfähigkeit an Veränderungen ermöglicht.
 
-![Agile vs Waterfall](agile-waterfall.png)
 
 ### Vertiefung
  
