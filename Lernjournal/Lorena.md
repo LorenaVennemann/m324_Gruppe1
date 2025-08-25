@@ -21,6 +21,7 @@ Das zeigt, dass verschiedene Tools fuer ähnliche Aufgaben genutzt werden könne
 
 ## 6. Reflektion und Feedback
 Heute habe ich gelernt was das CALMS-Modell ist, ebenfalls habe ich etwas über The3Ways
+
 ---
 
 **Datum:** 08.25.2025
@@ -48,6 +49,7 @@ Trotzdem habe ich sehr viel Neues dazu gelernt.
 
 ## Fazit
 Insgesamt war der Tag recht stressig, jedoch sehr lehrreich.
+
 
 
 
