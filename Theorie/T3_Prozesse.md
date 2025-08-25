@@ -71,14 +71,14 @@ Der **DevOps Lifecycle** ist ein kontinuierlicher Prozess, der Entwicklung (Dev)
 
 ### Wie ist der DevOps Lifecycle definiert, und welche Kernphasen beinhaltet er?
 
-DevOps schließt die Lücke zwischen Entwicklung und Betrieb durch:
+DevOps schliesst die Lücke zwischen Entwicklung und Betrieb durch:
 
 - **Continuous Development:** Planung und Entwicklung kleiner Features.
 - **Continuous Integration:** Tägliche automatisierte Codeintegration und Tests.
 - **Continuous Testing:** Automatisiertes und kontinuierliches Testen.
 - **Continuous Deployment:** Automatisierte Auslieferung in Produktion.
 - **Continuous Monitoring:** Echtzeitüberwachung der Systeme.
-- **Continuous Feedback:** Nutzer- und Systemfeedback fließt direkt zurück.
+- **Continuous Feedback:** Nutzer- und Systemfeedback fliesst direkt zurück.
 
 ### Welche Ziele verfolgt der DevOps Lifecycle im Vergleich zu traditionellen Entwicklungsansätzen?
 
@@ -131,7 +131,7 @@ Was ist der DevOps Lifecycle, und wie ist er strukturiert?
 
 ### Welche Auswirkungen haben diese Unterschiede auf die Entwicklung, Bereitstellung und den Betrieb von Software?
 
-- SDLC führt zu längeren Entwicklungszyklen, verzögertem Feedback und geringerer Flexibilität bei Änderungen. Die Bereitstellung erfolgt meist als großer Meilenstein.
+- SDLC führt zu längeren Entwicklungszyklen, verzögertem Feedback und geringerer Flexibilität bei Änderungen. Die Bereitstellung erfolgt meist als grosser Meilenstein.
 - DevOps ermöglicht durch Automatisierung und Zusammenarbeit schnellere, häufigere Releases, schnellere Fehlerbehebung und bessere Anpassung an Kundenbedürfnisse, was zu höherer Agilität und Stabilität führt.
 
 ### Zusammenfassung
