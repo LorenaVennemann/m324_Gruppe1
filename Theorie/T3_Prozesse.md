@@ -39,7 +39,7 @@ Der SDLC dient als Leitfaden im Projektmanagement und sorgt für klare Aufgabenv
 
 - Testarten: Unit-, Integrations-, System- und User Acceptance Tests (UAT).
 - Wartung umfasst Bugfixes, Performance-Optimierungen und Sicherheitsupdates.
-- Planung und Analyse beeinflussen Budgetkontrolle und Zeitmanagement maßgeblich.
+- Planung und Analyse beeinflussen Budgetkontrolle und Zeitmanagement massgeblich.
 
 ### Anwendungsbeispiele
 
