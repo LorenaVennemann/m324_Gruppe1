@@ -29,11 +29,7 @@ Effektivität wird durch Metriken wie Testabdeckung, Fehlerrate und Ausführungs
 - *Anwendungsbeispiele*: Bei Netflix wird CT verwendet, um Microservices kontinuierlich zu testen, was zu schnelleren Releases führt. Herausforderung: Skalierung bei großen Test-Suiten kann Ressourcen belasten, gelöst durch Cloud-Testing (z. B. AWS).
 
 *Quellen*: 
-[TestSigma](https://testsigma.com)
-[PubNub](https://www.pubnub.com)
-[TestRail](https://www.testrail.com)
-[Global App Testing](https://www.globalapptesting.com) 
-[LaunchDarkly](https://launchdarkly.com)
+[TestSigma](https://testsigma.com), [PubNub](https://www.pubnub.com), [TestRail](https://www.testrail.com), [Global App Testing](https://www.globalapptesting.com), [LaunchDarkly](https://launchdarkly.com)
 
 ## 4. Was ist eine Branching-Strategie, und welches sind die bekanntesten Ansätze?
 
@@ -61,11 +57,7 @@ Verschiedene Strategien beeinflussen die Code-Organisation: Langlaufende Branche
 - *Anwendungsbeispiele*: Bei Atlassian wird GitFlow für Jira verwendet, um Features isoliert zu entwickeln. Herausforderung: In großen Teams kann TBD zu "Branch Hell" führen, wenn nicht mit Feature Flags kombiniert.
 
 *Quellen*: 
-[LaunchDarkly](https://launchdarkly.com)
-[GitProtect](https://gitprotect.io)
-[Statsig](https://statsig.com)
-[AB Tasty](https://www.abtasty.com)
-[Martin Fowler](https://martinfowler.com)
+[LaunchDarkly](https://launchdarkly.com), [GitProtect](https://gitprotect.io), [Statsig](https://statsig.com), [AB Tasty](https://www.abtasty.com), [Martin Fowler](https://martinfowler.com)
 
 ## 5. Wie kann man Commits und Branches mit User Stories verknüpfen?
 
@@ -85,11 +77,7 @@ Tools wie Jira integrieren mit GitHub/Bitbucket via Apps, die Commits/PRs automa
 - *Anwendungsbeispiele*: Bei SAP-Projekten linkt GitHub Commits zu Jira, um Dashboards zu aktualisieren. Herausforderung: Inkonsistente Naming kann zu Fehllinks führen, gelöst durch Hooks.
 
 *Quellen*: 
-[Medium](https://medium.com)
-[Atlassian](https://www.atlassian.com)
-[Idalko](https://www.idalko.com)
-[SAP Community](https://community.sap.com)
-[Stack Overflow](https://stackoverflow.com)
+[Medium](https://medium.com), [Atlassian](https://www.atlassian.com), [Idalko](https://www.idalko.com), [SAP Community](https://community.sap.com), [Stack Overflow](https://stackoverflow.com)
 
 ## 6. Welche Merge-Strategien gibt es, und wann werden sie verwendet?
 
@@ -120,11 +108,7 @@ Merge-Strategien in Git definieren, wie Änderungen aus einem Branch in einen an
 - *Anwendungsbeispiele*: Bei DNSimple wird Squash für 2 Jahre verwendet, um Historie zu vereinfachen. Herausforderung: Rebase kann zu Konflikten führen, gelöst durch interaktives Rebase.
 
 **Quellen**: 
-[GeeksforGeeks](https://www.geeksforgeeks.org)
-[Graphite](https://graphite.dev)
-[DEV Community](https://dev.to)
-[Stack Overflow](https://stackoverflow.com)
-[Atlassian](https://www.atlassian.com)
+[GeeksforGeeks](https://www.geeksforgeeks.org), [Graphite](https://graphite.dev), [DEV Community](https://dev.to), [Stack Overflow](https://stackoverflow.com), [Atlassian](https://www.atlassian.com)
 
 ## 7. Was ist Semantic Versioning, und wie wird es eingesetzt?
 
@@ -183,10 +167,73 @@ Automatisierung: Versionsnummern können in CI/CD-Pipelines automatisch gesetzt 
 - CI/CD-Pipelines: Automatisierte Releases können die SemVer-Konventionen einhalten, z. B. durch Tools wie Semantic Release.
 
 **Quellen**:  
-[Compuart](https://www.compuart.com/blog/2023/semantic-versioning-warum-es-entwickler-nutzen-und-anwender-kennen-sollten)
-[Mindtwo](https://www.mindtwo.ch/blog/semantic-versioning-semver)
-[Dev.to](https://dev.to/disane/semantic-versioning-ein-leitfaden-fur-entwickler-3ibj)  
+[Compuart](https://www.compuart.com/blog/2023/semantic-versioning-warum-es-entwickler-nutzen-und-anwender-kennen-sollten), [Mindtwo](https://www.mindtwo.ch/blog/semantic-versioning-semver), [Dev.to](https://dev.to/disane/semantic-versioning-ein-leitfaden-fur-entwickler-3ibj)  
 
-## 8 & 9
+## 8. Welchen Unterschied haben Mono- und Multirepo-Ansätze im Kontext von Microservices?
+ 
+**Mono-Repo**:
+Alle Microservices liegen in einem einzigen Repository. Der gesamte Code für alle Services ist also zusammen gespeichert.
+ 
+**Multi-Repo**:
+Jeder Microservice hat sein eigenes Repository. Jeder Service wird seperat verwaltet.
+ 
+**Wie unterscheiden sich Mono- und Multirepo-Ansätze in der Organisation von Code?**
 
-tbd
+*Mono-Repo*: Ein grosser Ordner enthält alle Projekte. Änderungen können leicht übergreifend gemacht werden.
+ 
+*Multi-Repo*: Jeder Service ist unabhängig. Teams arbeiten an ihrem eigenen Repository.
+ 
+**Welche Vor- und Nachteile haben beide Ansätze speziell für die Entwicklung und Wartung von Microservices?**
+ 
+*Mono-Repo Vorteile*:
+Einfacher Überblick über alle Services
+Gemeinsame Code-Standards und Tests einfacher umzusetzen
+ 
+*Mono-Repo Nachteile*:
+Sehr Gross und Komplex
+Updates oder Builds dauern länger
+ 
+*Multi-Repo Vorteile*:
+Jeder Service ist unabhängig
+Teams können schneller arbeiten ohne Konflikte
+ 
+*Multi-Repo Nachteile*:
+Koordinationen zwischen Services schwieriger
+Gemeinsame Änderungen müssen manuell in allen Repos gemacht werden.
+ 
+**Wie beeinflussen die Ansätze die Skalierbarkeit, Zusammenarbeit und Abhängigkeiten zwischen Teams?**
+ 
+*Mono-Repo*: Gut für große Teams, die eng zusammenarbeiten. Abhängigkeiten zwischen Services sind sichtbar und einfacher zu verwalten.
+ 
+*Multi-Repo*: Gut, wenn Teams unabhängig arbeiten. Skalierung einzelner Services ist leichter, aber Koordination wird aufwendiger.
+ 
+**Vertiefung**:
+*Praxisbeispiel*:
+Ein E-Commerce-Unternehmen hat mehrere Microservices: Warenkorb, Zahlung, Versand.
+ 
+*Mono-Repo*: Alle Services liegen zusammen. Entwickler können sofort sehen, wenn eine Änderung im Zahlungsservice den Versandservice beeinflusst.
+ 
+*Multi-Repo*: Jeder Service ist separat. Das Warenkorb-Team kann unabhängig deployen, ohne dass das Zahlungsteam warten muss, aber Änderungen, die mehrere Services betreffen, müssen sorgfältig koordiniert werden.
+ 
+**Quellen**:
+[infomaniak](https://news.infomaniak.com/de/multirepo-vs-microservices/), [kinsta](https://kinsta.com/de/blog/monorepo-vs-multi-repo/), [dev](https://dev.to/dayal/monorepo-vs-multirepo-managing-codebases-in-modular-architectures-f3b)
+
+## 9. Was ist ein Artifact-Repository, und welche Aufgaben erfüllt es?
+ 
+Ein Software-Artefakt-Repository ist ein zentrales Speichersystem, das in der Softwareentwicklung verwendet wird, um alle softwarebezogenen Artefakte zu verwalten und zu speichern. Dazu gehören kompilierter Code, Bibliotheken, Abhängigkeiten, Konfigurationsdateien, Dokumentation und Build-Ergebnisse. Es stellt sicher, dass diese Artefakte leicht zugänglich, versionskontrolliert und über alle Phasen des Softwareentwicklungszyklus hinweg nachverfolgbar sind.
+ 
+**Welche Rolle spielt ein Artifact-Repository in der Softwareentwicklung und im  Bereitstellungsprozess?**
+ 
+Artefakte sind die Grundlage der Softwareentwicklung. Sie dienen als Orientierung für Entwickler und helfen, Workflows, Wartung und Fehlerbehebung zu verbessern. Außerdem machen sie es möglich, verschiedene Produktversionen und Eigenschaften nachzuvollziehen.
+ 
+ 
+**Welche Arten von Artefakten werden typischerweise in einem Repository verwaltet?**
+ 
+In einem Artefakt-Repository werden typischerweise kompilierte Programme und Bibliotheken, externe Abhängigkeiten, Konfigurationsdateien und Dokumentation gespeichert. Außerdem finden sich dort Build-Ergebnisse wie Installer oder Archive, Container-Images für die Bereitstellung, Skripte zur Automatisierung und Protokolle, die beim Entwickeln oder Überwachen entstehen.
+ 
+**Warum ist ein Artifact-Repository wichtig für CI/CD-Pipelines?**
+ 
+Es ist sehr wichtig, da es als zentrale, versionierte Quelle für Builder-Artefakte dient, die für die Bereitstellung in verschiedenen Umgebungen benötigt werden.
+ 
+**Quellen**:  
+[JFrog](https://jfrog.com/de/learn/devops/software-artifact-repository/), [JetBrains](https://www.jetbrains.com/de-de/teamcity/ci-cd-guide/concepts/artifact-repository/), [TeamHub](https://teamhub.com/blog/understanding-the-role-of-an-artifact-repository-in-software-development/#:~:text=The%20Basics%20of%20Artifact%20Repositories,integration%2C%20and%20continuous%20delivery%20practices.)
