@@ -72,6 +72,8 @@ CI wirkt wie ein gemeinsamer, automatisierter Qualitätsfilter: Jede Änderung d
 
 Continuous Testing (CT) ist ein Ansatz im Software testing, bei dem automatisierte Tests kontinuierlich während des gesamten Softwareentwicklungslebenszyklus (SDLC) ausgeführt werden, um frühzeitig Feedback zur Qualität zu geben und die Bereitstellung hochwertiger Software zu beschleunigen. Im Gegensatz zu sporadischen Tests wird CT in CI/CD-Pipelines integriert, sodass Tests bei jedem Code-Commit, Build oder Deployment laufen. Die Umsetzung erfolgt durch Automatisierung von Testfällen mit Tools wie Selenium, JUnit oder TestSigma, die in DevOps-Umgebungen wie Jenkins oder GitHub Actions eingebunden werden. Dies ermöglicht eine *Shift-Left-Testing*-Strategie, bei der Tests früh im Zyklus platziert werden, um Fehler schnell zu erkennen.
 
+![Continuous%20Testing](./Images/Continuous%20Testing_%20Effizienzsteigerung%20durch%20Automatisierung%20und%20KI%20—%20Finbridge%20GmbH%20&%20Co%20KG.png)
+
 ### Unterschied zu traditionellen Testmethoden
 
 Traditionelle Testmethoden, wie im Wasserfall-Modell, führen Tests phasenweise durch z.B. nur am Ende der Entwicklung oder in separaten QA-Phasen, was zu Verzögerungen und höheren Kosten bei Fehlern führt. CT hingegen ist proaktiv und kontinuierlich, integriert Tests in den Entwicklungsprozess und nutzt Automatisierung für schnelles Feedback. Während traditionelle Tests oft manuell oder batch-basiert sind, läuft CT automatisiert und parallel zur Entwicklung, was den Fokus von "Testen am Ende" zu "Testen von Anfang an" verlagert. Dies reduziert Wartezeiten und verbessert die Agilität, birgt aber die Herausforderung, Tests skalierbar zu halten.  
@@ -109,6 +111,8 @@ Effektivität wird durch Metriken wie Testabdeckung, Fehlerrate und Ausführungs
 ### Definition und Bedeutung
 
 Eine Branching-Strategie definiert, wie Branches in einem Versionskontrollsystem wie Git erstellt, verwaltet und merged werden, um parallele Entwicklung zu ermöglichen und Konflikte zu minimieren. Sie ist essenziell für die Organisation von Codeänderungen und die Koordination in Teams, da sie die Versionskontrolle strukturiert, Konflikte reduziert und die Nachverfolgbarkeit von Änderungen gewährleistet. Ohne Strategie kann Chaos durch unkontrollierte Merges entstehen, was die Code-Stabilität gefährdet.  
+
+![Branching-Strategien](./Images/Branching-Strategien%20im%20praktischen%20Einsatz%20_%20DWX%20Developer%20World.png)
 
 ### Einfluss auf Code-Organisation und Arbeitsfluss
 
