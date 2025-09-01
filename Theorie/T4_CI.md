@@ -2,7 +2,7 @@
 
 ## 1. Was ist Continuous Integration (CI) und wie wird es umgesetzt?
 
-Continuous Integration (CI) ist eine DevOps-Praxis in der Softwareentwicklung, bei der Entwickler ihre Codeänderungen regelmäßig in ein zentrales Repository integrieren und diese automatisiert erstellen und testen. Das Ziel ist, Fehler und Konflikte frühzeitig zu erkennen und zu beheben, die Produktqualität zu steigern und den Entwicklungsprozess zu beschleunigen.
+Continuous Integration (CI) ist eine DevOps-Praxis in der Softwareentwicklung, bei der Entwickler ihre Codeänderungen regelmässig in ein zentrales Repository integrieren und diese automatisiert erstellen und testen. Das Ziel ist, Fehler und Konflikte frühzeitig zu erkennen und zu beheben, die Produktqualität zu steigern und den Entwicklungsprozess zu beschleunigen.
 
 ![Was ist CI/CD](./Images/Was%20ist%20CI_CD_%20Continuous%20Integration%20und%20Continuous%20Delivery%20erklärt.png)
 
@@ -43,7 +43,7 @@ CI wirkt wie ein gemeinsamer, automatisierter Qualitätsfilter: Jede Änderung d
 
 - Neue Änderungen werden sofort geprüft, Fehler werden schnell gefunden und behoben.
 - Fehler werden schneller entdeckt und behoben, weil jede Codeänderung automatisch getestet wird.
-- Konflikte zwischen Entwicklerinnen und Entwicklern werden reduziert, da alle Änderungen regelmäßig zusammengeführt werden.
+- Konflikte zwischen Entwicklerinnen und Entwicklern werden reduziert, da alle Änderungen regelmässig zusammengeführt werden.
 - Die Anwendung bleibt stabil, da durch automatisierte Tests sichergestellt wird, dass neue Änderungen keine Probleme verursachen.
 - Teams arbeiten effizienter, weil man nicht mehr auf einen „Merge Day“ warten muss und die Arbeitsschritte automatisiert sind.
 - Updates können schneller bereitgestellt werden, was auch schnelleres Feedback von Nutzern ermöglicht.
@@ -51,7 +51,7 @@ CI wirkt wie ein gemeinsamer, automatisierter Qualitätsfilter: Jede Änderung d
 ### Nachteile / Herausforderungen von CI
 
 - Hoher Aufwand am Anfang, weil automatische Tests und Abläufe eingerichtet werden müssen.
-- Organisatorische Disziplin nötig, damit alle Entwicklerinnen und Entwickler regelmäßig ihren Code integrieren.
+- Organisatorische Disziplin nötig, damit alle Entwicklerinnen und Entwickler regelmässig ihren Code integrieren.
 - Abhängigkeit von gut funktionierenden Tests, sonst werden Fehler nicht zuverlässig erkannt.
 - Technische Komplexität, besonders wenn viele Entwickler gleichzeitig an verschiedenen Codezweigen arbeiten.
 - Kosten und Zeit, da es anfänglich viel Aufwand und Ressourcen erfordert, die CI-Pipeline richtig aufzubauen.
@@ -59,7 +59,7 @@ CI wirkt wie ein gemeinsamer, automatisierter Qualitätsfilter: Jede Änderung d
 ### Einfluss auf Produktqualität und Workflow
 
 - CI verbessert langfristig die Produktqualität, weil Fehler früh erkannt und behoben werden.
-- Der Workflow im Team wird effizienter, da Änderungen regelmäßig integriert und automatisch getestet werden.
+- Der Workflow im Team wird effizienter, da Änderungen regelmässig integriert und automatisch getestet werden.
 
 *Quellen*:
 - [redhat](https://www.redhat.com/de/topics/devops/what-is-ci-cd)
@@ -91,13 +91,13 @@ Typischerweise werden folgende Tests automatisiert:
 - **UI-Tests**: Z. B. mit Selenium für Benutzeroberflächen.  
 - **Performance-Tests** und **Sicherheit-Tests**.  
 
-Effektivität wird durch Metriken wie Testabdeckung, Fehlerrate und Ausführungszeit sichergestellt, oft mit Tools wie SonarQube für Code-Qualität oder durch Flaky-Test-Management. Regelmäßige Reviews und AI-gestützte Testoptimierung helfen, False Positives zu reduzieren.  
+Effektivität wird durch Metriken wie Testabdeckung, Fehlerrate und Ausführungszeit sichergestellt, oft mit Tools wie SonarQube für Code-Qualität oder durch Flaky-Test-Management. Regelmässige Reviews und AI-gestützte Testoptimierung helfen, False Positives zu reduzieren.  
 
 ### Zusätzliche Ausführungen
 
 - *Vertiefung*: In der Praxis wird CT oft mit Containerisierung (z. B. Docker) kombiniert, um Testumgebungen reproduzierbar zu machen. Beispiel: Bei einem Commit triggert Jenkins Unit-Tests, und bei Erfolg folgen Integrationstests.  
 - *Gegenüberstellung*: Im Vergleich zu traditionellem Testing (z. B. manuelle Regressionstests) spart CT Zeit (bis zu 50 % kürzere Zyklen), erfordert aber höhere Initialinvestitionen in Automatisierung.  
-- *Anwendungsbeispiele*: Bei Netflix wird CT verwendet, um Microservices kontinuierlich zu testen, was zu schnelleren Releases führt. Herausforderung: Skalierung bei großen Test-Suiten kann Ressourcen belasten, gelöst durch Cloud-Testing (z. B. AWS).
+- *Anwendungsbeispiele*: Bei Netflix wird CT verwendet, um Microservices kontinuierlich zu testen, was zu schnelleren Releases führt. Herausforderung: Skalierung bei grossen Test-Suiten kann Ressourcen belasten, gelöst durch Cloud-Testing (z. B. AWS).
 
 *Quellen*: 
 [TestSigma](https://testsigma.com),
