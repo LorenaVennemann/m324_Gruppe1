@@ -66,7 +66,15 @@ Was ist SDLC (Software Development Life Cycle), und wie gliedert sich dieser Pro
 ## 2. Was ist der DevOps Lifecycle, und wie ist er strukturiert?
 
 Der **DevOps Lifecycle** ist ein kontinuierlicher Prozess, der Entwicklung (Dev) und Betrieb (Ops) integriert, um Software schneller, effizienter und stabiler bereitzustellen. Er ist zyklisch mit Phasen wie Planung, Codierung, Integration, Testen, Deployment, Betrieb und Monitoring organisiert.
-
+ 
+***Wie ist der DevOps Lifecycle definiert, und welche Kernphasen beinhaltet er?***
+ 
+Der DevOps Lifecycle wird als ein kollaborativer Ansatz definiert, der die Lücke zwischen Softwareentwicklung und IT-Betrieb schliesst, um eine kontinuierliche und automatisierte Bereitstellung zu erreichen. Zu den Kernphasen gehören Continuous Development, Continuous Integration, Continuous Testing, Continuous Deployment, Continuous Monitoring und Continuous Feedback, die in einem endlosen Loop organisiert sind.
+ 
+ 
+***Welche Ziele verfolgt der DevOps Lifecycle im Vergleich zu traditionellen Entwicklungsansätzen?***
+ 
+Der DevOps Lifecycle zielt darauf ab, die Entwicklungszeit zu verkürzen, die Qualität zu steigern und eine engere Zusammenarbeit zwischen Teams zu fördern, im Gegensatz zu traditionellen Ansätzen wie dem Wasserfall-Modell, die sequentiell und silobasiert sind. Im Vergleich zu klassischen Methoden reduziert er Risiken durch Automatisierung und kontinuierliches Feedback, was schnellere Releases und bessere Anpassungsfähigkeit an Veränderungen ermöglicht.
 ![DevSecOps](Images/dev-sec-ops.png)
 
 ### Wie ist der DevOps Lifecycle definiert, und welche Kernphasen beinhaltet er?
@@ -164,8 +172,11 @@ Welche Unterschiede gibt es zwischen dem SDLC und dem DevOps Lifecycle?
 
 ## 4. Was ist ein MVP (Minimum Viable Product), und welche Bedeutung hat es im DevOps Lifecycle?
 
-Ein **MVP** ist die kleinste funktionsfähige Produktversion, die mit minimalem Aufwand auf den Markt gebracht wird, um schnelles Nutzerfeedback einzuholen und Risiken zu reduzieren.
-
+Ein **MVP** ist die kleinste funktionsfähige Produktversion, die mit minimalem Aufwand auf den Markt gebracht wird, um schnelles Nutzerfeedback einzuholen und Risiken zu reduzieren. 
+ 
+***Wie wird ein MVP definiert, und welche Kernmerkmale zeichnen es aus?***
+ 
+Ein MVP ist eine Version eines Produkts mit nur den wichtigsten Funktionen, die den Nutzern trotzdem einen klaren Nutzen bietet. Es ist kein reiner Prototyp, sondern schon ein Produkt, das auf den Markt kann. Wichtige Merkmale sind: einfach zu benutzen, funktioniert zuverlässig, zeigt das wichtigste besondere Merkmal des Produkts und kann durch Feedback und Erweiterungen weiter verbessert werden.
 ![MVP](Images/mvp.png)
 
 ### Wie wird ein MVP definiert, und welche Kernmerkmale zeichnen es aus?
