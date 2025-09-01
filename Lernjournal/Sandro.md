@@ -1,5 +1,13 @@
 # Lernjournal von Sandro
 
+## 25.08.2025
+
+Heute fand ich das Feedback zu unserem Meeting besonders gut, also das gesagt wurde was noch nicht so gut ist und beim nächsten Meeting zu verbessern ist, wie z.B. die Vorbereitugn auf das Meeting.
+
+Letzte Woche habe ich ins Lernjournal geschrieben, dass wir GitHub Nutzen, ohne Pipelines und nur für interne Projekte, das ist aber nicht so, hatte den Durchblick einfach nicht mit den 100+ Repositories auf GitHub.
+
+Heute in der Theorie ging es unter anderem um Branching- und Merge-Strategien, da ist es bei uns in der Firma Software-Abhängig, liegt evt. daran das es bei SVN keine PRs im klassischen Sinne gibt, aber es funktioniert und "never change a running system" oder?
+
 ## 18.08.2025
 
 In meinem Lehrbetrieb ist das CI/CD nicht so schlimm wie beim Beginn mit TechNova aus der Theorie 1 & 2, aber auch noch nicht so gut wie am Ende das Ergebnis TechNova, mit wöchentlichen Deployments, sondern eher so 1x im Monat.

@@ -15,7 +15,7 @@ Der Inhalt dieses Dokuments wurde mithilfe von ChatGpt erstellt. Die Prompts wur
 
 Der **Software Development Life Cycle (SDLC)** beschreibt den Prozess, wie Software geplant, entwickelt, getestet und betrieben wird. Ziel ist es, durch strukturierte Phasen hochwertige und sichere Software zu erstellen.
 
-![Agile vs Waterfall](agile-waterfall.png)
+![Agile vs Waterfall](Images/agile-waterfall.png)
 
 ### Welche Schritte umfasst der SDLC, und wie tragen diese zur Entwicklung und Bereitstellung von Software bei?
 
@@ -39,7 +39,7 @@ Der SDLC dient als Leitfaden im Projektmanagement und sorgt für klare Aufgabenv
 
 - Testarten: Unit-, Integrations-, System- und User Acceptance Tests (UAT).
 - Wartung umfasst Bugfixes, Performance-Optimierungen und Sicherheitsupdates.
-- Planung und Analyse beeinflussen Budgetkontrolle und Zeitmanagement maßgeblich.
+- Planung und Analyse beeinflussen Budgetkontrolle und Zeitmanagement massgeblich.
 
 ### Anwendungsbeispiele
 
@@ -67,18 +67,18 @@ Was ist SDLC (Software Development Life Cycle), und wie gliedert sich dieser Pro
 
 Der **DevOps Lifecycle** ist ein kontinuierlicher Prozess, der Entwicklung (Dev) und Betrieb (Ops) integriert, um Software schneller, effizienter und stabiler bereitzustellen. Er ist zyklisch mit Phasen wie Planung, Codierung, Integration, Testen, Deployment, Betrieb und Monitoring organisiert.
 
-![DevSecOps](dev-sec-ops.png)
+![DevSecOps](Images/dev-sec-ops.png)
 
 ### Wie ist der DevOps Lifecycle definiert, und welche Kernphasen beinhaltet er?
 
-DevOps schließt die Lücke zwischen Entwicklung und Betrieb durch:
+DevOps schliesst die Lücke zwischen Entwicklung und Betrieb durch:
 
 - **Continuous Development:** Planung und Entwicklung kleiner Features.
 - **Continuous Integration:** Tägliche automatisierte Codeintegration und Tests.
 - **Continuous Testing:** Automatisiertes und kontinuierliches Testen.
 - **Continuous Deployment:** Automatisierte Auslieferung in Produktion.
 - **Continuous Monitoring:** Echtzeitüberwachung der Systeme.
-- **Continuous Feedback:** Nutzer- und Systemfeedback fließt direkt zurück.
+- **Continuous Feedback:** Nutzer- und Systemfeedback fliesst direkt zurück.
 
 ### Welche Ziele verfolgt der DevOps Lifecycle im Vergleich zu traditionellen Entwicklungsansätzen?
 
@@ -131,7 +131,7 @@ Was ist der DevOps Lifecycle, und wie ist er strukturiert?
 
 ### Welche Auswirkungen haben diese Unterschiede auf die Entwicklung, Bereitstellung und den Betrieb von Software?
 
-- SDLC führt zu längeren Entwicklungszyklen, verzögertem Feedback und geringerer Flexibilität bei Änderungen. Die Bereitstellung erfolgt meist als großer Meilenstein.
+- SDLC führt zu längeren Entwicklungszyklen, verzögertem Feedback und geringerer Flexibilität bei Änderungen. Die Bereitstellung erfolgt meist als grosser Meilenstein.
 - DevOps ermöglicht durch Automatisierung und Zusammenarbeit schnellere, häufigere Releases, schnellere Fehlerbehebung und bessere Anpassung an Kundenbedürfnisse, was zu höherer Agilität und Stabilität führt.
 
 ### Zusammenfassung
@@ -166,7 +166,7 @@ Welche Unterschiede gibt es zwischen dem SDLC und dem DevOps Lifecycle?
 
 Ein **MVP** ist die kleinste funktionsfähige Produktversion, die mit minimalem Aufwand auf den Markt gebracht wird, um schnelles Nutzerfeedback einzuholen und Risiken zu reduzieren.
 
-![MVP](mvp.png)
+![MVP](Images/mvp.png)
 
 ### Wie wird ein MVP definiert, und welche Kernmerkmale zeichnen es aus?
 
