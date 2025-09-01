@@ -1,77 +1,71 @@
 # DevOps Prozesse
 
+## Hinweis
+
+Der Inhalt dieses Dokuments wurde mithilfe von ChatGpt erstellt. Die Prompts wurden unten aufgelistet. Zusätzlich hatte ChatGpt die Bewertungskriterien als Kontext:
+
+```
+- Inhaltliche Vollständigkeit und Korrektheit
+- Quellen: Mehrere Quellenangaben pro Thema. Quellen müssen angegeben werden
+- Formatierung des Dokuments und Bildunterstützung
+- Zusätzliche Ausführungen pro Thema (Vertiefung, Gegenüberstellung, Anwendungsbeispiele, etc)
+```
+
 ## 1. Was ist SDLC (Software Development Life Cycle), und wie gliedert sich dieser Prozess?
 
-SDLC heisst Software Development Life Cycle. Es ist ein Ablauf, wie Software geplant, gebaut, getestet und betrieben wird. Ziel ist es, gute und sichere Software in klaren Schritten zu entwickeln.
+Der **Software Development Life Cycle (SDLC)** beschreibt den Prozess, wie Software geplant, entwickelt, getestet und betrieben wird. Ziel ist es, durch strukturierte Phasen hochwertige und sichere Software zu erstellen.
 
-![Agile vs Waterfall](./Bilder/agile-waterfall.png)
+![Agile vs Waterfall](Images/agile-waterfall.png)
 
- 
-***Welche Schritte umfasst der SDLC, und wie tragen diese zur Entwicklung und Bereitstellung von Software bei?***
- 
-Die Phasen des SDLC:
- 
-Planung → Ziel und Umfang vom Projekt werden festgelegt.
- 
-Analyse → Anforderungen der Nutzer werden gesammelt.
- 
-Design → Entwurf für die Software entsteht.
- 
-Entwicklung → Programmierer schreiben den Code.
- 
-Test → Die Software wird auf Fehler und Qualität geprüft.
- 
-Bereitstellung → Software wird bei den Nutzern eingeführt.
- 
-Betrieb und Wartung → Die Software läuft und wird gepflegt.
- 
- 
-***Wie wird der SDLC typischerweise in einem Projekt angewendet und gesteuert?***
- 
-Im Projekt wird der SDLC als Leitfaden genutzt. Er hilft, dass alle im Team wissen, was wann gemacht wird. Die Steuerung passiert oft durch Projektleiter oder mit Methoden wie Agile oder DevOps. Dabei wird darauf geachtet, dass Termine, Kosten und Qualität eingehalten werden. In moderner Entwicklung wird Sicherheit in jeden Schritt eingebaut, damit Probleme früh erkannt werden.
+### Welche Schritte umfasst der SDLC, und wie tragen diese zur Entwicklung und Bereitstellung von Software bei?
+
+Die typischen Phasen im SDLC sind:
+
+- **Planung:** Festlegung von Zielen und Umfang des Projekts.
+- **Analyse:** Sammlung der Anforderungen von Nutzern und Stakeholdern.
+- **Design:** Entwurf der Softwarearchitektur und Benutzeroberfläche.
+- **Entwicklung:** Programmierung und Implementierung.
+- **Test:** Überprüfung der Softwarequalität und Fehlersuche.
+- **Bereitstellung:** Einführung der Software beim Anwender.
+- **Betrieb und Wartung:** Laufender Betrieb, Pflege und Fehlerbehebung.
+
+Jede Phase trägt dazu bei, dass die Software systematisch und kontrolliert entsteht, getestet wird und stabil betrieben werden kann.
+
+### Wie wird der SDLC typischerweise in einem Projekt angewendet und gesteuert?
+
+Der SDLC dient als Leitfaden im Projektmanagement und sorgt für klare Aufgabenverteilung und Termintreue. Steuerung erfolgt meist durch Projektleiter, unterstützt durch Methoden wie Agile oder DevOps. Dabei werden Kosten, Termine und Qualität überwacht. Sicherheitsaspekte (Security-by-Design) werden zunehmend in alle Phasen integriert, um Risiken frühzeitig zu minimieren.
 
 ### Vertiefung
 
-- Tests können unterschiedliche Formen haben: Unit Tests, Integrationstests, Systemtests oder User Acceptance Tests (UAT).
-- Planung und Analyse sind entscheidend für Budgetkontrolle und Zeitmanagement.
-- Wartung umfasst Bugfixes, Performance-Optimierungen und Sicherheitsupdates – oft der längste Teil des SDLC.
-  
-***Anwendungsbeispiele***
+- Testarten: Unit-, Integrations-, System- und User Acceptance Tests (UAT).
+- Wartung umfasst Bugfixes, Performance-Optimierungen und Sicherheitsupdates.
+- Planung und Analyse beeinflussen Budgetkontrolle und Zeitmanagement massgeblich.
 
-1. Bankensoftware:
-- Hoher Sicherheitsbedarf → strikte SDLC-Phasen mit Reviews und Penetrationstests
-- Jede Phase dokumentiert → regulatorische Anforderungen erfüllt
+### Anwendungsbeispiele
 
-2. Webanwendungen (z. B. E-Commerce):
-- Agile SDLC-Version → kurze Iterationen, schnelle Releases
-- Testphase wird oft automatisiert (z. B. CI/CD-Pipelines)
+- **Bankensoftware:** Strikte SDLC-Phasen mit Reviews und Penetrationstests für hohe Sicherheit.
+- **Webanwendungen:** Agile SDLC mit kurzen Iterationen und automatisierten Tests.
+- **Mobile Apps:** Nutzung von MVPs, schnelles Nutzerfeedback und schnelle Updates.
 
-3. Mobile Apps:
-- MVP wird erstellt, Feedback gesammelt → nächste Entwicklungsphase angepasst
-- Schnelle Bereitstellung über App Stores möglich
+### Prompt
+```
+Was ist SDLC (Software Development Life Cycle), und wie gliedert sich dieser Prozess?
 
-***Typische Anwendung und Steuerung im Projekt***
-
-- Leitfaden: SDLC gibt dem Team Orientierung: Wer macht was und wann?
-- Projektmanagement: Projektleiter überwachen Termine, Kosten und Qualität.
-- Methoden:
-  - Agile SDLC: Iterative Entwicklung, flexible Anpassungen
-  - DevOps-Integration: Automatisierung von Tests, Deployment und Monitoring
-- Sicherheitsaspekte: Security-by-Design wird in allen Phasen berücksichtigt → frühe Fehlererkennung, - geringere Kosten bei Bugfixes
+- Welche Schritte umfasst der SDLC, und wie tragen diese zur Entwicklung und Bereitstellung von Software bei?
+- Wie wird der SDLC typischerweise in einem Projekt angewendet und gesteuert
+```
 
 ### Quellen
 
-- <https://www.redhat.com/de/topics/security/software-development-lifecycle-security>
-- <https://aws.amazon.com/de/what-is/sdlc/>
-- <https://www.rapid7.com/de/cybersecurity-grundlagen/software-development-life-cycle-sdlc/>
-- <https://www.linkedin.com/pulse/software-development-life-cycle-sdlc-tutorial-richard-harris/>
+- <https://www.redhat.com/de/topics/security/software-development-lifecycle-security>  
+- <https://aws.amazon.com/de/what-is/sdlc/>  
+- <https://www.rapid7.com/de/cybersecurity-grundlagen/software-development-life-cycle-sdlc/>  
+
+---
 
 ## 2. Was ist der DevOps Lifecycle, und wie ist er strukturiert?
 
-Der DevOps Lifecycle ist ein kontinuierlicher Prozess, der Entwicklung (Dev) und Betrieb (Ops) integriert, um die Softwareentwicklung zu optimieren und eine nahtlose Zusammenarbeit zu ermöglichen. Er ist in einem zyklischen Modell strukturiert, das Phasen wie Planung, Codierung, Integration, Testen, Deployment, Betrieb und Monitoring umfasst, die iterativ ablaufen, um kontinuierliche Verbesserungen zu gewährleisten.
- 
-
-![DevSecOps](./Bilder/dev-sec-ops.png)
+Der **DevOps Lifecycle** ist ein kontinuierlicher Prozess, der Entwicklung (Dev) und Betrieb (Ops) integriert, um Software schneller, effizienter und stabiler bereitzustellen. Er ist zyklisch mit Phasen wie Planung, Codierung, Integration, Testen, Deployment, Betrieb und Monitoring organisiert.
  
 ***Wie ist der DevOps Lifecycle definiert, und welche Kernphasen beinhaltet er?***
  
@@ -81,67 +75,148 @@ Der DevOps Lifecycle wird als ein kollaborativer Ansatz definiert, der die Lück
 ***Welche Ziele verfolgt der DevOps Lifecycle im Vergleich zu traditionellen Entwicklungsansätzen?***
  
 Der DevOps Lifecycle zielt darauf ab, die Entwicklungszeit zu verkürzen, die Qualität zu steigern und eine engere Zusammenarbeit zwischen Teams zu fördern, im Gegensatz zu traditionellen Ansätzen wie dem Wasserfall-Modell, die sequentiell und silobasiert sind. Im Vergleich zu klassischen Methoden reduziert er Risiken durch Automatisierung und kontinuierliches Feedback, was schnellere Releases und bessere Anpassungsfähigkeit an Veränderungen ermöglicht.
+![DevSecOps](Images/dev-sec-ops.png)
 
+### Wie ist der DevOps Lifecycle definiert, und welche Kernphasen beinhaltet er?
+
+DevOps schliesst die Lücke zwischen Entwicklung und Betrieb durch:
+
+- **Continuous Development:** Planung und Entwicklung kleiner Features.
+- **Continuous Integration:** Tägliche automatisierte Codeintegration und Tests.
+- **Continuous Testing:** Automatisiertes und kontinuierliches Testen.
+- **Continuous Deployment:** Automatisierte Auslieferung in Produktion.
+- **Continuous Monitoring:** Echtzeitüberwachung der Systeme.
+- **Continuous Feedback:** Nutzer- und Systemfeedback fliesst direkt zurück.
+
+### Welche Ziele verfolgt der DevOps Lifecycle im Vergleich zu traditionellen Entwicklungsansätzen?
+
+Ziel ist die Beschleunigung der Entwicklungszyklen, höhere Qualität, engere Team-Zusammenarbeit und Flexibilität. Durch Automatisierung und schnelle Feedbackschleifen werden Risiken minimiert, häufigere Releases ermöglicht und die Software besser an Nutzerbedürfnisse angepasst.
+
+### Vertiefung
+
+- Nutzung von Tools wie Jenkins (CI), Kubernetes (Deployment) und Prometheus (Monitoring).
+- DevSecOps integriert Sicherheitschecks in jeden Schritt.
+- KPIs wie Deployment-Frequenz und Fehlerquote ermöglichen datenbasierte Entscheidungen.
+
+### Anwendungsbeispiele
+
+- **FinTech:** Schnelle Feature-Releases und schnelles Nutzerfeedback.
+- **Gaming:** Kontinuierliche Updates basierend auf Nutzerverhalten.
+- **Logistik:** Canary-Releases für risikoarme Funktionsausrollungen.
+
+### Gegenüberstellung: DevOps vs. Waterfall
+
+| Aspekt               | DevOps                               | Waterfall                             |
+|----------------------|------------------------------------|-------------------------------------|
+| Prozessstruktur      | Iterativ, kontinuierlich, zyklisch  | Linear, sequentiell, phasenbasiert  |
+| Ziel                 | Schnelle Releases, Feedback, Anpassung | Definierte Projektziele, Stabilität  |
+| Risiko               | Gering durch kleine automatisierte Releases | Höher durch späte Tests und Integration |
+| Zeit bis Markteinführung | Kurz (täglich/wöchentlich)         | Lang (Monate/Jahre)                  |
+| Flexibilität         | Hoch, Änderungen jederzeit möglich  | Niedrig, Änderungen kostenintensiv  |
+
+### Prompt
+```
+Was ist der DevOps Lifecycle, und wie ist er strukturiert?
+
+- Wie ist der DevOps Lifecycle definiert, und welche Kernphasen beinhaltet er?
+- Welche Ziele verfolgt der DevOps Lifecycle im Vergleich zu traditionellen Entwicklungsansätzen?
+```
 
 ### Quellen
 
-- <https://www.browserstack.com/guide/devops-lifecycle>
-- <https://www.geeksforgeeks.org/devops/devops-lifecycle/>
-- <https://roadmap.sh/devops/lifecycle>
-- <https://unity.com/de/topics/devops-lifecycle>
-- <https://www.cloudzero.com/blog/devops-lifecycle/>
-- <https://www.harness.io/blog/devops-lifecycle>
-- <https://octopus.com/blog/devops-versus-sdlc>
-- <https://www.piazzablu.com/devops>
-- <https://kruschecompany.com/de/devops-guide/>
+- <https://www.browserstack.com/guide/devops-lifecycle>  
+- <https://www.geeksforgeeks.org/devops/devops-lifecycle/>  
+- <https://roadmap.sh/devops/lifecycle>  
 
-## 3. Welche Unterschiede gibt es zwischen dem SDLC und dem DevOps Lifecycle?
+---
 
-***Wie unterscheiden sich die Ansätze, Prozesse und Ziele dieser beiden Modelle?***
+## 3. Unterschiede zwischen SDLC und DevOps Lifecycle
 
-***Welche Auswirkungen haben diese Unterschiede auf die Entwicklung, Bereitstellung und den Betrieb von Software?***
+### Wie unterscheiden sich die Ansätze, Prozesse und Ziele dieser beiden Modelle?
 
-| Aspekt                    | SDLC                                        | DevOps Lifecycle                                  |
-| ------------------------- | ------------------------------------------- | ------------------------------------------------- |
-| **Ansatz**                | Linear, Phasenbasiert (oft Wasserfall)      | Iterativ, kontinuierlicher Zyklus                 |
-| **Fokus**                 | Strukturierte Planung und Dokumentation     | Automatisierung, Zusammenarbeit, Feedback         |
-| **Ziel**                  | Qualitätssicherung durch Phasen und Reviews | Schnelle, häufige Releases mit hoher Qualität     |
-| **Entwicklung & Betrieb** | Oft getrennt                                | Integration von Entwicklung und Betrieb           |
-| **Feedback**              | Nach Abschluss der Phasen                   | Kontinuierliches Feedback in allen Phasen         |
-| **Bereitstellung**        | Nach Abschluss der Entwicklung              | Automatisierte und kontinuierliche Bereitstellung |
+- **SDLC** ist phasenbasiert und oft sequenziell organisiert. Entwicklung und Betrieb sind meist getrennt, mit Fokus auf Planbarkeit und Kontrolle.
+- **DevOps Lifecycle** ist kontinuierlich und integriert Entwicklung mit Betrieb. Er setzt auf Automatisierung und schnelle Feedbackzyklen, um schnellere Releases und kontinuierliche Verbesserung zu ermöglichen.
 
-Auswirkungen auf Entwicklung, Bereitstellung und Betrieb:
+### Welche Auswirkungen haben diese Unterschiede auf die Entwicklung, Bereitstellung und den Betrieb von Software?
 
-- SDLC fördert Stabilität und Planbarkeit, eignet sich für klar definierte Projekte.
-- DevOps ermöglicht schnellere Anpassungen, kontinuierliche Updates und bessere Reaktion auf Nutzerfeedback.
-- DevOps reduziert Silos, verbessert Kommunikation und automatisiert viele manuelle Schritte.
+- SDLC führt zu längeren Entwicklungszyklen, verzögertem Feedback und geringerer Flexibilität bei Änderungen. Die Bereitstellung erfolgt meist als grosser Meilenstein.
+- DevOps ermöglicht durch Automatisierung und Zusammenarbeit schnellere, häufigere Releases, schnellere Fehlerbehebung und bessere Anpassung an Kundenbedürfnisse, was zu höherer Agilität und Stabilität führt.
+
+### Zusammenfassung
+
+| Aspekt           | SDLC                               | DevOps Lifecycle                     |
+|------------------|-----------------------------------|------------------------------------|
+| Ansatz           | Phasenorientiert, sequenziell      | Kontinuierlich, integriert          |
+| Zusammenarbeit   | Entwicklung und Betrieb getrennt   | Entwicklung und Betrieb vereint     |
+| Ziel             | Planungssicherheit, stabiles Produkt | Schnelle Auslieferung, kontinuierliche Verbesserung |
+| Feedbackzyklus   | Langsam, nach Phasenabschluss      | Schnell, kontinuierlich              |
+| Automatisierung  | Gering bis mittel                  | Hoch, CI/CD-Pipelines               |
+
+### Prompt
+```
+Welche Unterschiede gibt es zwischen dem SDLC und dem DevOps Lifecycle?
+
+- Wie unterscheiden sich die Ansätze, Prozesse und Ziele dieser beiden Modelle?
+- Welche Auswirkungen haben diese Unterschiede auf die Entwicklung, Bereitstellung und den Betrieb von Software?
+```
 
 ### Quellen
 
-- <https://www.computertechreviews.com/sdlc-vs-devops-which-is-better/>
+- <https://jfrog.com/de/learn/sdlc/>  
+- <https://www.ovhcloud.com/de/learn/what-is-sdlc/>  
+- <https://www.redhat.com/de/topics/security/software-development-lifecycle-security>  
+- <https://www.browserstack.com/guide/devops-lifecycle>  
+- <https://www.geeksforgeeks.org/devops/devops-lifecycle/>  
+
+---
 
 ## 4. Was ist ein MVP (Minimum Viable Product), und welche Bedeutung hat es im DevOps Lifecycle?
 
-Ein MVP ist die kleinste funktionsfähige Version eines Produkts, die mit minimalem Aufwand auf den Markt gebracht wird, um Feedback echter Nutzer zu sammeln.
- 
-Ziel: Risiken reduzieren, schneller lernen, unnötige Kosten vermeiden
-
-![MVP](./Bilder/mvp.png)
- 
+Ein **MVP** ist die kleinste funktionsfähige Produktversion, die mit minimalem Aufwand auf den Markt gebracht wird, um schnelles Nutzerfeedback einzuholen und Risiken zu reduzieren. 
  
 ***Wie wird ein MVP definiert, und welche Kernmerkmale zeichnen es aus?***
  
 Ein MVP ist eine Version eines Produkts mit nur den wichtigsten Funktionen, die den Nutzern trotzdem einen klaren Nutzen bietet. Es ist kein reiner Prototyp, sondern schon ein Produkt, das auf den Markt kann. Wichtige Merkmale sind: einfach zu benutzen, funktioniert zuverlässig, zeigt das wichtigste besondere Merkmal des Produkts und kann durch Feedback und Erweiterungen weiter verbessert werden.
+![MVP](Images/mvp.png)
 
-***Welche Rolle spielt das MVP in den verschiedenen Phasen des DevOps Lifecycles, insbesondere im Hinblick auf schnelles Feedback und iterative Verbesserung?***
+### Wie wird ein MVP definiert, und welche Kernmerkmale zeichnen es aus?
 
-Ein MVP spielt im DevOps-Lifecycle eine zentrale Rolle, indem es in den Phasen Planung, Entwicklung und Bereitstellung schnelles Feedback von Kunden ermöglicht, um Hypothesen zu validieren und Risiken zu minimieren. Durch iterative Verbesserungen basierend auf diesem Feedback, insbesondere in den Phasen Testen und Überwachen, wird das Produkt kontinuierlich an Kundenbedürfnisse angepasst, was die Effizienz und Marktakzeptanz steigert.
+- Enthält nur die Kernfunktionen, die dem Nutzer einen klaren Nutzen bieten.
+- Kein reiner Prototyp, sondern ein marktfähiges Produkt.
+- Einfach zu bedienen, zuverlässig und erweiterbar.
+
+### Welche Rolle spielt das MVP im DevOps Lifecycle?
+
+Das MVP ermöglicht im DevOps Prozess schnelles Feedback in frühen Phasen, um Hypothesen zu validieren und Risiken zu minimieren. Durch iterative Verbesserungen und kurze Release-Zyklen wird das Produkt kontinuierlich optimiert und an Kundenbedürfnisse angepasst.
+
+### Vertiefung
+
+- MVPs werden häufig in Continuous Deployment Pipelines integriert.
+- Kontinuierliches Feedback steuert die Weiterentwicklung.
+- Frühzeitige Markttests minimieren Fehlentwicklungen.
+- KPIs (Nutzerinteraktion, Conversion) werden früh analysiert.
+
+### Gegenüberstellung: MVP vs. fertiges Produkt
+
+| Aspekt               | MVP                          | Fertiges Produkt                    |
+|----------------------|------------------------------|-----------------------------------|
+| Funktionsumfang      | Minimal, Kernfunktionen       | Vollständig, alle Features         |
+| Ziel                 | Feedback und Lernprozess      | Markt- oder Geschäftsziel          |
+| Risiko               | Gering, weniger Ressourcen    | Höher, vollständige Entwicklungskosten |
+| Zeit bis Markteinführung | Kurz                        | Länger                            |
+| Flexibilität         | Hoch, einfache Anpassungen    | Niedriger, Änderungen kostenintensiver |
+
+### Prompt
+```
+Was ist ein MVP (Minimum Viable Product), und welche Bedeutung hat es im DevOps Lifecycle?
+
+- Wie wird ein MVP definiert, und welche Kernmerkmale zeichnen es aus?
+- Welche Rolle spielt das MVP in den verschiedenen Phasen des DevOps Lifecycles, insbesondere im Hinblick auf schnelles Feedback und iterative Verbesserung?
+```
 
 ### Quellen
 
-- <https://asana.com/de/resources/minimum-viable-product>
-- <https://monday.com/blog/de/projektmanagement/minimum-viable-product/>
-- <https://www.fme.de/blog/warum-und-wie-definiert-man-eigentlich-ein-minimum-viable-product-mvp/>
-- <https://www.awork.com/de/glossary/mvp-minimum-viable-product>
-- <https://www.pureconsultant.de/de/scrum/minimum-viable-product-mvp-scrum/>
-- <https://www.cobbleweb.co.uk/ultimate-guide-to-minimum-viable-product-mvp/>
+- <https://asana.com/de/resources/minimum-viable-product>  
+- <https://monday.com/blog/de/projektmanagement/minimum-viable-product/>  
+- <https://www.fme.de/blog/warum-und-wie-definiert-man-eigentlich-ein-minimum-viable-product-mvp/>  
+- <https://www.awork.com/de/glossary/mvp-minimum-viable-product>  

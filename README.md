@@ -8,6 +8,10 @@
 
 [T2 The Three Ways](/Theorie/T2_The_Three_Ways.md)
 
+[T3 Prozesse](/Theorie/T3_Prozesse.md)
+
+[T4 Continues Integration](/Theorie/T4_CI.md)
+
 ## Lernjournal
 
 [Linus](/Lernjournal/Linus.md)

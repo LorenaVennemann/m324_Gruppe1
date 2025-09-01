@@ -22,3 +22,34 @@ Das zeigt, dass verschiedene Tools fuer ähnliche Aufgaben genutzt werden könne
 ## 6. Reflektion und Feedback
 Heute habe ich gelernt was das CALMS-Modell ist, ebenfalls habe ich etwas über The3Ways
 
+---
+
+**Datum:** 08.25.2025
+
+**Modul / Thema:** m324
+
+---
+
+# 6. Reflektion und Feedback
+
+## Gelerntes
+Heute habe ich gelernt, wie man ein Planning Meeting richtig umsetzt.  
+Dazu haben wir auch Rückmeldung vom Lehrer erhalten. 
+
+## Themen des Tages
+- Semantic Versioning  
+- Mono- und Multirepo-Ansätze im Kontext von Microservices  
+- Artifact-Repository  
+- SDLC (Software Development Life Cycle)  
+- MVP (Minimum Viable Product)  
+
+## Einschätzung
+Es war viel Inhalt, den ich mir heute aneignen musste.  
+Trotzdem habe ich sehr viel Neues dazu gelernt.  
+
+## Fazit
+Insgesamt war der Tag recht stressig, jedoch sehr lehrreich.
+
+
+
+
