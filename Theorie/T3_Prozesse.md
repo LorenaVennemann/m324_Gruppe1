@@ -4,7 +4,7 @@
 
 SDLC heisst Software Development Life Cycle. Es ist ein Ablauf, wie Software geplant, gebaut, getestet und betrieben wird. Ziel ist es, gute und sichere Software in klaren Schritten zu entwickeln.
 
-![Agile vs Waterfall](agile-waterfall.png)
+![Agile vs Waterfall](./Bilder/agile-waterfall.png)
 
  
 ***Welche Schritte umfasst der SDLC, und wie tragen diese zur Entwicklung und Bereitstellung von Software bei?***
@@ -71,7 +71,7 @@ Im Projekt wird der SDLC als Leitfaden genutzt. Er hilft, dass alle im Team wiss
 Der DevOps Lifecycle ist ein kontinuierlicher Prozess, der Entwicklung (Dev) und Betrieb (Ops) integriert, um die Softwareentwicklung zu optimieren und eine nahtlose Zusammenarbeit zu ermöglichen. Er ist in einem zyklischen Modell strukturiert, das Phasen wie Planung, Codierung, Integration, Testen, Deployment, Betrieb und Monitoring umfasst, die iterativ ablaufen, um kontinuierliche Verbesserungen zu gewährleisten.
  
 
-![DevSecOps](dev-sec-ops.png)
+![DevSecOps](./Bilder/dev-sec-ops.png)
  
 ***Wie ist der DevOps Lifecycle definiert, und welche Kernphasen beinhaltet er?***
  
@@ -126,7 +126,7 @@ Ein MVP ist die kleinste funktionsfähige Version eines Produkts, die mit minima
  
 Ziel: Risiken reduzieren, schneller lernen, unnötige Kosten vermeiden
 
-![MVP](mvp.png)
+![MVP](./Bilder/mvp.png)
  
  
 ***Wie wird ein MVP definiert, und welche Kernmerkmale zeichnen es aus?***
