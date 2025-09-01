@@ -1,14 +1,78 @@
 # Continuous Integration
 
-## 1 & 2
+## 1. Was ist Continuous Integration (CI) und wie wird es umgesetzt?
 
-tbd
+Continuous Integration (CI) ist eine DevOps-Praxis in der Softwareentwicklung, bei der Entwickler ihre Codeänderungen regelmäßig in ein zentrales Repository integrieren und diese automatisiert erstellen und testen. Das Ziel ist, Fehler und Konflikte frühzeitig zu erkennen und zu beheben, die Produktqualität zu steigern und den Entwicklungsprozess zu beschleunigen.
+
+![Was ist CI/CD](./Images/Was%20ist%20CI_CD_%20Continuous%20Integration%20und%20Continuous%20Delivery%20erklärt.png)
+
+### Welche Bedeutung hat Continuous Integration im Softwareentwicklungsprozess?
+
+Continuous Integration bedeutet, dass Entwickler Änderungen häufig in ein gemeinsames Repository mergen, jeder Merge startet automatisch Build und Tests. So werden Fehler früh erkannt, Integrationsprobleme reduziert und Releases schneller sowie zuverlässiger.
+
+### Welche technischen Prozesse und Werkzeuge ermöglichen eine erfolgreiche Implementierung von CI?
+
+Erfolgreiche CI braucht klare Prozesse (Versionskontrolle & Branching, automatisierte Builds, automatisierte Tests, statische Analyse/Quality Gates, Artefakt-/Dependency-Management, Caching/Parallelisierung, Benachrichtigungen) und passende Werkzeuge (CI-Dienste, Build-/Test-/Qualitäts- und Container-Tools).
+
+### Welche Rolle spielt CI in der Automatisierung und Zusammenarbeit in Teams?
+
+CI automatisiert Builds, Tests und Code-Checks bei jedem Merge. Das gibt sofortiges Feedback, macht Probleme früh sichtbar, erzwingt gemeinsame Standards (Branching, Quality Gates) und fördert kurze, häufige Änderungen. Ergebnis: weniger Merge-Konflikte, weniger Handarbeit, bessere Team-Abstimmung und schnellere, stabilere Releases.
+
+### Vertiefung
+
+CI wirkt wie ein gemeinsamer, automatisierter Qualitätsfilter: Jede Änderung durchläuft dieselbe Pipeline (Build, Tests, Quality Gates), vereinheitlicht Standards und reduziert Handarbeit. Durch kurze Branches/Trunk-Based Development und transparente Pipeline-Ergebnisse (Status, Logs) sinken Merge-Konflikte und die Abstimmung im Team wird schneller und klarer.
+
+***Anwendungsbeispiele***
+
+- Pull-Request Gates
+- Preview-Umgebungen
+- Geteilte Pipeline-Vorlagen
+
+***Typische Anwendung und Steuerung im Projekt***
+
+- Feature-Branch mit PR-Gate
+- Release-/Promotion-Pipeline
+
+*Quellen*:
+- [crowdstrike](https://www.crowdstrike.com/de-de/cybersecurity-101/cloud-security/continuous-integration-continuous-delivery-ci-cd/#:~:text=Was%20ist%20kontinuierliche%20Integration?,mehrerer%20Entwickler%20regelm%C3%A4%C3%9Fig%20zusammengef%C3%BChrt%20wird)
+- [martinfowler](https://martinfowler.com/articles/continuousIntegration.html)
+
+## 2 Was sind die Vor- und Nachteile von CI?
+
+### Vorteile von CI
+
+- Neue Änderungen werden sofort geprüft, Fehler werden schnell gefunden und behoben.
+- Fehler werden schneller entdeckt und behoben, weil jede Codeänderung automatisch getestet wird.
+- Konflikte zwischen Entwicklerinnen und Entwicklern werden reduziert, da alle Änderungen regelmäßig zusammengeführt werden.
+- Die Anwendung bleibt stabil, da durch automatisierte Tests sichergestellt wird, dass neue Änderungen keine Probleme verursachen.
+- Teams arbeiten effizienter, weil man nicht mehr auf einen „Merge Day“ warten muss und die Arbeitsschritte automatisiert sind.
+- Updates können schneller bereitgestellt werden, was auch schnelleres Feedback von Nutzern ermöglicht.
+
+### Nachteile / Herausforderungen von CI
+
+- Hoher Aufwand am Anfang, weil automatische Tests und Abläufe eingerichtet werden müssen.
+- Organisatorische Disziplin nötig, damit alle Entwicklerinnen und Entwickler regelmäßig ihren Code integrieren.
+- Abhängigkeit von gut funktionierenden Tests, sonst werden Fehler nicht zuverlässig erkannt.
+- Technische Komplexität, besonders wenn viele Entwickler gleichzeitig an verschiedenen Codezweigen arbeiten.
+- Kosten und Zeit, da es anfänglich viel Aufwand und Ressourcen erfordert, die CI-Pipeline richtig aufzubauen.
+
+### Einfluss auf Produktqualität und Workflow
+
+- CI verbessert langfristig die Produktqualität, weil Fehler früh erkannt und behoben werden.
+- Der Workflow im Team wird effizienter, da Änderungen regelmäßig integriert und automatisch getestet werden.
+
+*Quellen*:
+- [redhat](https://www.redhat.com/de/topics/devops/what-is-ci-cd)
+- [exwe](https://www.exwe.de/de/news/softwareentwicklung/was-ist-continuous-integration-vorteile-herausforderungen-und-tools-im-ueberblick/)
+- [mindtwo](https://www.mindtwo.ch/lexicon/continuous-integration-continuous-deployment-cicd)
 
 ## 3. Was ist Continuous Testing, und wie wird es umgesetzt?
 
 ### Definition und Umsetzung
 
-Continuous Testing (CT) ist ein Ansatz im Softwaretesting, bei dem automatisierte Tests kontinuierlich während des gesamten Softwareentwicklungslebenszyklus (SDLC) ausgeführt werden, um frühzeitig Feedback zur Qualität zu geben und die Bereitstellung hochwertiger Software zu beschleunigen. Im Gegensatz zu sporadischen Tests wird CT in CI/CD-Pipelines integriert, sodass Tests bei jedem Code-Commit, Build oder Deployment laufen. Die Umsetzung erfolgt durch Automatisierung von Testfällen mit Tools wie Selenium, JUnit oder TestSigma, die in DevOps-Umgebungen wie Jenkins oder GitHub Actions eingebunden werden. Dies ermöglicht eine *Shift-Left-Testing*-Strategie, bei der Tests früh im Zyklus platziert werden, um Fehler schnell zu erkennen.
+Continuous Testing (CT) ist ein Ansatz im Software testing, bei dem automatisierte Tests kontinuierlich während des gesamten Softwareentwicklungslebenszyklus (SDLC) ausgeführt werden, um frühzeitig Feedback zur Qualität zu geben und die Bereitstellung hochwertiger Software zu beschleunigen. Im Gegensatz zu sporadischen Tests wird CT in CI/CD-Pipelines integriert, sodass Tests bei jedem Code-Commit, Build oder Deployment laufen. Die Umsetzung erfolgt durch Automatisierung von Testfällen mit Tools wie Selenium, JUnit oder TestSigma, die in DevOps-Umgebungen wie Jenkins oder GitHub Actions eingebunden werden. Dies ermöglicht eine *Shift-Left-Testing*-Strategie, bei der Tests früh im Zyklus platziert werden, um Fehler schnell zu erkennen.
+
+![Continuous%20Testing](./Images/Continuous%20Testing_%20Effizienzsteigerung%20durch%20Automatisierung%20und%20KI%20—%20Finbridge%20GmbH%20&%20Co%20KG.png)
 
 ### Unterschied zu traditionellen Testmethoden
 
@@ -25,14 +89,14 @@ Typischerweise werden folgende Tests automatisiert:
 - **Unit-Tests**: Für einzelne Komponenten.  
 - **Integrationstests**: Für Systeminteraktionen.  
 - **UI-Tests**: Z. B. mit Selenium für Benutzeroberflächen.  
-- **Performance-Tests** und **Sicherheits-Tests**.  
+- **Performance-Tests** und **Sicherheit-Tests**.  
 
 Effektivität wird durch Metriken wie Testabdeckung, Fehlerrate und Ausführungszeit sichergestellt, oft mit Tools wie SonarQube für Code-Qualität oder durch Flaky-Test-Management. Regelmäßige Reviews und AI-gestützte Testoptimierung helfen, False Positives zu reduzieren.  
 
 ### Zusätzliche Ausführungen
 
 - *Vertiefung*: In der Praxis wird CT oft mit Containerisierung (z. B. Docker) kombiniert, um Testumgebungen reproduzierbar zu machen. Beispiel: Bei einem Commit triggert Jenkins Unit-Tests, und bei Erfolg folgen Integrationstests.  
-- *Gegenüberstellung*: Im Vergleich zu traditionellem Testing (z. B. manuelle Regressionstests) spart CT Zeit (bis zu 50% kürzere Zyklen), erfordert aber höhere Initialinvestitionen in Automatisierung.  
+- *Gegenüberstellung*: Im Vergleich zu traditionellem Testing (z. B. manuelle Regressionstests) spart CT Zeit (bis zu 50 % kürzere Zyklen), erfordert aber höhere Initialinvestitionen in Automatisierung.  
 - *Anwendungsbeispiele*: Bei Netflix wird CT verwendet, um Microservices kontinuierlich zu testen, was zu schnelleren Releases führt. Herausforderung: Skalierung bei großen Test-Suiten kann Ressourcen belasten, gelöst durch Cloud-Testing (z. B. AWS).
 
 *Quellen*: 
@@ -46,25 +110,27 @@ Effektivität wird durch Metriken wie Testabdeckung, Fehlerrate und Ausführungs
 
 ### Definition und Bedeutung
 
-Eine Branching-Strategie definiert, wie Branches in einem Versionskontrollsystem wie Git erstellt, verwaltet und gemerged werden, um parallele Entwicklung zu ermöglichen und Konflikte zu minimieren. Sie ist essenziell für die Organisation von Codeänderungen und die Koordination in Teams, da sie die Versionskontrolle strukturiert, Konflikte reduziert und die Nachverfolgbarkeit von Änderungen gewährleistet. Ohne Strategie kann Chaos durch unkontrollierte Merges entstehen, was die Code-Stabilität gefährdet.  
+Eine Branching-Strategie definiert, wie Branches in einem Versionskontrollsystem wie Git erstellt, verwaltet und merged werden, um parallele Entwicklung zu ermöglichen und Konflikte zu minimieren. Sie ist essenziell für die Organisation von Codeänderungen und die Koordination in Teams, da sie die Versionskontrolle strukturiert, Konflikte reduziert und die Nachverfolgbarkeit von Änderungen gewährleistet. Ohne Strategie kann Chaos durch unkontrollierte Merges entstehen, was die Code-Stabilität gefährdet.  
+
+![Branching-Strategien](./Images/Branching-Strategien%20im%20praktischen%20Einsatz%20_%20DWX%20Developer%20World.png)
 
 ### Einfluss auf Code-Organisation und Arbeitsfluss
 
-Verschiedene Strategien beeinflussen die Code-Organisation: Langlaufende Branches (z. B. in GitFlow) ermöglichen isolierte Features, können aber Merg-Konflikte verursachen. Kurze Branches (z. B. Trunk-Based) fördern schnelle Integration und verbessern den Workflow durch häufige Merges, was Agilität steigert, aber Disziplin erfordert.  
+Verschiedene Strategien beeinflussen die Code-Organisation: Langlaufende Branches (z. B. in GitFlow) ermöglichen isolierte Features, können aber Merge-Konflikte verursachen. Kurze Branches (z. B. Trunk-Based) fördern schnelle Integration und verbessern den Workflow durch häufige Merges, was Agilität steigert, aber Disziplin erfordert.  
 
 ### Bekannte Branching-Strategien
 
-- **GitFlow**: Nutzt Hauptbranches wie `master`/`develop`, Feature-, Release- und Hotfix-Branches. Ideal für versionierte Releases; komplex und anfällig für Merge-Konflikte.  
+- **GitFlow**: Nutzt Hauptbranche wie `master`/`develop`, Feature-, Release- und Hotfix-Branches. Ideal für versionierte Releases; komplex und anfällig für Merge-Konflikte.  
 - **GitHub Flow**: Einfacher, mit `main`-Branch und kurzen Feature-Branches; fokussiert auf Pull Requests für schnelle Integration.  
 - **Trunk-Based Development (TBD)**: Alle Änderungen gehen direkt in den Trunk (`main`); kurze Branches für schnelle Merges, minimiert Konflikte.  
 
 *Unterschiede*: GitFlow ist strukturiert für große Projekte, TBD agil für CI/CD, GitHub Flow balanciert.  
 
-| Strategie       | Vorteile                          | Nachteile                     | Geeignet für                     |
-|-----------------|-----------------------------------|-------------------------------|----------------------------------|
-| GitFlow         | Hohe Struktur, Versionskontrolle  | Komplex, Merge-Konflikte      | Release-basierte Projekte        |
-| GitHub Flow     | Einfach, schnell                  | Weniger für komplexe Releases  | Agile Teams mit CI               |
-| Trunk-Based     | Minimale Konflikte, CI-Fokus      | Erfordert Disziplin           | Hochskalierbare DevOps           |
+| Strategie   | Vorteile                         | Nachteile                     | Geeignet für              |
+|-------------|----------------------------------|-------------------------------|---------------------------|
+| GitFlow     | Hohe Struktur, Versionskontrolle | Komplex, Merge-Konflikte      | Release-basierte Projekte |
+| GitHub Flow | Einfach, schnell                 | Weniger für komplexe Releases | Agile Teams mit CI        |
+| Trunk-Based | Minimale Konflikte, CI-Fokus     | Erfordert Disziplin           | Hochskalierbare DevOps    |
 
 ### Zusätzliche Ausführungen
 - *Vertiefung*: In mobiler Entwicklung (z. B. iOS/Android) eignet sich TBD für schnelle Iterationen, da App-Stores Releases verzögern.  
@@ -78,11 +144,11 @@ Verschiedene Strategien beeinflussen die Code-Organisation: Langlaufende Branche
 [AB Tasty](https://www.abtasty.com),
 [Martin Fowler](https://martinfowler.com)
 
-## 5. Wie kann man Commits und Branches mit User Stories verknüpfen?
+## 5. Wie kann man Commits und Branches mit User Storys verknüpfen?
 
 ### Sinn der Verknüpfung
 
-Commits und Branches können mit User Stories (z. B. aus Agile-Methoden) verknüpft werden, indem Issue-IDs (z. B. JIRA-Tickets) in Commit-Messages oder Branch-Namen eingebettet werden, um Traceability zu schaffen. Dies ist sinnvoll, da es Transparenz schafft, Änderungen nachverfolgbar macht und Teams hilft, Fortschritt zu tracken. Es verbessert die Zusammenarbeit und erleichtert Audits.  
+Commits und Branches können mit User Storys (z. B. aus Agile-Methoden) verknüpft werden, indem Issue-IDs (z. B. JIRA-Tickets) in Commit-Messages oder Branch-Namen eingebettet werden, um Traceability zu schaffen. Dies ist sinnvoll, da es Transparenz schafft, Änderungen nachverfolgbar macht und Teams hilft, Fortschritt zu tracken. Es verbessert die Zusammenarbeit und erleichtert Audits.  
 
 ### Praktiken und Namenskonventionen
 - **Praktiken**: Issue-ID in Commits (z. B. "Fix bug [JIRA-123]") und Branches (z. B. `feature/JIRA-123-new-login`).  
@@ -218,7 +284,7 @@ Alle Microservices liegen in einem einzigen Repository. Der gesamte Code für al
  
 ### Multi-Repo
 
-Jeder Microservice hat sein eigenes Repository. Jeder Service wird seperat verwaltet.
+Jeder Microservice hat sein eigenes Repository. Jeder Service wird separat verwaltet.
 
 ![Monorepo%20VS%20Polyrepo%20-%20DEV%20Community.png](./Images/Monorepo%20VS%20Polyrepo%20-%20DEV%20Community.png)
  
@@ -276,7 +342,7 @@ Ein Software-Artefakt-Repository ist ein zentrales Speichersystem, das in der So
 
 ![Was%20ist%20Artifactory_%20_%20JFrog.png](./Images/Was%20ist%20Artifactory_%20_%20JFrog.png)
 
-### Welche Rolle spielt ein Artifact-Repository in der Softwareentwicklung und im  Bereitstellungsprozess?
+### Welche Rolle spielt ein Artifact-Repository in der Softwareentwicklung und im Bereitstellungsprozess?
 
 Artefakte sind die Grundlage der Softwareentwicklung. Sie dienen als Orientierung für Entwickler und helfen, Workflows, Wartung und Fehlerbehebung zu verbessern. Außerdem machen sie es möglich, verschiedene Produktversionen und Eigenschaften nachzuvollziehen.
 
