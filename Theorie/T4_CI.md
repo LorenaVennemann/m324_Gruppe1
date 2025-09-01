@@ -124,7 +124,7 @@ Verschiedene Strategien beeinflussen die Code-Organisation: Langlaufende Branche
 - **GitHub Flow**: Einfacher, mit `main`-Branch und kurzen Feature-Branches; fokussiert auf Pull Requests für schnelle Integration.  
 - **Trunk-Based Development (TBD)**: Alle Änderungen gehen direkt in den Trunk (`main`); kurze Branches für schnelle Merges, minimiert Konflikte.  
 
-*Unterschiede*: GitFlow ist strukturiert für große Projekte, TBD agil für CI/CD, GitHub Flow balanciert.  
+*Unterschiede*: GitFlow ist strukturiert für grosse Projekte, TBD agil für CI/CD, GitHub Flow balanciert.  
 
 | Strategie   | Vorteile                         | Nachteile                     | Geeignet für              |
 |-------------|----------------------------------|-------------------------------|---------------------------|
@@ -135,7 +135,7 @@ Verschiedene Strategien beeinflussen die Code-Organisation: Langlaufende Branche
 ### Zusätzliche Ausführungen
 - *Vertiefung*: In mobiler Entwicklung (z. B. iOS/Android) eignet sich TBD für schnelle Iterationen, da App-Stores Releases verzögern.  
 - *Gegenüberstellung*: GitFlow vs. TBD: Ersteres schützt Stabilität durch Isolation, Letzteres priorisiert Geschwindigkeit, was in CI/CD-Umgebungen (z. B. bei Google) überwiegt.  
-- *Anwendungsbeispiele*: Bei Atlassian wird GitFlow für Jira verwendet, um Features isoliert zu entwickeln. Herausforderung: In großen Teams kann TBD zu "Branch Hell" führen, wenn nicht mit Feature Flags kombiniert.
+- *Anwendungsbeispiele*: Bei Atlassian wird GitFlow für Jira verwendet, um Features isoliert zu entwickeln. Herausforderung: In grossen Teams kann TBD zu "Branch Hell" führen, wenn nicht mit Feature Flags kombiniert.
 
 *Quellen*: 
 [LaunchDarkly](https://launchdarkly.com),
@@ -159,7 +159,7 @@ Tools wie Jira integrieren mit GitHub/Bitbucket via Apps, die Commits/PRs automa
 
 ### Zusätzliche Ausführungen
 
-- *Vertiefung*: In Scrum-Teams hilft dies, Sprint-Ziele zu tracken; z. B. ein Commit "closes JIRA-789" schließt das Ticket automatisch.  
+- *Vertiefung*: In Scrum-Teams hilft dies, Sprint-Ziele zu tracken; z.B. ein Commit "closes JIRA-789" schliesst das Ticket automatisch.  
 - *Gegenüberstellung*: Manuelle vs. automatisierte Linking: Letzteres spart Zeit, reduziert Fehler.  
 - *Anwendungsbeispiele*: Bei SAP-Projekten linkt GitHub Commits zu Jira, um Dashboards zu aktualisieren. Herausforderung: Inkonsistente Naming kann zu Fehllinks führen, gelöst durch Hooks.
 
@@ -255,7 +255,7 @@ SemVer wird genutzt, um Entwicklern und Nutzern die Art und Auswirkung von Softw
 - **Kompatibilität**: SemVer zeigt, ob ein Update abwärtskompatibel ist oder bestehende Implementierungen bricht.  
 - **Kommunikation**: Klare Versionsnummern fördern die Abstimmung zwischen Entwicklern, Testern und Nutzern.  
 - **Planung**: Nutzer können Updates priorisieren (z. B. PATCH sofort, MAJOR nach Tests).  
-- **Integration**: In großen Projekten (z. B. Microservices) hilft SemVer, Abhängigkeiten zu koordinieren.  
+- **Integration**: In grossen Projekten (z. B. Microservices) hilft SemVer, Abhängigkeiten zu koordinieren.  
 
 ### Zusätzliche Ausführungen
 
@@ -318,7 +318,7 @@ Jeder Microservice hat sein eigenes Repository. Jeder Service wird separat verwa
  
 ### Wie beeinflussen die Ansätze die Skalierbarkeit, Zusammenarbeit und Abhängigkeiten zwischen Teams?
 
-*Mono-Repo*: Gut für große Teams, die eng zusammenarbeiten. Abhängigkeiten zwischen Services sind sichtbar und einfacher zu verwalten.
+*Mono-Repo*: Gut für grosse Teams, die eng zusammenarbeiten. Abhängigkeiten zwischen Services sind sichtbar und einfacher zu verwalten.
  
 *Multi-Repo*: Gut, wenn Teams unabhängig arbeiten. Skalierung einzelner Services ist leichter, aber Koordination wird aufwendiger.
  
@@ -344,11 +344,11 @@ Ein Software-Artefakt-Repository ist ein zentrales Speichersystem, das in der So
 
 ### Welche Rolle spielt ein Artifact-Repository in der Softwareentwicklung und im Bereitstellungsprozess?
 
-Artefakte sind die Grundlage der Softwareentwicklung. Sie dienen als Orientierung für Entwickler und helfen, Workflows, Wartung und Fehlerbehebung zu verbessern. Außerdem machen sie es möglich, verschiedene Produktversionen und Eigenschaften nachzuvollziehen.
+Artefakte sind die Grundlage der Softwareentwicklung. Sie dienen als Orientierung für Entwickler und helfen, Workflows, Wartung und Fehlerbehebung zu verbessern. Ausserdem machen sie es möglich, verschiedene Produktversionen und Eigenschaften nachzuvollziehen.
 
 ### Welche Arten von Artefakten werden typischerweise in einem Repository verwaltet?
  
-In einem Artefakt-Repository werden typischerweise kompilierte Programme und Bibliotheken, externe Abhängigkeiten, Konfigurationsdateien und Dokumentation gespeichert. Außerdem finden sich dort Build-Ergebnisse wie Installer oder Archive, Container-Images für die Bereitstellung, Skripte zur Automatisierung und Protokolle, die beim Entwickeln oder Überwachen entstehen.
+In einem Artefakt-Repository werden typischerweise kompilierte Programme und Bibliotheken, externe Abhängigkeiten, Konfigurationsdateien und Dokumentation gespeichert. Ausserdem finden sich dort Build-Ergebnisse wie Installer oder Archive, Container-Images für die Bereitstellung, Skripte zur Automatisierung und Protokolle, die beim Entwickeln oder Überwachen entstehen.
  
 ### Warum ist ein Artifact-Repository wichtig für CI/CD-Pipelines?
  
