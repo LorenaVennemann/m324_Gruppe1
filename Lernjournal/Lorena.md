@@ -57,6 +57,33 @@ Insgesamt war der Tag recht stressig, jedoch sehr lehrreich.
 Bitte unbedingt die Reflektion mit den Themen und Betrieb machen
 
 
+---
+**Datum:** 01.09.2025
 
+**Modul / Thema:** m324
+
+---
+
+## Bezug zu eigenen Erfahrungen
+Heute haben wir in P2_Applikation entschieden, mit HeidiSQL zu arbeiten. Damit kenne ich mich aus, weil wir das auch in meiner Abteilung im Betrieb nutzen. Außerdem haben wir über Versionierung, Branching und M.M.P. für die Visualisierung gesprochen, um Projekte besser planen zu können. In meiner Firma läuft das ähnlich: Wir haben einen Main-Branch und erstellen für jedes Jira-Ticket einen eigenen Branch.
+
+## Reflektion und Feedback
+Mir hat heute besonders gefallen, dass ich die Theorie direkt mit meiner Arbeit vergleichen konnte. Es war interessant zu sehen, wie Branching, Versionierung und Workflows im Projekt umgesetzt werden. Dadurch verstehe ich besser, wie man Änderungen sauber nachverfolgt und ein Projekt im Team gut organisiert.
+
+Insgesammt ist es jedoch nicht neues fpr mich, da ich das im alltag ebenfals in meiner firma ähnlich bentuze, es war intertessant zu sehen, was es noch für andere mäglichkeiten gibt
+
+---
+---
+**Datum:** 01.09.2025  
+**Modul / Thema:** m324
+---
+
+## Bezug zu eigenen Erfahrungen
+Heute haben wir in P2_Applikation entschieden, mit HeidiSQL zu arbeiten. Damit kenne ich mich bereits aus, da wir es auch in meiner Abteilung im Betrieb nutzen. Außerdem haben wir über Versionierung, Branching und M.M.P (Major.Minor.Patch) für die Visualisierung gesprochen, um Projekte besser planen zu können. In meiner Firma läuft das ähnlich: Wir haben einen Main-Branch und erstellen für jedes Jira-Ticket einen eigenen Branch. 
+
+## Reflektion und Feedback
+Mir hat heute besonders gefallen, dass ich die Theorie direkt mit meiner Arbeit vergleichen konnte. Es war interessant zu sehen, wie Branching, Versionierung und Workflows in einem Projekt umgesetzt werden. Dadurch verstehe ich besser, wie man Änderungen sauber nachverfolgt und ein Projekt im Team gut organisiert.
+
+Insgesamt ist es jedoch nicht komplett neu für mich, da ich ähnliche Methoden bereits im Alltag in meiner Firma benutze. Spannend war es jedoch zu sehen, welche weiteren Möglichkeiten es gibt, Projekte noch effizienter zu strukturieren.
 
 
