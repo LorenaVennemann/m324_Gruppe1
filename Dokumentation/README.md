@@ -58,8 +58,25 @@ Wir haben uns entschieden die beiden Microservices mit Java Spring-Boot zu entwi
 - Main
 - Feature Branches
 - Bug Branches
+  
+![alt text](Images/Branching.png)
+Legend:
+- main = Blau
+- feature = Gelb
+- bugfix = Rot
+---
 
-***Feature Branch Naming***:
+***Main Branch***
+
+Der Main Branch ist die sogenannte "Single source of truth" und soll zu jeden Zeitpunkt fehlerfrei laufen. 
+
+Vom Main Branch aus werden Pipelines gestartet.
+
+***Feature Branches***
+
+Für jedes neue Feature / Funktionalität wird ein Feature Branch erstellt. Diese Branches sind kurzlebig und dienen nur zur entwicklung dieses Features. Nach implementierung des Features wird der Branch wieder gelöscht.
+
+Naming:
 
 - Feature Branches kommmen in einen Feature Ordner. 
 - Die Feature Branches sollen aus der Nummer und Titel des Auftrags bestehen. 
@@ -74,7 +91,11 @@ Beispiel:
 feature/P2-Micro-Service-Entwickeln
 ```
 
-***Bug Branch Naming***:
+***Bug Branches***
+
+Für Fehlverhalten von Code oder anderes werden Bug Branches erstellt. Wie die Feature Branches sind die Bug Branches ebenfalls kurzlebig und dienen nur als Hilfmittel für die Entwicklung. Nach Behebung eines Bugs soll der Branch wieder gelöscht werden.
+
+Naming:
 
 - Bug Branches kommmen in einen Bug Ordner. 
 - Der Name eines Bug Branch soll den Bug beschreiben.
@@ -92,3 +113,22 @@ bug/micro-service-not-responding
 ### Merge Requests
 
 Um auf den Main Branch pushen zu könnnen muss ein Merge Request erstellt werden. Dieser muss von einem anderen Teammitglied angeschaut und bestätigt werden.
+
+### Versioning
+Wir verwenden MAJOR.MINOR.PATCH in Verbindung mit GitHub Flow.
+
+
+| Versionsteil | Bedeutung | Beispiel |
+|--------------|-----------|----------|
+| MAJOR |	Breaking Changes |	2.0.0 |
+| MINOR |	Neue Features, abwärtskompatibel |	1.1.0 |
+| PATCH |	Kleine Bugfixes |	1.0.1 |
+ 
+ 
+***Beispiel Workflow***
+ 
+- Feature Branch: feature/P2_1_readAirport → MR → Merge in Main → Version 1.1.0
+ 
+- Bug im Login entdeckt → bugfix/readAirport-error → MR → Merge → Version 1.1.1
+ 
+- Große Änderung am Backend → Breaking Change → Merge → Version 2.0.0
