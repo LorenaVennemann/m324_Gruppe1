@@ -53,3 +53,42 @@ Für die Verwaltung unseres Projekts haben wir uns für Github entschieden. Eben
 Wir haben uns entschieden die beiden Microservices mit Java Spring-Boot zu entwickeln, da sich alle in unserem Team mit Java auskennen.
 
 ## Branching Strategie / Semantic Versioning
+
+### Branches
+- Main
+- Feature Branches
+- Bug Branches
+
+***Feature Branch Naming***:
+
+- Feature Branches kommmen in einen Feature Ordner. 
+- Die Feature Branches sollen aus der Nummer und Titel des Auftrags bestehen. 
+
+Schema:
+```
+feature/{Auftrag Nr.}-{Auftrag Titel}
+```
+
+Beispiel: 
+```
+feature/P2-Micro-Service-Entwickeln
+```
+
+***Bug Branch Naming***:
+
+- Bug Branches kommmen in einen Bug Ordner. 
+- Der Name eines Bug Branch soll den Bug beschreiben.
+
+Schema:
+```
+bug/{Name-des-Bugs}
+```
+
+Beispiel: 
+```
+bug/micro-service-not-responding
+```
+
+### Merge Requests
+
+Um auf den Main Branch pushen zu könnnen muss ein Merge Request erstellt werden. Dieser muss von einem anderen Teammitglied angeschaut und bestätigt werden.
