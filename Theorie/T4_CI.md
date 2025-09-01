@@ -118,7 +118,7 @@ Semantic Versioning ist ein einfaches und weit akzeptiertes Schema zur Versionie
 - **MINOR**: Erhöht sich bei abwärtskompatiblen neuen Funktionen
 - **PATCH**: Erhöht sich bei abwärtskompatiblen Fehlerbehebungen 
 
-![Semantic%20Versioning%20(SemVer).png](Semantic%20Versioning%20(SemVer).png)
+![Semantic%20Versioning%20(SemVer).png](./images/Semantic%20Versioning%20(SemVer).png)
 
 *Einsatz*
 SemVer wird genutzt, um Entwicklern und Nutzern die Art und Auswirkung von Software-Updates klar zu kommunizieren. Es erleichtert Abhängigkeitsmanagement und Risikominimierung in Projekten.  
@@ -179,7 +179,7 @@ Alle Microservices liegen in einem einzigen Repository. Der gesamte Code für al
 **Multi-Repo**:
 Jeder Microservice hat sein eigenes Repository. Jeder Service wird seperat verwaltet.
 
-![Monorepo%20VS%20Polyrepo%20-%20DEV%20Community.png](Monorepo%20VS%20Polyrepo%20-%20DEV%20Community.png)
+![Monorepo%20VS%20Polyrepo%20-%20DEV%20Community.png](./images/Monorepo%20VS%20Polyrepo%20-%20DEV%20Community.png)
  
 **Wie unterscheiden sich Mono- und Multirepo-Ansätze in der Organisation von Code?**
 
@@ -226,7 +226,7 @@ Ein E-Commerce-Unternehmen hat mehrere Microservices: Warenkorb, Zahlung, Versan
  
 Ein Software-Artefakt-Repository ist ein zentrales Speichersystem, das in der Softwareentwicklung verwendet wird, um alle softwarebezogenen Artefakte zu verwalten und zu speichern. Dazu gehören kompilierter Code, Bibliotheken, Abhängigkeiten, Konfigurationsdateien, Dokumentation und Build-Ergebnisse. Es stellt sicher, dass diese Artefakte leicht zugänglich, versionskontrolliert und über alle Phasen des Softwareentwicklungszyklus hinweg nachverfolgbar sind.
 
-![Was%20ist%20Artifactory_%20_%20JFrog.png](Was%20ist%20Artifactory_%20_%20JFrog.png)
+![Was%20ist%20Artifactory_%20_%20JFrog.png](./images/Was%20ist%20Artifactory_%20_%20JFrog.png)
 
 **Welche Rolle spielt ein Artifact-Repository in der Softwareentwicklung und im  Bereitstellungsprozess?**
  
