@@ -1,4 +1,4 @@
-package tbz.ch.fluege;
+package tbz.ch.flight;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
