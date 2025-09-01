@@ -1,13 +1,13 @@
-package tbz.ch.flight;
+package tbz.ch.airport;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class FlightServiceApplication {
+public class AirportApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(FlightServiceApplication.class, args);
+		SpringApplication.run(AirportApplication.class, args);
 	}
 
 }
