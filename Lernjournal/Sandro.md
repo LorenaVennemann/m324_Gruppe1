@@ -14,6 +14,8 @@ In diesem erwähnten Projekt in meiner Firma, wird auch M.M.P (Major.Minor.Patch
 
 Bei der Initialisierung unseres Projektes haben wir unter anderem die Datenbank aufgesetzt, dabei haben wir uns für HeidiSQL entschieden, was ich gut finde zur Auffrischung, da es schon länger her ist seit ich mit einer SQL-Datenbank gearbeitet habe, da wir im Betrieb hauptsächlich mit LDAP arbeiten.
 
+**Feedback YN**: Gut!
+
 ## 25.08.2025
 
 Heute fand ich das Feedback zu unserem Meeting besonders gut, also das gesagt wurde was noch nicht so gut ist und beim nächsten Meeting zu verbessern ist, wie z.B. die Vorbereitugn auf das Meeting.
