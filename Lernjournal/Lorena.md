@@ -70,4 +70,6 @@ Mir hat heute besonders gefallen, dass ich die Theorie direkt mit meiner Arbeit 
 
 Insgesamt ist es jedoch nicht komplett neu für mich, da ich ähnliche Methoden bereits im Alltag in meiner Firma benutze. Spannend war es jedoch zu sehen, welche weiteren Möglichkeiten es gibt, Projekte noch effizienter zu strukturieren.
 
+## Feedback YN
+Du sagst nur, dass du mit Betrieb vergleichen konntest. Dann vergleiche auch hier im Text! Das ist so noch keine Reflektion :(
 
