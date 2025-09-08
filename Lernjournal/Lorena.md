@@ -73,3 +73,34 @@ Insgesamt ist es jedoch nicht komplett neu für mich, da ich ähnliche Methoden 
 ## Feedback YN
 Du sagst nur, dass du mit Betrieb vergleichen konntest. Dann vergleiche auch hier im Text! Das ist so noch keine Reflektion :(
 
+---
+---
+**Datum:** 08.09.2025  
+**Modul / Thema:** m324
+---
+## Bezug zu eigenen Erfahrungen
+Heute habe ich am Airport-Service Projekt gearbeitet und folgende Aufgaben umgesetzt:
+Erstellung der Flughafen-Entity, DTOs (Request/Response) und Controller.
+Implementierung der Endpunkte zum Abrufen aller Flughäfen und zum Erstellen neuer Flughäfen.
+Hinzufügen von Bean-Validierungen (@NotBlank, @Size, @Positive), damit Eingaben automatisch geprüft werden.
+Schreiben eines Unit-Tests für den GET-Endpunkt, um die Funktionalität zu überprüfen.
+
+Im Vergleich zu meinen Erfahrungen in meinem Betrieb:
+In meinem Betrieb werden Daten professionell verwaltet und ebenfalls validiert, z. B. in internen Systemen oder Datenbanken, je nach Abteilung.
+Dadurch konnte ich die automatisierte Validierung in Spring Boot direkt mit den betrieblichen Prozessen vergleichen.
+Ich habe verstanden, dass saubere Datenstrukturen, Validierungen und automatisierte Prüfungen sowohl im Projekt als auch im Betrieb für Datenqualität und Fehlervermeidung sorgen.
+## Reflektion und Feedback
+Was lief gut:
+Umsetzung der Endpunkte und Validierungen hat gut funktioniert.
+Die Arbeit mit Postman erleichtert das Testen der API ohne Frontend.
+
+Herausforderungen:
+Fehler wie „Ambiguous mapping“ zeigten, wie wichtig eine klare Trennung zwischen Endpunktmethoden und Hilfsmethoden ist.
+Vergleich mit dem Betrieb:
+
+Wie in meinem Betrieb ist es entscheidend, dass Daten korrekt validiert und geprüft werden.
+Automatisierte Prüfungen im Code erleichtern die Arbeit und verhindern Fehler ähnlich wie im professionellen System.
+
+Verbesserungspotenzial:
+Unit-Tests auch für POST-Endpunkte mit Validierung schreiben (zurzeit in Arbeit).
+DTOs und Entities noch klarer trennen, um den Code wartbarer zu machen.
