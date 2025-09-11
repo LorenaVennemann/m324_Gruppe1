@@ -1,5 +1,17 @@
 # Lernjournal von Sandro
 
+## 08.09.2025
+
+TBD
+- datenmodell
+- pull request / code review
+- persistenz db
+- api endpoints
+- validierung
+- merge conflicts
+- vergleich mit firma
+- IPA Projekt
+
 ## 01.09.2025
 
 Heute haben wir das Thema Versionierung und Branching genauer angeschaut, dabei gibt es bei einem Projekt in meiner Firma auch verschiedene Branches, wie z.B. main, dev, feat, fix, refactor & chore.
