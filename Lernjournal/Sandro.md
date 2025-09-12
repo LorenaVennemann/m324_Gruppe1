@@ -2,19 +2,19 @@
 
 ## 08.09.2025
 
-Meine Tasks heute waren das Datenmodell zu erstellen, sowie sicherzustellen das die Daten auch in der DB gespeichert werden und dabei die ID und Erstellungsdatum automatisch generiert werden.
+Meine Tasks heute waren das Datenmodell zu erstellen, sowie sicherzustellen, dass die Daten auch in der DB gespeichert werden und dabei die ID und Erstellungsdatum automatisch generiert werden.
 
 Dabei waren einige Tasks zu Beginn blockiert, bis ich das Datenmodell fertig hatte, da ich aber meistens schon vor 8 Uhr in der Schule war, hatte ich Zeit um vorzuarbeiten, sonst hätten wir Zeit verloren.
 
-Es ist allgemein nicht so einfach die Tasks aufzuteilen, da wir gefühlt zu viele Leute sind für dieses Projekt, aber währe ja langweilig wenn alles so einfach wäre. Ich habe nach den Lektionen am Morgen herausgefunden, dass wir eigentlich nicht zu viele Leute für das Projekt sind, sondern uns einfach falsch aufgeteilt haben.
+Es ist allgemein nicht so einfach die Tasks aufzuteilen, da wir gefühlt zu viele Leute sind für dieses Projekt, aber wäre ja langweilig, wenn alles so einfach wäre. Ich habe nach den Lektionen am Morgen herausgefunden, dass wir eigentlich nicht zu viele Leute für das Projekt sind, sondern uns einfach falsch aufgeteilt haben.
 
-So gibt es nämlich neben P2, was die Version 1.0 vom Projekt ist, noch weitere Tasks welche paralell gestartet werden können wie z.B. T5, P3, Z1, Z2 & Z3. Bisher haben wir hauptsächlich alle an einem Task gearbeitet und konnten dies gut aufteilen, aber ich finde jetzt würde es Sinn machen uns zu spliten auf die verschiedenen Tasks.
+So gibt es nämlich neben P2, was die Version 1.0 vom Projekt ist, noch weitere Tasks, welche parallel gestartet werden können, wie z.B. T5, P3, Z1, Z2 & Z3. Bisher haben wir hauptsächlich alle an einem Task gearbeitet und konnten dies gut aufteilen, aber ich finde jetzt würde es Sinn ergeben uns zu splitten auf die verschiedenen Tasks.
 
-Eigentlich wollte ich jetzt schreiben, dass es doof ist die Tasks aufzuteilen, weil sie verschiedene Anzahl an Punkte geben, dies ist ist abgesehen von P4 & P3 aber nicht so, denn es geben alle Tasks die zum aktuellen Stand noch offen sind +/- 0.2 Punkte. Gut schreibe ich dieses Lernjournal sonst würden mir solche Punkte nicht auffallen.
+Eigentlich wollte ich jetzt schreiben, dass es doof ist die Tasks aufzuteilen, weil sie verschiedene Anzahl an Punkte geben, dies ist abgesehen von P4 & P3 aber nicht so, denn es geben alle Tasks, die zum aktuellen Stand noch offen sind +/- 0.2 Punkte. Gut schreibe ich dieses Lernjournal, sonst würden mir solche Punkte nicht auffallen.
 
-Es könnte aber auch eng werden, wenn wir zu wenig Ressourcen auf P2 festlegen, weil wir diesen Task am Ende von Woche 6 spätestens abgeben müssen und auch sonst sieht es nicht so aus als hätten wir noch Zeit übrig zum verschwenden, dies ist aber nicht nur bei diesem Schulprojekt hier so sondern auch oft bei mir in der Firma, schliesslich ist Zeit = Geld.
+Es könnte aber auch eng werden, wenn wir zu wenig Ressourcen auf P2 festlegen, weil wir diesen Task am Ende von Woche 6 spätestens abgeben müssen und auch sonst sieht es nicht so aus als hätten wir noch Zeit übrig zum Verschwenden, dies ist aber nicht nur bei diesem Schulprojekt hier so, sondern auch oft bei mir in der Firma, schliesslich ist Zeit = Geld.
 
-Bei der Erstellung der Entities konnte ich bereits bekannte Annotationen wie z.B. NotBlank, NotNull, Size und Pattern verwenden, welche ich auch in der API verwende in der Firma, nur das ich dort keine Entities erstellt habe, sondern nur über die DTO's gehe. Wobei die Projekt/Ordnerstruktur bei der API in der Firma auch anderst ist, als wie wir es in diesem Projekt machen.
+Bei der Erstellung der Entities konnte ich bereits bekannte Annotationen wie z.B. NotBlank, NotNull, Size und Pattern verwenden, welche ich auch in der API verwende in der Firma, nur das ich dort keine Entities erstellt habe, sondern nur über die DTO's gehe. Wobei die Projekt/Ordnerstruktur bei der API in der Firma auch anders ist, als wie wir es in diesem Projekt machen.
 
 Das Interessante dabei ist, dass ich bei beiden Projekten entscheiden konnte, wie ich die Struktur vom Projekt haben möchte. Bei der API in meiner Firma bin ich eigentlich alleine dafür verantwortlich und habe mich an einer bereits existierenden API orientiert. Beim aktuellen Projekt in der Schule haben wir das Projekt auf meinem Notebook aufgesetzt und ich habe mich da am MVC Pattern orientiert, welches wir bei der Noser Young ebenfalls verwendet haben (ist aber auch schon über 1 Jahr her).
 
