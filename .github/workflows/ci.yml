@@ -21,6 +21,7 @@ jobs:
       - name: Java installieren
         uses: actions/setup-java@v3
         with:
+          distribution: 'temurin'
           java-version: '21'
 
       - name: Gradle Wrapper ausführbar machen
