@@ -131,4 +131,45 @@ Wir verwenden MAJOR.MINOR.PATCH in Verbindung mit GitHub Flow.
  
 - Bug im Login entdeckt → bugfix/readAirport-error → MR → Merge → Version 1.1.1
  
-- Große Änderung am Backend → Breaking Change → Merge → Version 2.0.0
+- Grosse Änderung am Backend → Breaking Change → Merge → Version 2.0.0
+
+# 1. CI Technologien evaluieren
+
+## Untersuchte Werkzeuge
+
+### 1. GitHub Actions
+**Vorteile:**
+- Voll in GitHub integriert, keine extra Installation nötig
+- Einfache Einrichtung von Workflows
+- Kostenlose Minuten für öffentliche Repositories
+- Viele fertige Actions für Build, Test und Deployment
+
+**Nachteile:**
+- Begrenzte kostenlose Minuten für private Repositories
+- Weniger flexibel bei sehr komplexen Infrastrukturen
+- Dokumentation teilweise unübersichtlich
+
+### 2. GitLab CI
+**Vorteile:**
+- Voll integriert in GitLab
+- Sehr flexibel mit eigenen Runnern
+- Gute Unterstützung für komplexe Pipelines
+- Alle Tools für CI und Repository Management in einem System
+
+**Nachteile:**
+- Einrichtung eigener Runner kann komplex sein
+- Weniger bekannt, weniger fertige Templates im Vergleich zu GitHub Actions
+
+### 3. Jenkins
+**Vorteile:**
+- Extrem flexibel und anpassbar
+- Riesige Community und viele Plugins
+- Funktioniert mit allen SCM Systemen
+
+**Nachteile:**
+- Komplexe Installation und Wartung
+- UI wirkt veraltet und teilweise unübersichtlich
+- Eigenes Hosting notwendig
+
+## Entscheidung für das Projekt
+Für dieses Projekt werden **GitHub Actions** verwendet. Der Grund ist, dass das Projekt-Repository bereits auf GitHub liegt. GitHub Actions lässt sich einfach einrichten, erlaubt automatische Builds und Tests bei jedem Commit oder Pull Request und benötigt keine eigene Infrastruktur. Die kostenlose Nutzung reicht für das Projekt vollkommen aus.
