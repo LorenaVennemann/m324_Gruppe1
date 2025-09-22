@@ -18,6 +18,8 @@ Bei der Erstellung der Entities konnte ich bereits bekannte Annotationen wie z.B
 
 Das Interessante dabei ist, dass ich bei beiden Projekten entscheiden konnte, wie ich die Struktur vom Projekt haben möchte. Bei der API in meiner Firma bin ich eigentlich alleine dafür verantwortlich und habe mich an einer bereits existierenden API orientiert. Beim aktuellen Projekt in der Schule haben wir das Projekt auf meinem Notebook aufgesetzt und ich habe mich da am MVC Pattern orientiert, welches wir bei der Noser Young ebenfalls verwendet haben (ist aber auch schon über 1 Jahr her).
 
+**Feedback YN**: Gut!
+
 ## 01.09.2025
 
 Heute haben wir das Thema Versionierung und Branching genauer angeschaut, dabei gibt es bei einem Projekt in meiner Firma auch verschiedene Branches, wie z.B. main, dev, feat, fix, refactor & chore.
