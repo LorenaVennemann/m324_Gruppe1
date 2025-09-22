@@ -23,17 +23,12 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '21'
-
+          
       - name: Gradle Wrapper ausführbar machen
-        run: chmod +x ./Code/airport-service/gradle/wrapper/gradle-wrapper
+        run: chmod +x ./Code/airport-service/gradlew
 
       - name: Abhängigkeiten installieren
-        run: ./Code/airport-service/gradle/wrapper/gradle-wrapper build -x test
+        run: ./Code/airport-service/gradlew build -x test
 
       - name: Projekt bauen
-        run: ./Code/airport-service/gradle/wrapper/gradle-wrapper assemble
-
-
-      - name: Projekt bauen
-        run: ./Code/airport-service/gradle/wrapper/gradle-wrapper assemble
-
+        run: ./Code/airport-service/gradlew assemble
