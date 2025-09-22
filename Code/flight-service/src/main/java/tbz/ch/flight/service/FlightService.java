@@ -1,12 +1,10 @@
 package tbz.ch.flight.service;
 
-import jakarta.validation.Valid;
+import org.apache.coyote.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.*;
-import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.client.RestTemplate;
 import tbz.ch.flight.dto.AirportResponse;
 import tbz.ch.flight.dto.FlightRequest;
@@ -14,6 +12,7 @@ import tbz.ch.flight.dto.FlightResponse;
 import tbz.ch.flight.entity.Flight;
 import tbz.ch.flight.repository.FlightRepository;
 
+import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -27,7 +26,7 @@ public class FlightService {
     @Autowired
     private RestTemplate restTemplate;
 
-    public FlightResponse createFlight(FlightRequest request) {
+    public FlightResponse createFlight(FlightRequest request) throws BadRequestException {
         Flight flight = new Flight();
         flight.setArrivalAirportCode(request.getArrivalAirportCode());
         flight.setDepartureAirportCode(request.getDepartureAirportCode());
@@ -35,19 +34,28 @@ public class FlightService {
         flight.setDepartureDatetime(request.getDepartureDatetime());
         flight.setAircraftType(request.getAircraftType());
 
-        if (!flight.isValidTimeSequence()) {
-            throw new IllegalArgumentException("Invalid time sequence: Arrival must be after departure.");
+        if (!flight.getDepartureDatetime().isAfter(LocalDateTime.now())) {
+            throw new BadRequestException("Departure time must be in the future.");
         }
+
+        if (!flight.getArrivalDatetime().isAfter(LocalDateTime.now())) {
+            throw new BadRequestException("Arrival time must be in the future.");
+        }
+
+        if (!flight.isValidTimeSequence()) {
+            throw new BadRequestException("Invalid time sequence: Arrival must be after departure.");
+        }
+
         if (!flight.isDifferentAirports()) {
-            throw new IllegalArgumentException("Arrival and departure airports must be different.");
+            throw new BadRequestException("Arrival and departure airports must be different.");
         }
 
         if (getAirports().stream().noneMatch(a -> a.getCode().equals(flight.getArrivalAirportCode()))) {
-            throw new IllegalArgumentException("Arrival airport dosn't exist.");
+            throw new BadRequestException("Arrival airport dosn't exist.");
         }
 
         if (getAirports().stream().noneMatch(a -> a.getCode().equals(flight.getDepartureAirportCode()))) {
-            throw new IllegalArgumentException("Departure airport dosn't exist.");
+            throw new BadRequestException("Departure airport dosn't exist.");
         }
 
         Flight saved = flightRepository.save(flight);
@@ -62,7 +70,7 @@ public class FlightService {
     }
 
     public List<AirportResponse> getAirports() {
-        String uri = "http://localhost:8080/airports/";
+        String uri = "http://localhost:8080/airports";
 
         HttpHeaders headers = new HttpHeaders();
         headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
@@ -72,7 +80,8 @@ public class FlightService {
                 uri,
                 HttpMethod.GET,
                 entity,
-                new ParameterizedTypeReference<List<AirportResponse>>() {}
+                new ParameterizedTypeReference<>() {
+                }
         );
         return result.getBody();
     }
