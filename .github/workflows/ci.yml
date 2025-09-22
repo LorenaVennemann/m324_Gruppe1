@@ -27,8 +27,9 @@ jobs:
       - name: Gradle Wrapper ausführbar machen
         run: chmod +x ./Code/airport-service/gradlew
 
-      - name: Abhängigkeiten installieren
-        run: ./Code/airport-service/gradlew build -x test
+      - name: Projekt bauen (Abhängigkeiten & Artefakte)
+        working-directory: ./Code/airport-service
+        run: ./gradlew build -x test
 
       - name: Projekt bauen
         run: ./Code/airport-service/gradlew assemble
