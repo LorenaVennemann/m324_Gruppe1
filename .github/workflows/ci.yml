@@ -25,15 +25,15 @@ jobs:
           java-version: '21'
 
       - name: Gradle Wrapper ausführbar machen
-        run: chmod +x ./airport-service/gradlew
+        run: chmod +x ./airport-service/gradle-wrapper
 
       - name: Abhängigkeiten installieren
-        run: ./airport-service/gradlew build -x test
+        run: ./airport-service/gradle-wrapper build -x test
 
       - name: Projekt bauen
-        run: ./airport-service/gradlew assemble
+        run: ./airport-service/gradle-wrapper assemble
 
 
       - name: Projekt bauen
-        run: ./gradlew assemble
+        run: ./gradle-wrapper assemble
 
