@@ -107,3 +107,25 @@ DTOs und Entities noch klarer trennen, um den Code wartbarer zu machen.
 
 ## Feedback YN
 Beim Programmieren ist der Vergleich schwieriger. Darum heute gut!
+
+---
+---
+**Datum:** 22.09.2025  
+**Modul / Thema:** m324
+---
+notizen: 
+einfache pipline für autrag p3 erstellt, sowie dokumentiert mit den einzllenen poipline möglich keiten z.b github actions...
+
+im task p2 habe ich unitstest geschrieben.
+
+task in p2 reviewd mit sandro
+## Bezug zu eigenen Erfahrungen
+
+## Reflektion und Feedback
+Was lief gut:
+
+
+Herausforderungen:
+
+Verbesserungspotenzial:
+
