@@ -1,5 +1,10 @@
 # Lernjournal von Sandro
 
+## 22.09.2025
+- tests geschrieben & getestet
+- validierung & exception handling verbessert
+- bisschen bei der pipeline geholfen
+
 ## 08.09.2025
 
 Meine Tasks heute waren das Datenmodell zu erstellen, sowie sicherzustellen, dass die Daten auch in der DB gespeichert werden und dabei die ID und Erstellungsdatum automatisch generiert werden.
