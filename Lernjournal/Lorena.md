@@ -113,19 +113,16 @@ Beim Programmieren ist der Vergleich schwieriger. Darum heute gut!
 **Datum:** 22.09.2025  
 **Modul / Thema:** m324
 ---
-notizen: 
-einfache pipline für autrag p3 erstellt, sowie dokumentiert mit den einzllenen poipline möglich keiten z.b github actions...
-
-im task p2 habe ich unitstest geschrieben.
-
-task in p2 reviewd mit sandro
 ## Bezug zu eigenen Erfahrungen
+Das Erstellen der Pipeline für Auftrag P3 und das Dokumentieren hat mir geholfen, mehr über CI/CD und Automatisierung zu lernen. Ich habe gesehen, wie man verschiedene Möglichkeiten in einer Pipeline nutzen kann, zum Beispiel GitHub Actions. In meiner Firma arbeiten wir zwar mit GitLab Pipelines und nicht mit GitHub, aber ich habe dort schon Pipelines umsetzen dürfen. Heute lief es sehr gut, da es ein kleines Projekt war und nur wenige Anforderungen braucht. In meiner Firma habe ich für Pipelines länger gebraucht und mehr Änderungen machen müsssen, um sie zum Laufen zu bringen, da wir dort auch Lombok und andere Libraries verwenden. Das Schreiben der Unit-Tests im Task P2 hat mir gezeigt, wie man die Qualität von Code prüft und Fehler früh erkennt.
 
 ## Reflektion und Feedback
 Was lief gut:
-
+Die Pipeline konnte schnell erstellt und dokumentiert werden, da es ein kleines Projekt war. Die Unit-Tests haben Fehler früh erkannt. Ich konnte auch Erfahrungen aus meiner Firma einbringen. Wir haben uns regelmässig im Team besprochen.
 
 Herausforderungen:
+Es war nicht immer einfach, die Pipeline richtig umzusetzen, besonders wegen der Pfade im Projekt. In meiner Firma sind Pipelines noch komplexer, zum Beispiel mit Lombok und weiteren Libraries
 
 Verbesserungspotenzial:
+Die Unit-Tests könnten alle Sonderfälle abdecken. 
 
