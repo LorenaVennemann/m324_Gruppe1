@@ -31,7 +31,6 @@ public class Flight {
     private String arrivalAirportCode;
 
     @NotNull
-    @Future(message = "Departure must be in the future")
     @Column(name = "departure_datetime", nullable = false)
     private LocalDateTime departureDatetime;
 
@@ -54,12 +53,10 @@ public class Flight {
         }
     }
 
-    @AssertTrue(message = "Departure and arrival airports must be different")
     public boolean isDifferentAirports() {
         return departureAirportCode == null || !departureAirportCode.equals(arrivalAirportCode);
     }
 
-    @AssertTrue(message = "Arrival time must be after departure time")
     public boolean isValidTimeSequence() {
         return departureDatetime == null || arrivalDatetime == null ||
                 arrivalDatetime.isAfter(departureDatetime);
