@@ -104,3 +104,6 @@ Automatisierte Prüfungen im Code erleichtern die Arbeit und verhindern Fehler �
 Verbesserungspotenzial:
 Unit-Tests auch für POST-Endpunkte mit Validierung schreiben (zurzeit in Arbeit).
 DTOs und Entities noch klarer trennen, um den Code wartbarer zu machen.
+
+## Feedback YN
+Beim Programmieren ist der Vergleich schwieriger. Darum heute gut!
