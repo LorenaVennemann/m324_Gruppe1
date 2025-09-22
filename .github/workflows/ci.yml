@@ -1,0 +1,36 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches:
+      - main
+      - 'feature/*'
+  pull_request:
+    branches:
+      - main
+      - 'feature/*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@v3
+
+      - name: Java installieren
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+          
+      - name: Gradle Wrapper ausführbar machen
+        run: chmod +x ./Code/airport-service/gradlew
+
+      - name: Projekt bauen (Abhängigkeiten & Artefakte)
+        working-directory: ./Code/airport-service
+        run: ./gradlew build -x test
+
+      - name: Projekt bauen
+        working-directory: ./Code/airport-service
+        run: ./gradlew assemble
