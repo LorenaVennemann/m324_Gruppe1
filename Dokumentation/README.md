@@ -168,7 +168,7 @@ Wir verwenden MAJOR.MINOR.PATCH in Verbindung mit GitHub Flow.
 
 **Nachteile:**
 - Komplexe Installation und Wartung
-- UI wirkt veraltet und teilweise unuebersichtlich
+- UI wirkt veraltet und teilweise unübersichtlich
 - Eigenes Hosting notwendig
 
 ## Entscheidung für das Projekt
