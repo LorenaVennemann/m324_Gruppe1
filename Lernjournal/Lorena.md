@@ -126,3 +126,5 @@ Es war nicht immer einfach, die Pipeline richtig umzusetzen, besonders wegen der
 Verbesserungspotenzial:
 Die Unit-Tests könnten alle Sonderfälle abdecken. 
 
+## Feedback YN
+OK
