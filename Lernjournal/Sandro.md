@@ -14,6 +14,8 @@ Zur Abwechslung durfte ich bei der Pipeline Erstellung helfen, dabei nutzen wir 
 
 So nutzen wir bei uns in der Firma, wenn wir GitHub nutzen auch GitHub Projects für die Tasks und GitHub Actions für die Pipelines. Wenn wir nicht Git, sondern SVN verwenden, dann nutzen wir verschiedene Tools für die verschiedenen Sachen, was es ein bisschen umständlicher macht.
 
+**Feedback YN**: OK
+
 ## 08.09.2025
 
 Meine Tasks heute waren das Datenmodell zu erstellen, sowie sicherzustellen, dass die Daten auch in der DB gespeichert werden und dabei die ID und Erstellungsdatum automatisch generiert werden.
