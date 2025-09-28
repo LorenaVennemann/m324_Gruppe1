@@ -11,7 +11,7 @@ on:
       - 'feature/*'
 
 jobs:
-  build:
+  build-and-test:
     runs-on: ubuntu-latest
 
     steps:
@@ -23,14 +23,32 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '21'
-          
+
       - name: Gradle Wrapper ausführbar machen
         run: chmod +x ./Code/airport-service/gradlew
 
-      - name: Projekt bauen (Abhängigkeiten & Artefakte)
-        working-directory: ./Code/airport-service
-        run: ./gradlew build -x test
+      - name: Cache Gradle dependencies
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
 
-      - name: Projekt bauen
+      - name: Unit Tests ausführen
+        working-directory: ./Code/airport-service
+        run: ./gradlew test
+
+      - name: Test Report veröffentlichen
+        uses: dorny/test-reporter@v1
+        if: success() || failure()
+        with:
+          name: Unit Test Results
+          path: ./Code/airport-service/build/test-results/test/*.xml
+          reporter: java-junit
+
+      - name: Projekt bauen (ohne Tests, da bereits ausgeführt)
         working-directory: ./Code/airport-service
         run: ./gradlew assemble
