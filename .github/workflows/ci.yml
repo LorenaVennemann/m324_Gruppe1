@@ -11,7 +11,8 @@ on:
       - 'feature/*'
 
 jobs:
-  build-and-test:
+  test:
+    name: Unit Tests
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -28,9 +29,6 @@ jobs:
           distribution: 'temurin'
           java-version: '21'
 
-      - name: Gradle Wrapper ausführbar machen
-        run: chmod +x ./Code/airport-service/gradlew
-
       - name: Cache Gradle dependencies
         uses: actions/cache@v3
         with:
@@ -40,6 +38,9 @@ jobs:
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
           restore-keys: |
             ${{ runner.os }}-gradle-
+
+      - name: Gradle Wrapper ausführbar machen
+        run: chmod +x ./Code/airport-service/gradlew
 
       - name: Unit Tests ausführen
         working-directory: ./Code/airport-service
@@ -53,6 +54,40 @@ jobs:
           path: ./Code/airport-service/build/test-results/test/*.xml
           reporter: java-junit
 
-      - name: Projekt bauen (ohne Tests, da bereits ausgeführt)
+  build:
+    name: Build Application
+    runs-on: ubuntu-latest
+    needs: test  # Nur ausführen wenn Tests erfolgreich
+
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@v3
+
+      - name: Java installieren
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+
+      - name: Cache Gradle dependencies
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+
+      - name: Gradle Wrapper ausführbar machen
+        run: chmod +x ./Code/airport-service/gradlew
+
+      - name: Application bauen
         working-directory: ./Code/airport-service
-        run: ./gradlew assemble
+        run: ./gradlew build -x test  # Tests überspringen, da bereits gelaufen
+
+      - name: Build-Artefakte speichern
+        uses: actions/upload-artifact@v3
+        with:
+          name: application-jar
+          path: ./Code/airport-service/build/libs/*.jar
