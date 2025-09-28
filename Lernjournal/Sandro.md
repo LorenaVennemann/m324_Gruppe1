@@ -1,9 +1,18 @@
 # Lernjournal von Sandro
 
 ## 22.09.2025
-- tests geschrieben & getestet
-- validierung & exception handling verbessert
-- bisschen bei der pipeline geholfen
+
+Heute habe ich mich irgendwie nicht so produktiv gefühlt oder jedenfalls nicht so produktiv wie ich gerne gewesen wäre. Auch bei mir in der Firma gibt es Tage, an denen ich nicht so produktiv bin oder auch einfach nicht so produktiv fühle.
+
+Dabei macht es schon ziemlich einen Unterschied, ob man sich nur unproduktiv fühlt oder es auch ist, ich denke dabei wäre es wichtig die Produktivität messen zu können, dafür könnte der Zusatz Z1: Kennzahlen interessant sein, aber auch ohne das Projekt in Kennzahlen zu messen, würde ich schon sagen, dass wir heute weiter kommen hätten müssen, weil wir immer noch nicht fertig sind mit P2 und mit P3 erst gestartet sind.
+
+Ein Task von mir war es heute Tests zu schreiben, dabei hat das Errorhandling bei unseren Endpunkten gefehlt, also anstatt das mir als Client ein 400 Errorcode zurückgegeben wurde, weil ich als User falsche Daten lieferte, erhielt ich jeweils 500 Errorcodes => Internal Server Error, wobei es offensichtlich ein Layer 8 Problem war.
+
+Nicht nur das Errorhandling wies Mängel auf, sondern auch die Validierung der Daten, deshalb wurde aus 1 Testing Task, dann 2 Tasks, weil ich noch Fehler ausbessern musste. So plante ich zu Beginn ca. 2 Lektionen für den Task ein, hatte dann aber fast den ganzen Morgen bis ich meinen eigentlichen Task beenden konnte.
+
+Zur Abwechslung durfte ich bei der Pipeline Erstellung helfen, dabei nutzen wir GitHub Actions, um die Pipeline auszuführen. Das war unter anderem auch ein Grund GitHub zu nutzen, da wir so Tasks, Code und Pipeline an einem Ort haben, dies finde ich praktisch, da so nicht zwischen verschiedenen Tools gewechselt werden muss.
+
+So nutzen wir bei uns in der Firma, wenn wir GitHub nutzen auch GitHub Projects für die Tasks und GitHub Actions für die Pipelines. Wenn wir nicht Git, sondern SVN verwenden, dann nutzen wir verschiedene Tools für die verschiedenen Sachen, was es ein bisschen umständlicher macht.
 
 ## 08.09.2025
 
