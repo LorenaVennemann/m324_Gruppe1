@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - 'feature/*'
+      - 'bug/*'
     paths:
       - 'Code/airport-service/**'
       - 'Code/flight-service/**'
