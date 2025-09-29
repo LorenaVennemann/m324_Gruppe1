@@ -45,9 +45,6 @@ public class AirportController {
         return mapToResponse(airport);
     }
 
-
-
-
     private AirportResponse mapToResponse(Airport airport) {
         AirportResponse response = new AirportResponse();
         response.setId(airport.getId());
