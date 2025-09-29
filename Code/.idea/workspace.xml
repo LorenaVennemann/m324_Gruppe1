@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c3d29ea5-8644-49dc-839f-f36e47d0b771" name="Changes" comment="" />
+    <list default="true" id="c3d29ea5-8644-49dc-839f-f36e47d0b771" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,6 +24,9 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
+        <task path="$PROJECT_DIR$/airport-service">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
             <expand>
@@ -43,12 +49,17 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="7b610f72671c255686e9ab92fc3ee640db0f5213" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -73,14 +84,27 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Gradle.AirportApplicationTests.contextLoads.executor": "Run",
+    "Gradle.AirportApplicationTests.executor": "Run",
     "Gradle.AirportControllerTests (1).executor": "Run",
     "Gradle.AirportControllerTests.executor": "Run",
     "Gradle.AirportControllerTests.testGetAllAirports_returnsEmptyList.executor": "Run",
     "Gradle.Build airport-service.executor": "Run",
     "Gradle.Build flight-service.executor": "Run",
+    "Gradle.C:/Users/Jilve/TBZ/m324_Gruppe1/Code/flight-service [dependencies].executor": "Run",
+    "Gradle.CreateAirportTests.executor": "Run",
+    "Gradle.FlightApplicationTests.executor": "Run",
     "JUnit.AirportControllerTest.testGetAllAirports_returnsEmptyList.executor": "Run",
     "JUnit.AirportControllerTests.executor": "Run",
     "JUnit.AirportControllerTests.testGetAllAirports_returnsEmptyList.executor": "Run",
+    "JUnit.FlightApplicationTests.contextLoads.executor": "Run",
+    "JUnit.FlightApplicationTests.executor": "Run",
+    "JUnit.FlightServiceTest.executor": "Run",
+    "JUnit.FlightTest.executor": "Run",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
@@ -91,7 +115,7 @@
     "Spring Boot.FlightApplication.executor": "Run",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "29-unit__tests__für__flüge",
+    "git-widget-placeholder": "7b610f72",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/Jilve/TBZ/m324_Gruppe1/Code",
     "node.js.detected.package.eslint": "true",
@@ -113,8 +137,8 @@
       <recent name="tbz.ch.airport.controller" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.AirportControllerTests (1)">
-    <configuration name="AirportControllerTests (1)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="JUnit.FlightApplicationTests">
+    <configuration name="AirportApplicationTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/airport-service" />
@@ -127,7 +151,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;tbz.ch.airport.controller.AirportControllerTests&quot;" />
+            <option value="&quot;tbz.ch.airport.AirportApplicationTests&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -138,7 +162,29 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="AirportControllerTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="C:/Users/Jilve/TBZ/m324_Gruppe1/Code/flight-service [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/flight-service" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="dependencies" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="FlightApplicationTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/airport-service" />
@@ -151,7 +197,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;tbz.ch.airport.AirportControllerTests&quot;" />
+            <option value="&quot;tbz.ch.airport.FlightApplicationTests&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -162,56 +208,32 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="AirportControllerTests.testGetAllAirports_returnsEmptyList" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/airport-service" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;tbz.ch.airport.AirportControllerTests.testGetAllAirports_returnsEmptyList&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="AirportControllerTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="airport-service.test" />
+    <configuration name="FlightApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="flight-service.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="tbz.ch.airport.*" />
+          <option name="PATTERN" value="tbz.ch.flight.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="tbz.ch.airport" />
-      <option name="MAIN_CLASS_NAME" value="tbz.ch.airport.AirportControllerTests" />
+      <option name="PACKAGE_NAME" value="tbz.ch.flight" />
+      <option name="MAIN_CLASS_NAME" value="tbz.ch.flight.FlightApplicationTests" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AirportControllerTests.testGetAllAirports_returnsEmptyList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="airport-service.test" />
+    <configuration name="FlightApplicationTests.contextLoads" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="flight-service.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="tbz.ch.airport.*" />
+          <option name="PATTERN" value="tbz.ch.flight.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="tbz.ch.airport" />
-      <option name="MAIN_CLASS_NAME" value="tbz.ch.airport.AirportControllerTests" />
-      <option name="METHOD_NAME" value="testGetAllAirports_returnsEmptyList" />
+      <option name="PACKAGE_NAME" value="tbz.ch.flight" />
+      <option name="MAIN_CLASS_NAME" value="tbz.ch.flight.FlightApplicationTests" />
+      <option name="METHOD_NAME" value="contextLoads" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -233,11 +255,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.AirportControllerTests (1)" />
-        <item itemvalue="Gradle.AirportControllerTests" />
-        <item itemvalue="Gradle.AirportControllerTests.testGetAllAirports_returnsEmptyList" />
-        <item itemvalue="JUnit.AirportControllerTests" />
-        <item itemvalue="JUnit.AirportControllerTests.testGetAllAirports_returnsEmptyList" />
+        <item itemvalue="JUnit.FlightApplicationTests" />
+        <item itemvalue="JUnit.FlightApplicationTests.contextLoads" />
+        <item itemvalue="Gradle.C:/Users/Jilve/TBZ/m324_Gruppe1/Code/flight-service [dependencies]" />
+        <item itemvalue="Gradle.AirportApplicationTests" />
+        <item itemvalue="Gradle.FlightApplicationTests" />
       </list>
     </recent_temporary>
   </component>

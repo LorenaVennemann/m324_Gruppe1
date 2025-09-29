@@ -173,3 +173,19 @@ Wir verwenden MAJOR.MINOR.PATCH in Verbindung mit GitHub Flow.
 
 ## Entscheidung für das Projekt
 Für dieses Projekt werden **GitHub Actions** verwendet. Der Grund ist, dass das Projekt-Repository bereits auf GitHub liegt. GitHub Actions lässt sich einfach einrichten, erlaubt automatische Builds und Tests bei jedem Commit oder Pull Request und benötigt keine eigene Infrastruktur. Die kostenlose Nutzung reicht für das Projekt vollkommen aus.
+
+# Pipeline-Vergleich: Alle Tasks in einem Job vs. Aufteilung in Build & Test
+
+| Kriterium        | Variante A: Alles in einem Job | Variante B: Getrennte Jobs (Build & Test) |
+|------------------|-------------------------------|-------------------------------------------|
+| **Laufzeit**     | Additiv (Build + Tests nacheinander) | Effizienter, da Tests parallel laufen können |
+| **Übersicht**    | Weniger, alle Logs in einem Job | Klar getrennt, pro Job eigenes Log |
+| **Fehlererkennung** | Unklarer – Build-/Testfehler im selben Log | Sehr klar – Build- oder Testfehler sofort sichtbar |
+| **Komplexität**  | Einfach, wenig Setup nötig | Etwas komplexer (Artefakte, Dependencies) |
+| **Eignung**      | Kleine Projekte, PoCs | Mittlere/große Projekte, Teamarbeit |
+
+---
+
+### Fazit
+- **Variante A**: Schnell eingerichtet, gut für kleine Projekte.  
+- **Variante B**: Langfristig die bessere Wahl → mehr Übersicht, parallele Tests, bessere Fehlerdiagnose.  
