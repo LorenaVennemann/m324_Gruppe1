@@ -38,7 +38,7 @@ public class FlightService {
         flight.setDepartureDatetime(request.getDepartureDatetime());
         flight.setAircraftType(request.getAircraftType());
 
-        flightValidator.validate(flight, getAirports());
+        flightValidator.validate(flight, getAirportByCode(flight.getArrivalAirportCode()), getAirportByCode(flight.getDepartureAirportCode()));
 
         Flight saved = flightRepository.save(flight);
         return mapToResponse(saved);
@@ -51,14 +51,14 @@ public class FlightService {
                 .collect(Collectors.toList());
     }
 
-    public List<AirportResponse> getAirports() {
-        String uri = "http://localhost:8080/airports";
+    public AirportResponse getAirportByCode(String code) {
+        String uri = "http://localhost:8080/airports/" + code;
 
         HttpHeaders headers = new HttpHeaders();
         headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
 
         HttpEntity<String> entity = new HttpEntity<>(headers);
-        ResponseEntity<List<AirportResponse>> result = restTemplate.exchange(
+        ResponseEntity<AirportResponse> result = restTemplate.exchange(
                 uri,
                 HttpMethod.GET,
                 entity,

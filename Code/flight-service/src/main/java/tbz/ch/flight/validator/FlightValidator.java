@@ -11,12 +11,12 @@ import java.util.List;
 @Component
 public class FlightValidator {
 
-    public void validate(Flight flight, List<AirportResponse> airports) throws BadRequestException {
+    public void validate(Flight flight, AirportResponse arrivalAirport, AirportResponse departureAirport) throws BadRequestException {
         validateFutureDeparture(flight);
         validateFutureArrival(flight);
         validateTimeSequence(flight);
         validateDifferentAirports(flight);
-        validateAirportExistence(flight, airports);
+        validateAirportExistence(flight, arrivalAirport, departureAirport);
     }
 
     private void validateFutureDeparture(Flight flight) throws BadRequestException {
@@ -43,16 +43,14 @@ public class FlightValidator {
         }
     }
 
-    private void validateAirportExistence(Flight flight, List<AirportResponse> airports) throws BadRequestException {
-        boolean arrivalExists = airports.stream()
-                .anyMatch(a -> a.getCode().equals(flight.getArrivalAirportCode()));
+    private void validateAirportExistence(Flight flight, AirportResponse arrivalAirport, AirportResponse departureAirport) throws BadRequestException {
+        boolean arrivalExists = arrivalAirport.getCode().equals(flight.getArrivalAirportCode());
 
         if (!arrivalExists) {
             throw new BadRequestException("Arrival airport doesn't exist.");
         }
 
-        boolean departureExists = airports.stream()
-                .anyMatch(a -> a.getCode().equals(flight.getDepartureAirportCode()));
+        boolean departureExists = departureAirport.getCode().equals(flight.getDepartureAirportCode());
 
         if (!departureExists) {
             throw new BadRequestException("Departure airport doesn't exist.");
