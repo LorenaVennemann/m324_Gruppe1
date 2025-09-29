@@ -128,3 +128,36 @@ Die Unit-Tests könnten alle Sonderfälle abdecken.
 
 ## Feedback YN
 OK
+
+---
+---
+**Datum:** 29.09.2025  
+**Modul / Thema:** m324
+---
+
+## Bezug zu eigenen Erfahrungen
+
+Unit Tests kenne ich bereits aus meiner Arbeit. In jeder Abteilung, in der ich tätig war und die mit Java arbeitet, haben wir stets Unit Tests geschrieben. Dieses Wissen hat mir heute sehr geholfen.
+
+Die verschiedenen Arten von Pipelines waren für mich sehr interessant. Auch bei der Arbeit habe ich bereits mit Pipelines gearbeitet, die aus mehreren Jobs bestehen. Postman kenne ich ebenfalls aus der Arbeit, allerdings nutze ich es dort bisher nur für manuelle Tests und nicht für automatische Systemtests.
+
+## Reflektion und Feedback
+
+**Was lief gut:**
+- Unit Tests für Flüge fertig gemacht
+- P3 Auftrag "Systemtests einbinden" angefangen
+- Pipeline-Varianten Task im P3 abgeschlossen  
+- Gute Kommunikation im Team  
+- Meine Erfahrung mit Unit Tests hat geholfen
+
+**Herausforderungen:**
+- Postman für Systemtests war schwierig
+- Lange nicht mehr richtig mit Postman gearbeitet
+- Von manuellem Testen zu automatischen Tests umdenken
+- Pipeline-Konfiguration verstehen
+
+**Verbesserungspotenzial:**
+- Postman besser lernen für automatische Tests
+- Mehr Übung mit Test-Frameworks
+- Pipeline-Dokumentation verbessern
+- Systematischer bei Fehlern in Tests vorgehen
