@@ -1,0 +1,144 @@
+Index: ../.github/workflows/ci.yml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>name: CI Pipeline\r\n\r\non:\r\n  push:\r\n    branches:\r\n      - main\r\n      - 'feature/*'\r\n  pull_request:\r\n    branches:\r\n      - main\r\n      - 'feature/*'\r\n\r\njobs:\r\n  build:\r\n    runs-on: ubuntu-latest\r\n\r\n    steps:\r\n      - name: Repository auschecken\r\n        uses: actions/checkout@v3\r\n\r\n      - name: Java installieren\r\n        uses: actions/setup-java@v3\r\n        with:\r\n          java-version: '21'\r\n\r\n      - name: Gradle Wrapper ausführbar machen\r\n        run: chmod +x ./gradlew\r\n\r\n      - name: Abhängigkeiten installieren\r\n        run: ./gradlew build -x test\r\n\r\n      - name: Projekt bauen\r\n        run: ./gradlew assemble\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../.github/workflows/ci.yml b/../.github/workflows/ci.yml
+--- a/../.github/workflows/ci.yml	(revision 367dc7c6ddd0d96b8f9d9591aad6e50c655d720f)
++++ b/../.github/workflows/ci.yml	(date 1758530998604)
+@@ -24,11 +24,11 @@
+           java-version: '21'
+ 
+       - name: Gradle Wrapper ausführbar machen
+-        run: chmod +x ./gradlew
++        run: chmod +x ./gradle-wrapper
+ 
+       - name: Abhängigkeiten installieren
+-        run: ./gradlew build -x test
++        run: ./gradle-wrapper build -x test
+ 
+       - name: Projekt bauen
+-        run: ./gradlew assemble
++        run: ./gradle-wrapper assemble
+ 
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"c3d29ea5-8644-49dc-839f-f36e47d0b771\" name=\"Changes\" comment=\"\" />\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ExternalProjectsData\">\r\n    <projectState path=\"$PROJECT_DIR$/airport-service\">\r\n      <ProjectState />\r\n    </projectState>\r\n    <projectState path=\"$PROJECT_DIR$/flight-service\">\r\n      <ProjectState />\r\n    </projectState>\r\n  </component>\r\n  <component name=\"ExternalProjectsManager\">\r\n    <system id=\"GRADLE\">\r\n      <state>\r\n        <projects_view>\r\n          <tree_state>\r\n            <expand>\r\n              <path>\r\n                <item name=\"\" type=\"6a2764b6:ExternalProjectsStructure$RootNode\" />\r\n                <item name=\"airport-service\" type=\"f1a62948:ProjectNode\" />\r\n              </path>\r\n              <path>\r\n                <item name=\"\" type=\"6a2764b6:ExternalProjectsStructure$RootNode\" />\r\n                <item name=\"airport-service\" type=\"f1a62948:ProjectNode\" />\r\n                <item name=\"Dependencies\" type=\"6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode\" />\r\n              </path>\r\n            </expand>\r\n            <select />\r\n          </tree_state>\r\n        </projects_view>\r\n      </state>\r\n    </system>\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n        <option value=\"JUnit5 Test Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$/..\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;,\r\n    &quot;assignee&quot;: &quot;LorenaVennemann&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">{\r\n  &quot;selectedUrlAndAccountId&quot;: {\r\n    &quot;url&quot;: &quot;https://github.com/LorenaVennemann/m324_Gruppe1.git&quot;,\r\n    &quot;accountId&quot;: &quot;16d78d09-a10c-4488-8449-28ecd8c9e864&quot;\r\n  }\r\n}</component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 8\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"32PBbcQnuB5lNZqVkEgrB1tw7bu\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"Gradle.AirportControllerTests (1).executor\": \"Run\",\r\n    \"Gradle.AirportControllerTests.executor\": \"Run\",\r\n    \"Gradle.AirportControllerTests.testGetAllAirports_returnsEmptyList.executor\": \"Run\",\r\n    \"Gradle.Build airport-service.executor\": \"Run\",\r\n    \"Gradle.Build flight-service.executor\": \"Run\",\r\n    \"JUnit.AirportControllerTest.testGetAllAirports_returnsEmptyList.executor\": \"Run\",\r\n    \"JUnit.AirportControllerTests.executor\": \"Run\",\r\n    \"JUnit.AirportControllerTests.testGetAllAirports_returnsEmptyList.executor\": \"Run\",\r\n    \"RequestMappingsPanelOrder0\": \"0\",\r\n    \"RequestMappingsPanelOrder1\": \"1\",\r\n    \"RequestMappingsPanelWidth0\": \"75\",\r\n    \"RequestMappingsPanelWidth1\": \"75\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"RunOnceActivity.git.unshallow\": \"true\",\r\n    \"Spring Boot.AirportApplication.executor\": \"Run\",\r\n    \"Spring Boot.FlightApplication.executor\": \"Run\",\r\n    \"com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary\": \"JUnit5\",\r\n    \"com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5\": \"\",\r\n    \"git-widget-placeholder\": \"29-unit__tests__für__flüge\",\r\n    \"kotlin-language-version-configured\": \"true\",\r\n    \"last_opened_file_path\": \"C:/Users/Jilve/TBZ/m324_Gruppe1/Code\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.detected.package.tslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"nodejs_package_manager_path\": \"npm\",\r\n    \"project.structure.last.edited\": \"Project\",\r\n    \"project.structure.proportion\": \"0.15\",\r\n    \"project.structure.side.proportion\": \"0.0\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CreateTestDialog.Recents.Supers\">\r\n      <recent name=\"\" />\r\n    </key>\r\n    <key name=\"CreateTestDialog.RecentsKey\">\r\n      <recent name=\"tbz.ch.airport.controller\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Gradle.AirportControllerTests (1)\">\r\n    <configuration name=\"AirportControllerTests (1)\" type=\"GradleRunConfiguration\" factoryName=\"Gradle\" temporary=\"true\">\r\n      <ExternalSystemSettings>\r\n        <option name=\"executionName\" />\r\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$/airport-service\" />\r\n        <option name=\"externalSystemIdString\" value=\"GRADLE\" />\r\n        <option name=\"scriptParameters\" value=\"\" />\r\n        <option name=\"taskDescriptions\">\r\n          <list />\r\n        </option>\r\n        <option name=\"taskNames\">\r\n          <list>\r\n            <option value=\":test\" />\r\n            <option value=\"--tests\" />\r\n            <option value=\"&quot;tbz.ch.airport.controller.AirportControllerTests&quot;\" />\r\n          </list>\r\n        </option>\r\n        <option name=\"vmOptions\" />\r\n      </ExternalSystemSettings>\r\n      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>\r\n      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>\r\n      <DebugAllEnabled>false</DebugAllEnabled>\r\n      <RunAsTest>true</RunAsTest>\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"AirportControllerTests\" type=\"GradleRunConfiguration\" factoryName=\"Gradle\" temporary=\"true\">\r\n      <ExternalSystemSettings>\r\n        <option name=\"executionName\" />\r\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$/airport-service\" />\r\n        <option name=\"externalSystemIdString\" value=\"GRADLE\" />\r\n        <option name=\"scriptParameters\" value=\"\" />\r\n        <option name=\"taskDescriptions\">\r\n          <list />\r\n        </option>\r\n        <option name=\"taskNames\">\r\n          <list>\r\n            <option value=\":test\" />\r\n            <option value=\"--tests\" />\r\n            <option value=\"&quot;tbz.ch.airport.AirportControllerTests&quot;\" />\r\n          </list>\r\n        </option>\r\n        <option name=\"vmOptions\" />\r\n      </ExternalSystemSettings>\r\n      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>\r\n      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>\r\n      <DebugAllEnabled>false</DebugAllEnabled>\r\n      <RunAsTest>true</RunAsTest>\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"AirportControllerTests.testGetAllAirports_returnsEmptyList\" type=\"GradleRunConfiguration\" factoryName=\"Gradle\" temporary=\"true\">\r\n      <ExternalSystemSettings>\r\n        <option name=\"executionName\" />\r\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$/airport-service\" />\r\n        <option name=\"externalSystemIdString\" value=\"GRADLE\" />\r\n        <option name=\"scriptParameters\" value=\"\" />\r\n        <option name=\"taskDescriptions\">\r\n          <list />\r\n        </option>\r\n        <option name=\"taskNames\">\r\n          <list>\r\n            <option value=\":test\" />\r\n            <option value=\"--tests\" />\r\n            <option value=\"&quot;tbz.ch.airport.AirportControllerTests.testGetAllAirports_returnsEmptyList&quot;\" />\r\n          </list>\r\n        </option>\r\n        <option name=\"vmOptions\" />\r\n      </ExternalSystemSettings>\r\n      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>\r\n      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>\r\n      <DebugAllEnabled>false</DebugAllEnabled>\r\n      <RunAsTest>true</RunAsTest>\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"AirportControllerTests\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"airport-service.test\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"tbz.ch.airport.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <option name=\"PACKAGE_NAME\" value=\"tbz.ch.airport\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"tbz.ch.airport.AirportControllerTests\" />\r\n      <option name=\"TEST_OBJECT\" value=\"class\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"AirportControllerTests.testGetAllAirports_returnsEmptyList\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"airport-service.test\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"tbz.ch.airport.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <option name=\"PACKAGE_NAME\" value=\"tbz.ch.airport\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"tbz.ch.airport.AirportControllerTests\" />\r\n      <option name=\"METHOD_NAME\" value=\"testGetAllAirports_returnsEmptyList\" />\r\n      <option name=\"TEST_OBJECT\" value=\"method\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"AirportApplication\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\" nameIsGenerated=\"true\">\r\n      <module name=\"airport-service.main\" />\r\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"tbz.ch.airport.AirportApplication\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"FlightApplication\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\" nameIsGenerated=\"true\">\r\n      <module name=\"flight-service.main\" />\r\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"tbz.ch.flight.FlightApplication\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Gradle.AirportControllerTests (1)\" />\r\n        <item itemvalue=\"Gradle.AirportControllerTests\" />\r\n        <item itemvalue=\"Gradle.AirportControllerTests.testGetAllAirports_returnsEmptyList\" />\r\n        <item itemvalue=\"JUnit.AirportControllerTests\" />\r\n        <item itemvalue=\"JUnit.AirportControllerTests.testGetAllAirports_returnsEmptyList\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.22562.145\" />\r\n        <option value=\"bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-IU-243.22562.145\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"StructureViewState\">\r\n    <option name=\"selectedTab\" value=\"Logical\" />\r\n  </component>\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"c3d29ea5-8644-49dc-839f-f36e47d0b771\" name=\"Changes\" comment=\"\" />\r\n      <created>1757312399889</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1757312399889</updated>\r\n      <workItem from=\"1757312401056\" duration=\"8933000\" />\r\n      <workItem from=\"1758523681657\" duration=\"1596000\" />\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 367dc7c6ddd0d96b8f9d9591aad6e50c655d720f)
++++ b/.idea/workspace.xml	(date 1759126762946)
+@@ -4,7 +4,10 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="c3d29ea5-8644-49dc-839f-f36e47d0b771" name="Changes" comment="" />
++    <list default="true" id="c3d29ea5-8644-49dc-839f-f36e47d0b771" name="Changes" comment="">
++      <change beforePath="$PROJECT_DIR$/../.github/workflows/ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../.github/workflows/ci.yml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++    </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -71,40 +74,44 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "Gradle.AirportControllerTests (1).executor": "Run",
+-    "Gradle.AirportControllerTests.executor": "Run",
+-    "Gradle.AirportControllerTests.testGetAllAirports_returnsEmptyList.executor": "Run",
+-    "Gradle.Build airport-service.executor": "Run",
+-    "Gradle.Build flight-service.executor": "Run",
+-    "JUnit.AirportControllerTest.testGetAllAirports_returnsEmptyList.executor": "Run",
+-    "JUnit.AirportControllerTests.executor": "Run",
+-    "JUnit.AirportControllerTests.testGetAllAirports_returnsEmptyList.executor": "Run",
+-    "RequestMappingsPanelOrder0": "0",
+-    "RequestMappingsPanelOrder1": "1",
+-    "RequestMappingsPanelWidth0": "75",
+-    "RequestMappingsPanelWidth1": "75",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "RunOnceActivity.git.unshallow": "true",
+-    "Spring Boot.AirportApplication.executor": "Run",
+-    "Spring Boot.FlightApplication.executor": "Run",
+-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+-    "git-widget-placeholder": "29-unit__tests__für__flüge",
+-    "kotlin-language-version-configured": "true",
+-    "last_opened_file_path": "C:/Users/Jilve/TBZ/m324_Gruppe1/Code",
+-    "node.js.detected.package.eslint": "true",
+-    "node.js.detected.package.tslint": "true",
+-    "node.js.selected.package.eslint": "(autodetect)",
+-    "node.js.selected.package.tslint": "(autodetect)",
+-    "nodejs_package_manager_path": "npm",
+-    "project.structure.last.edited": "Project",
+-    "project.structure.proportion": "0.15",
+-    "project.structure.side.proportion": "0.0",
+-    "vue.rearranger.settings.migration": "true"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
++    &quot;Gradle.AirportControllerTests (1).executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.AirportControllerTests.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.AirportControllerTests.testGetAllAirports_returnsEmptyList.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.Build airport-service.executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.Build flight-service.executor&quot;: &quot;Run&quot;,
++    &quot;JUnit.AirportControllerTest.testGetAllAirports_returnsEmptyList.executor&quot;: &quot;Run&quot;,
++    &quot;JUnit.AirportControllerTests.executor&quot;: &quot;Run&quot;,
++    &quot;JUnit.AirportControllerTests.testGetAllAirports_returnsEmptyList.executor&quot;: &quot;Run&quot;,
++    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
++    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
++    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
++    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
++    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
++    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
++    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
++    &quot;Spring Boot.AirportApplication.executor&quot;: &quot;Run&quot;,
++    &quot;Spring Boot.FlightApplication.executor&quot;: &quot;Run&quot;,
++    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
++    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
++    &quot;git-widget-placeholder&quot;: &quot;34-minimal-pipeline-erstellen&quot;,
++    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
++    &quot;last_opened_file_path&quot;: &quot;C:/Users/Jilve/TBZ/m324_Gruppe1/Code&quot;,
++    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
++    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
++    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
++    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
++    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
++    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
++    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
++    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
++    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+   }
+-}]]></component>
++}</component>
+   <component name="RecentsManager">
+     <key name="CreateTestDialog.Recents.Supers">
+       <recent name="" />
+@@ -113,7 +120,7 @@
+       <recent name="tbz.ch.airport.controller" />
+     </key>
+   </component>
+-  <component name="RunManager" selected="Gradle.AirportControllerTests (1)">
++  <component name="RunManager" selected="Spring Boot.FlightApplication">
+     <configuration name="AirportControllerTests (1)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+       <ExternalSystemSettings>
+         <option name="executionName" />
+@@ -261,7 +268,8 @@
+       <option name="presentableId" value="Default" />
+       <updated>1757312399889</updated>
+       <workItem from="1757312401056" duration="8933000" />
+-      <workItem from="1758523681657" duration="1596000" />
++      <workItem from="1758523681657" duration="4546000" />
++      <workItem from="1759126305178" duration="379000" />
+     </task>
+     <servers />
+   </component>
