@@ -1,13 +1,14 @@
 package tbz.ch.airport.controller;
 
 import jakarta.validation.Valid;
+import org.springframework.web.server.ResponseStatusException;
+import org.springframework.http.HttpStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import tbz.ch.airport.dto.AirportRequest;
 import tbz.ch.airport.dto.AirportResponse;
 import tbz.ch.airport.entity.Airport;
 import tbz.ch.airport.repository.AirportRepository;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -35,6 +36,13 @@ public class AirportController {
                 .stream()
                 .map(this::mapToResponse)
                 .collect(Collectors.toList());
+    }
+
+    @GetMapping("/{code}")
+    public AirportResponse getAirportByCode(@PathVariable String code) {
+        Airport airport = airportRepository.findByCode(code)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Airport not found with code: " + code));
+        return mapToResponse(airport);
     }
 
     private AirportResponse mapToResponse(Airport airport) {
