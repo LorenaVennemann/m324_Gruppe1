@@ -5,19 +5,25 @@ on:
     branches:
       - main
       - 'feature/*'
+    paths: # Optional: Pipeline nur starten, wenn sich Code in den Services ändert
+      - 'Code/airport-service/**'
+      - 'Code/flight-service/**'
   pull_request:
     branches:
       - main
       - 'feature/*'
+    paths: # Optional: Pipeline nur starten, wenn sich Code in den Services ändert
+      - 'Code/airport-service/**'
+      - 'Code/flight-service/**'
 
 env:
   JAVA_VERSION: '21'
   GRADLE_OPTS: '-Dorg.gradle.daemon=false -Dorg.gradle.parallel=true -Dorg.gradle.caching=true'
 
 jobs:
-  # Job 1: Tests ausführen
+  # Job 1: Tests für jeden Service ausführen
   test:
-    name: Unit Tests
+    name: Unit Tests (${{ matrix.service }}) # Job-Name dynamisch machen
     runs-on: ubuntu-latest
     timeout-minutes: 15
     permissions:
@@ -25,48 +31,10 @@ jobs:
       checks: write
       pull-requests: write
 
-    steps:
-      - name: Repository auschecken
-        uses: actions/checkout@v4
-
-      - name: Java installieren
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'temurin'
-          java-version: ${{ env.JAVA_VERSION }}
-          cache: 'gradle'  # Integriertes Gradle-Caching
-
-      - name: Gradle Wrapper ausführbar machen
-        run: chmod +x ./Code/airport-service/gradlew
-
-      - name: Unit Tests ausführen
-        working-directory: ./Code/airport-service
-        run: ./gradlew test --no-daemon --console=plain
-
-      - name: Test Report veröffentlichen
-        uses: dorny/test-reporter@v1
-        if: success() || failure()
-        with:
-          name: Unit Test Results
-          path: ./Code/airport-service/build/test-results/test/*.xml
-          reporter: java-junit
-
-      - name: Test Coverage Report hochladen
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: test-reports
-          path: ./Code/airport-service/build/reports/tests/test/
-          retention-days: 7
-
-  # Job 2: Application bauen
-  build:
-    name: Build Application
-    runs-on: ubuntu-latest
-    needs: test
-    timeout-minutes: 20
-    permissions:
-      contents: read
+    strategy: # NEU: Matrix-Strategie definieren
+      fail-fast: false # Wichtig: Lässt andere Jobs weiterlaufen, auch wenn einer fehlschlägt
+      matrix:
+        service: [airport-service, flight-service] # Liste deiner Services
 
     steps:
       - name: Repository auschecken
@@ -80,33 +48,81 @@ jobs:
           cache: 'gradle'
 
       - name: Gradle Wrapper ausführbar machen
-        run: chmod +x ./Code/airport-service/gradlew
+        run: chmod +x ./Code/${{ matrix.service }}/gradlew # GEÄNDERT: Dynamischer Pfad
+
+      - name: Unit Tests ausführen
+        working-directory: ./Code/${{ matrix.service }} # GEÄNDERT: Dynamischer Pfad
+        run: ./gradlew test --no-daemon --console=plain
+
+      - name: Test Report veröffentlichen
+        uses: dorny/test-reporter@v1
+        if: success() || failure()
+        with:
+          name: Unit Tests (${{ matrix.service }}) # GEÄNDERT: Eindeutiger Name für den Report
+          path: ./Code/${{ matrix.service }}/build/test-results/test/*.xml # GEÄNDERT: Dynamischer Pfad
+          reporter: java-junit
+
+      - name: Test Coverage Report hochladen
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-reports-${{ matrix.service }} # GEÄNDERT: Eindeutiger Artefakt-Name
+          path: ./Code/${{ matrix.service }}/build/reports/tests/test/ # GEÄNDERT: Dynamischer Pfad
+          retention-days: 7
+
+  # Job 2: Application für jeden Service bauen
+  build:
+    name: Build Application (${{ matrix.service }}) # Job-Name dynamisch machen
+    runs-on: ubuntu-latest
+    needs: test # Dieser Job ist von allen Test-Jobs abhängig
+    timeout-minutes: 20
+    permissions:
+      contents: read
+
+    strategy: # NEU: Dieselbe Matrix hier
+      fail-fast: false
+      matrix:
+        service: [airport-service, flight-service]
+
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@v4
+
+      - name: Java installieren
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: ${{ env.JAVA_VERSION }}
+          cache: 'gradle'
+
+      - name: Gradle Wrapper ausführbar machen
+        run: chmod +x ./Code/${{ matrix.service }}/gradlew # GEÄNDERT: Dynamischer Pfad
 
       - name: Application bauen
-        working-directory: ./Code/airport-service
+        working-directory: ./Code/${{ matrix.service }} # GEÄNDERT: Dynamischer Pfad
         run: ./gradlew build -x test --no-daemon --console=plain --build-cache
 
       - name: JAR-Datei umbenennen (mit Version)
-        working-directory: ./Code/airport-service/build/libs
+        working-directory: ./Code/${{ matrix.service }}/build/libs # GEÄNDERT: Dynamischer Pfad
         run: |
           COMMIT_SHORT=$(git rev-parse --short HEAD)
           for file in *.jar; do
             if [ -f "$file" ]; then
-              mv "$file" "airport-service-${COMMIT_SHORT}.jar"
+              mv "$file" "${{ matrix.service }}-${COMMIT_SHORT}.jar" # GEÄNDERT: Dynamischer Name
             fi
           done
 
       - name: Build-Artefakte speichern
         uses: actions/upload-artifact@v4
         with:
-          name: application-jar
-          path: ./Code/airport-service/build/libs/*.jar
+          name: application-jar-${{ matrix.service }} # GEÄNDERT: Eindeutiger Artefakt-Name
+          path: ./Code/${{ matrix.service }}/build/libs/*.jar # GEÄNDERT: Dynamischer Pfad
           retention-days: 30
 
       - name: Build-Grösse ausgeben
-        working-directory: ./Code/airport-service/build/libs
+        working-directory: ./Code/${{ matrix.service }}/build/libs # GEÄNDERT: Dynamischer Pfad
         run: |
-          echo "### Build Information" >> $GITHUB_STEP_SUMMARY
+          echo "### Build Information (${{ matrix.service }})" >> $GITHUB_STEP_SUMMARY
           echo "- **JAR Size:** $(du -h *.jar | cut -f1)" >> $GITHUB_STEP_SUMMARY
           echo "- **Commit:** $(git rev-parse --short HEAD)" >> $GITHUB_STEP_SUMMARY
           echo "- **Build Time (UTC):** $(date -u '+%Y-%m-%d %H:%M:%S')" >> $GITHUB_STEP_SUMMARY
