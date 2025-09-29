@@ -65,7 +65,6 @@ class AirportApplicationTests {
             @Test
             @DisplayName("Should create airport with valid data")
             void shouldCreateAirportWithValidData() throws Exception {
-                // Given
                 AirportRequest request = new AirportRequest();
                 request.setName("Zurich Airport");
                 request.setCode("ZUR");
@@ -73,7 +72,6 @@ class AirportApplicationTests {
 
                 when(airportRepository.save(any(Airport.class))).thenReturn(sampleAirport);
 
-                // When & Then
                 mockMvc.perform(post("/airports")
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content(objectMapper.writeValueAsString(request)))
@@ -87,7 +85,6 @@ class AirportApplicationTests {
             @Test
             @DisplayName("Should create airport with minimum valid capacity")
             void shouldCreateAirportWithMinimumCapacity() throws Exception {
-                // Given
                 AirportRequest request = new AirportRequest();
                 request.setName("Small Airport");
                 request.setCode("SML");
@@ -102,7 +99,6 @@ class AirportApplicationTests {
 
                 when(airportRepository.save(any(Airport.class))).thenReturn(smallAirport);
 
-                // When & Then
                 mockMvc.perform(post("/airports")
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content(objectMapper.writeValueAsString(request)))
@@ -113,7 +109,6 @@ class AirportApplicationTests {
             @Test
             @DisplayName("Should create airport with uppercase code")
             void shouldCreateAirportWithUppercaseCode() throws Exception {
-                // Given
                 AirportRequest request = new AirportRequest();
                 request.setName("Frankfurt Airport");
                 request.setCode("FRA");
@@ -128,7 +123,6 @@ class AirportApplicationTests {
 
                 when(airportRepository.save(any(Airport.class))).thenReturn(airport);
 
-                // When & Then
                 mockMvc.perform(post("/airports")
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content(objectMapper.writeValueAsString(request)))
@@ -144,13 +138,11 @@ class AirportApplicationTests {
             @Test
             @DisplayName("Should return 400 when code is empty")
             void shouldReturn400WhenCodeIsEmpty() throws Exception {
-                // Given
                 AirportRequest request = new AirportRequest();
                 request.setName("Test Airport");
                 request.setCode("");
                 request.setCapacity(100);
 
-                // When & Then
                 mockMvc.perform(post("/airports")
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content(objectMapper.writeValueAsString(request)))
@@ -160,13 +152,11 @@ class AirportApplicationTests {
             @Test
             @DisplayName("Should return 400 when code is null")
             void shouldReturn400WhenCodeIsNull() throws Exception {
-                // Given
                 AirportRequest request = new AirportRequest();
                 request.setName("Test Airport");
                 request.setCode(null);
                 request.setCapacity(100);
 
-                // When & Then
                 mockMvc.perform(post("/airports")
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content(objectMapper.writeValueAsString(request)))
@@ -176,13 +166,11 @@ class AirportApplicationTests {
             @Test
             @DisplayName("Should return 400 when code has only 1 character")
             void shouldReturn400WhenCodeHasOneCharacter() throws Exception {
-                // Given
                 AirportRequest request = new AirportRequest();
                 request.setName("Test Airport");
                 request.setCode("Z");
                 request.setCapacity(100);
 
-                // When & Then
                 mockMvc.perform(post("/airports")
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content(objectMapper.writeValueAsString(request)))
@@ -192,13 +180,11 @@ class AirportApplicationTests {
             @Test
             @DisplayName("Should return 400 when code has only 2 characters")
             void shouldReturn400WhenCodeHasTwoCharacters() throws Exception {
-                // Given
                 AirportRequest request = new AirportRequest();
                 request.setName("Test Airport");
                 request.setCode("ZU");
                 request.setCapacity(100);
 
-                // When & Then
                 mockMvc.perform(post("/airports")
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content(objectMapper.writeValueAsString(request)))
@@ -208,13 +194,11 @@ class AirportApplicationTests {
             @Test
             @DisplayName("Should return 400 when code has more than 3 characters")
             void shouldReturn400WhenCodeHasMoreThanThreeCharacters() throws Exception {
-                // Given
                 AirportRequest request = new AirportRequest();
                 request.setName("Test Airport");
                 request.setCode("ZURH");
                 request.setCapacity(100);
 
-                // When & Then
                 mockMvc.perform(post("/airports")
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content(objectMapper.writeValueAsString(request)))
@@ -229,13 +213,11 @@ class AirportApplicationTests {
             @Test
             @DisplayName("Should return 400 when capacity is negative")
             void shouldReturn400WhenCapacityIsNegative() throws Exception {
-                // Given
                 AirportRequest request = new AirportRequest();
                 request.setName("Test Airport");
                 request.setCode("TST");
                 request.setCapacity(-1);
 
-                // When & Then
                 mockMvc.perform(post("/airports")
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content(objectMapper.writeValueAsString(request)))
@@ -245,13 +227,11 @@ class AirportApplicationTests {
             @Test
             @DisplayName("Should return 400 when capacity is zero")
             void shouldReturn400WhenCapacityIsZero() throws Exception {
-                // Given
                 AirportRequest request = new AirportRequest();
                 request.setName("Test Airport");
                 request.setCode("TST");
                 request.setCapacity(0);
 
-                // When & Then
                 mockMvc.perform(post("/airports")
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content(objectMapper.writeValueAsString(request)))
@@ -261,13 +241,11 @@ class AirportApplicationTests {
             @Test
             @DisplayName("Should return 400 when capacity is too large")
             void shouldReturn400WhenCapacityIsTooLarge() throws Exception {
-                // Given
                 AirportRequest request = new AirportRequest();
                 request.setName("Test Airport");
                 request.setCode("TST");
                 request.setCapacity(Integer.MAX_VALUE);
 
-                // When & Then
                 mockMvc.perform(post("/airports")
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content(objectMapper.writeValueAsString(request)))
@@ -282,13 +260,11 @@ class AirportApplicationTests {
             @Test
             @DisplayName("Should return 400 when name is empty")
             void shouldReturn400WhenNameIsEmpty() throws Exception {
-                // Given
                 AirportRequest request = new AirportRequest();
                 request.setName("");
                 request.setCode("TST");
                 request.setCapacity(100);
 
-                // When & Then
                 mockMvc.perform(post("/airports")
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content(objectMapper.writeValueAsString(request)))
@@ -298,13 +274,11 @@ class AirportApplicationTests {
             @Test
             @DisplayName("Should return 400 when name is null")
             void shouldReturn400WhenNameIsNull() throws Exception {
-                // Given
                 AirportRequest request = new AirportRequest();
                 request.setName(null);
                 request.setCode("TST");
                 request.setCapacity(100);
 
-                // When & Then
                 mockMvc.perform(post("/airports")
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content(objectMapper.writeValueAsString(request)))
@@ -314,14 +288,12 @@ class AirportApplicationTests {
             @Test
             @DisplayName("Should return 400 when name is too long")
             void shouldReturn400WhenNameIsTooLong() throws Exception {
-                // Given
                 String longName = "A".repeat(256);
                 AirportRequest request = new AirportRequest();
                 request.setName(longName);
                 request.setCode("TST");
                 request.setCapacity(100);
 
-                // When & Then
                 mockMvc.perform(post("/airports")
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content(objectMapper.writeValueAsString(request)))
@@ -336,10 +308,8 @@ class AirportApplicationTests {
             @Test
             @DisplayName("Should return 400 when JSON is malformed")
             void shouldReturn400WhenJsonIsMalformed() throws Exception {
-                // Given
                 String malformedJson = "{\"name\": \"Test\", \"code\": \"TST\", \"capacity\":";
 
-                // When & Then
                 mockMvc.perform(post("/airports")
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content(malformedJson))
@@ -349,10 +319,8 @@ class AirportApplicationTests {
             @Test
             @DisplayName("Should return 400 when capacity is not a number")
             void shouldReturn400WhenCapacityIsNotANumber() throws Exception {
-                // Given
                 String jsonWithInvalidCapacity = "{\"name\": \"Test Airport\", \"code\": \"TST\", \"capacity\": \"not-a-number\"}";
 
-                // When & Then
                 mockMvc.perform(post("/airports")
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content(jsonWithInvalidCapacity))
@@ -368,7 +336,6 @@ class AirportApplicationTests {
         @Test
         @DisplayName("Should return all airports when airports exist")
         void shouldReturnAllAirportsWhenAirportsExist() throws Exception {
-            // Given
             Airport airport1 = new Airport();
             airport1.setId(1);
             airport1.setName("Zurich Airport");
@@ -386,7 +353,6 @@ class AirportApplicationTests {
             List<Airport> airports = Arrays.asList(airport1, airport2);
             when(airportRepository.findAll()).thenReturn(airports);
 
-            // When & Then
             mockMvc.perform(get("/airports"))
                     .andExpect(status().isOk())
                     .andExpect(jsonPath("$.length()").value(2))
@@ -403,10 +369,8 @@ class AirportApplicationTests {
         @Test
         @DisplayName("Should return empty list when no airports exist")
         void shouldReturnEmptyListWhenNoAirportsExist() throws Exception {
-            // Given
             when(airportRepository.findAll()).thenReturn(List.of());
 
-            // When & Then
             mockMvc.perform(get("/airports"))
                     .andExpect(status().isOk())
                     .andExpect(jsonPath("$.length()").value(0));
