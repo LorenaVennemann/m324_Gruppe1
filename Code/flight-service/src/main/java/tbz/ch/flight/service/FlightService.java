@@ -11,6 +11,7 @@ import tbz.ch.flight.dto.FlightRequest;
 import tbz.ch.flight.dto.FlightResponse;
 import tbz.ch.flight.entity.Flight;
 import tbz.ch.flight.repository.FlightRepository;
+import tbz.ch.flight.validator.FlightValidator;
 
 import java.time.LocalDateTime;
 import java.util.Collections;
@@ -26,6 +27,9 @@ public class FlightService {
     @Autowired
     private RestTemplate restTemplate;
 
+    @Autowired
+    private FlightValidator flightValidator;
+
     public FlightResponse createFlight(FlightRequest request) throws BadRequestException {
         Flight flight = new Flight();
         flight.setArrivalAirportCode(request.getArrivalAirportCode());
@@ -34,29 +38,7 @@ public class FlightService {
         flight.setDepartureDatetime(request.getDepartureDatetime());
         flight.setAircraftType(request.getAircraftType());
 
-        if (!flight.getDepartureDatetime().isAfter(LocalDateTime.now())) {
-            throw new BadRequestException("Departure time must be in the future.");
-        }
-
-        if (!flight.getArrivalDatetime().isAfter(LocalDateTime.now())) {
-            throw new BadRequestException("Arrival time must be in the future.");
-        }
-
-        if (!flight.isValidTimeSequence()) {
-            throw new BadRequestException("Invalid time sequence: Arrival must be after departure.");
-        }
-
-        if (!flight.isDifferentAirports()) {
-            throw new BadRequestException("Arrival and departure airports must be different.");
-        }
-
-        if (getAirports().stream().noneMatch(a -> a.getCode().equals(flight.getArrivalAirportCode()))) {
-            throw new BadRequestException("Arrival airport dosn't exist.");
-        }
-
-        if (getAirports().stream().noneMatch(a -> a.getCode().equals(flight.getDepartureAirportCode()))) {
-            throw new BadRequestException("Departure airport dosn't exist.");
-        }
+        flightValidator.validate(flight, getAirports());
 
         Flight saved = flightRepository.save(flight);
         return mapToResponse(saved);
