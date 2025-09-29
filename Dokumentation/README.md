@@ -238,6 +238,72 @@ Dieser Job wird erst ausgeführt, nachdem der `test`-Job für den entsprechenden
 | **Transparenz** | Die Test-Reports von `dorny/test-reporter` werden direkt in Pull Requests angezeigt. Fehlerhafte Tests sind so sofort ersichtlich, ohne die Logs durchsuchen zu müssen.           |
 | **Nachvollziehbarkeit** | Alle erstellten Artefakte (Test-Reports, JAR-Dateien) werden für eine bestimmte Zeit gespeichert und können bei Bedarf heruntergeladen und inspiziert werden.                        |
 
+
+## Systemtests – Airport & Flight APIs
+
+### Tool
+- **Postman**: Erstellung und Ausführung der Tests
+
+### Getestete Endpunkte & Tests
+
+#### Airport API
+- **POST /airports**
+  - Statuscode 200 prüfen
+  - Response enthält ID
+  - Airport-Code korrekt grossgeschrieben (3 Grossbuchstaben)
+- **GET /airports**
+  - Statuscode 200 prüfen
+  - Response ist ein Array
+  - Jedes Objekt hat ID und Code
+  - Name und Capacity vorhanden und gültig
+
+#### Flight API
+- **POST /flights**
+  - Statuscode 200 prüfen
+  - Response enthält ID
+  - Departure- und Arrival-Airport korrekt gesetzt
+  - Abflug- und Ankunftszeit korrekt gesetzt
+  - AircraftType korrekt gesetzt
+  - Optional: ID für weitere Tests speichern
+- **GET /flights**
+  - Statuscode 200 prüfen
+  - Response ist ein Array
+  - Jede Flug-Entität hat eine ID
+  - Departure- und Arrival-Airport-Code korrekt formatiert (3 Grossbuchstaben)
+
+### Pipeline-Integration
+- Postman-Collection kann mit **Newman** in CI/CD eingebunden werden
+- Dynamische IDs werden über Environment-Variablen gehandhabt
+- End-to-End-Szenarien werden nach jedem Build automatisch geprüft
+
+
+Für unsere Flight- und Airport-APIs wurden folgende Systemtests eingebunden:
+
+### Tools
+- **Postman**: zur Erstellung und Ausführung der API-Tests
+
+### Endpunkte getestet
+- **POST /airports**: Neuen Flughafen erstellen
+- **GET /airports**: Alle Flughäfen abrufen
+- **POST /flights**: Neuen Flug erstellen
+- **GET /flights**: Alle Flüge abrufen
+
+### Testinhalte
+- Statuscodes prüfen (200 OK, 400 Bad Request)
+- Response-Felder prüfen:
+  - IDs vorhanden
+  - Codes korrekt formatiert (z. B. 3 Grossbuchstaben)
+  - Zeiten gültig (Abflug vor Ankunft, in der Zukunft)
+  - Name und Kapazität korrekt gesetzt
+- Fehlerfälle prüfen:
+  - Ungültige Daten → BadRequest
+  - Identische Abflugs- und Ankunftsflughäfen → BadRequest
+
+### Pipeline-Integration
+- Postman-Collection kann mit **Newman** in CI/CD-Pipeline eingebunden werden
+- Tests prüfen End-to-End-Szenarien automatisch nach jedem Build
+- Dynamische IDs werden über Environment-Variablen gehandhabt, um Abhängigkeiten zwischen Tests zu vermeiden
+
 # CI-Integration und Event-Strategie
 
 ## Übersicht
