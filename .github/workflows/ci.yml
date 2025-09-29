@@ -10,10 +10,16 @@ on:
       - main
       - 'feature/*'
 
+env:
+  JAVA_VERSION: '21'
+  GRADLE_OPTS: '-Dorg.gradle.daemon=false -Dorg.gradle.parallel=true -Dorg.gradle.caching=true'
+
 jobs:
+  # Job 1: Tests ausführen
   test:
     name: Unit Tests
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     permissions:
       contents: read
       checks: write
@@ -21,30 +27,24 @@ jobs:
 
     steps:
       - name: Repository auschecken
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Java installieren
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
-          java-version: '21'
-
-      - name: Cache Gradle dependencies
-        uses: actions/cache@v3
-        with:
-          path: |
-            ~/.gradle/caches
-            ~/.gradle/wrapper
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
-          restore-keys: |
-            ${{ runner.os }}-gradle-
+          java-version: ${{ env.JAVA_VERSION }}
+          cache: 'gradle'  # Integriertes Gradle-Caching
 
       - name: Gradle Wrapper ausführbar machen
         run: chmod +x ./Code/airport-service/gradlew
 
+      - name: Gradle Wrapper validieren
+        uses: gradle/wrapper-validation-action@v2
+
       - name: Unit Tests ausführen
         working-directory: ./Code/airport-service
-        run: ./gradlew test
+        run: ./gradlew test --no-daemon --console=plain
 
       - name: Test Report veröffentlichen
         uses: dorny/test-reporter@v1
@@ -54,40 +54,125 @@ jobs:
           path: ./Code/airport-service/build/test-results/test/*.xml
           reporter: java-junit
 
+      - name: Test Coverage Report hochladen
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-coverage
+          path: ./Code/airport-service/build/reports/tests/test/
+          retention-days: 7
+
+  # Job 2: Application bauen
   build:
     name: Build Application
     runs-on: ubuntu-latest
-    needs: test  # Nur ausführen wenn Tests erfolgreich
+    needs: test
+    timeout-minutes: 20
+    permissions:
+      contents: read
 
     steps:
       - name: Repository auschecken
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Java installieren
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
-          java-version: '21'
-
-      - name: Cache Gradle dependencies
-        uses: actions/cache@v3
-        with:
-          path: |
-            ~/.gradle/caches
-            ~/.gradle/wrapper
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
-          restore-keys: |
-            ${{ runner.os }}-gradle-
+          java-version: ${{ env.JAVA_VERSION }}
+          cache: 'gradle'
 
       - name: Gradle Wrapper ausführbar machen
         run: chmod +x ./Code/airport-service/gradlew
 
       - name: Application bauen
         working-directory: ./Code/airport-service
-        run: ./gradlew build -x test  # Tests überspringen, da bereits gelaufen
+        run: ./gradlew build -x test --no-daemon --console=plain --build-cache
+
+      - name: JAR-Datei umbenennen (mit Version)
+        working-directory: ./Code/airport-service/build/libs
+        run: |
+          VERSION=$(grep 'version' ../../build.gradle | head -1 | cut -d "'" -f 2)
+          COMMIT_SHORT=$(git rev-parse --short HEAD)
+          mv *.jar airport-service-${VERSION}-${COMMIT_SHORT}.jar
 
       - name: Build-Artefakte speichern
         uses: actions/upload-artifact@v4
         with:
           name: application-jar
           path: ./Code/airport-service/build/libs/*.jar
+          retention-days: 30
+
+      - name: Build-Grösse ausgeben
+        working-directory: ./Code/airport-service/build/libs
+        run: |
+          echo "### Build Information" >> $GITHUB_STEP_SUMMARY
+          echo "- **JAR Size:** $(du -h *.jar | cut -f1)" >> $GITHUB_STEP_SUMMARY
+          echo "- **Build Time:** $(date)" >> $GITHUB_STEP_SUMMARY
+
+  # Job 3: Code-Qualität prüfen
+  code-quality:
+    name: Code Quality Check
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@v4
+
+      - name: Java installieren
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: ${{ env.JAVA_VERSION }}
+          cache: 'gradle'
+
+      - name: Gradle Wrapper ausführbar machen
+        run: chmod +x ./Code/airport-service/gradlew
+
+      - name: Checkstyle ausführen
+        working-directory: ./Code/airport-service
+        run: ./gradlew checkstyleMain checkstyleTest --no-daemon
+        continue-on-error: true
+
+      - name: SpotBugs ausführen
+        working-directory: ./Code/airport-service
+        run: ./gradlew spotbugsMain --no-daemon
+        continue-on-error: true
+
+  # Job 4: Dependency Check
+  dependency-check:
+    name: Security Scan
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@v4
+
+      - name: Java installieren
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: ${{ env.JAVA_VERSION }}
+          cache: 'gradle'
+
+      - name: Gradle Wrapper ausführbar machen
+        run: chmod +x ./Code/airport-service/gradlew
+
+      - name: Dependency Check ausführen
+        working-directory: ./Code/airport-service
+        run: ./gradlew dependencyCheckAnalyze --no-daemon
+        continue-on-error: true
+
+      - name: Security Report hochladen
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: dependency-check-report
+          path: ./Code/airport-service/build/reports/dependency-check-report.html
+          retention-days: 7
