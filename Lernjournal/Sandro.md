@@ -1,5 +1,11 @@
 # Lernjournal von Sandro
 
+## 29.09.2025
+
+- Datenformatierung_und_Response_Struktur_Flughäfen: JSON sauber strukturiert, übersichtlich
+- Automatisches Bauen einrichten: Definiere, wie der Code gebaut wird (z. B. mvn package, gradle build). Baue Caching ein (Maven-, Gradle- oder npm-Cache), um Builds schneller zu machen.
+- Unit Tests integrieren: Binde die Unit Tests aus P2 in die Pipeline ein. Stelle sicher, dass sie bei jedem Commit/Pull Request automatisch laufen.
+
 ## 22.09.2025
 
 Heute habe ich mich irgendwie nicht so produktiv gefühlt oder jedenfalls nicht so produktiv wie ich gerne gewesen wäre. Auch bei mir in der Firma gibt es Tage, an denen ich nicht so produktiv bin oder auch einfach nicht so produktiv fühle.

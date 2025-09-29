@@ -238,6 +238,7 @@ Dieser Job wird erst ausgeführt, nachdem der `test`-Job für den entsprechenden
 | **Transparenz** | Die Test-Reports von `dorny/test-reporter` werden direkt in Pull Requests angezeigt. Fehlerhafte Tests sind so sofort ersichtlich, ohne die Logs durchsuchen zu müssen.           |
 | **Nachvollziehbarkeit** | Alle erstellten Artefakte (Test-Reports, JAR-Dateien) werden für eine bestimmte Zeit gespeichert und können bei Bedarf heruntergeladen und inspiziert werden.                        |
 
+
 ## Systemtests – Airport & Flight APIs
 
 ### Tool
@@ -302,3 +303,260 @@ Für unsere Flight- und Airport-APIs wurden folgende Systemtests eingebunden:
 - Postman-Collection kann mit **Newman** in CI/CD-Pipeline eingebunden werden
 - Tests prüfen End-to-End-Szenarien automatisch nach jedem Build
 - Dynamische IDs werden über Environment-Variablen gehandhabt, um Abhängigkeiten zwischen Tests zu vermeiden
+
+# CI-Integration und Event-Strategie
+
+## Übersicht
+
+Die CI-Pipeline ist eng mit unserer Branching-Strategie verzahnt. Dieser Abschnitt beschreibt detailliert, welche Events und Branches die automatisierten Prozesse auslösen und warum diese Entscheidungen getroffen wurden.
+
+## Event-Trigger und Branch-Konfiguration
+
+### Trigger-Übersicht
+
+| Event | Branches | Zweck |
+|-------|----------|-------|
+| **Push** | `main`, `feature/*`, `bug/*` | Sofortige Validierung bei Code-Änderungen |
+| **Pull Request** | Target: `main` | Qualitätssicherung vor dem Merge |
+
+### Push Events
+
+**Ausgelöste Branches:**
+- `main`: Der produktive Branch muss immer getestet werden
+- `feature/*`: Entwickler erhalten sofortiges Feedback während der Feature-Entwicklung
+- `bug/*`: Bugfixes werden validiert, bevor sie in den Main-Branch gelangen
+
+**Begründung:**
+- Entwickler sollen **während** der Entwicklung Feedback bekommen, nicht erst beim Pull Request
+- Frühes Erkennen von Fehlern spart Zeit und verhindert fehlerhafte Merges
+- Der Main-Branch wird zusätzlich abgesichert
+
+**Path-Filter:**
+Die Pipeline läuft nur bei Änderungen in:
+- `Code/airport-service/**`
+- `Code/flight-service/**`
+
+**Begründung:**
+- Dokumentationsänderungen (z.B. README, docs/) sollen keinen Build auslösen
+- Spart CI-Minuten und beschleunigt den Workflow
+- Entwickler werden nicht durch unnötige Builds gestört
+
+### Pull Request Events
+
+**Target Branch:** `main`
+
+**Begründung:**
+- Letzte Qualitätskontrolle vor dem Merge
+- Test-Reports werden direkt im Pull Request angezeigt
+- Reviewer sehen sofort, ob alle Tests erfolgreich sind
+- Verhindert, dass fehlerhafter Code in den Main-Branch gelangt
+
+**Warum nur `main` als Target?**
+- Feature-zu-Feature Merges sind selten in unserem Workflow
+- Alle wichtigen Merges gehen in den Main-Branch
+- Reduziert die Komplexität der Pipeline
+
+## Branch-spezifisches Verhalten
+
+### Main Branch
+
+**Status:** Protected Branch
+
+**CI-Verhalten:**
+- ✅ Pipeline läuft bei jedem Push
+- ✅ Pipeline läuft bei jedem eingehenden Pull Request
+- ✅ Build-Artefakte werden gespeichert (30 Tage Retention)
+
+**Besonderheiten:**
+- Direktes Pushen ist **nicht** erlaubt (Branch Protection Rules)
+- Nur über genehmigte Pull Requests möglich
+- CI muss erfolgreich sein, bevor Merge möglich ist
+
+### Feature Branches
+
+**Lebenszyklus:** Kurzlebig
+
+**CI-Verhalten:**
+- ✅ Pipeline läuft bei jedem Push
+- ✅ Entwickler erhält sofortiges Feedback
+- ✅ Test-Reports werden als Artefakte gespeichert (7 Tage)
+- ✅ JAR-Dateien werden gebaut, falls Tests erfolgreich sind
+
+**Workflow:**
+1. Branch wird von `main` erstellt: `feature/P2-Micro-Service-Entwickeln`
+2. Entwickler macht Commits → Pipeline läuft automatisch
+3. Bei Fehlern: Entwickler kann sofort reagieren
+4. Pull Request nach `main` → Finale Validierung
+5. Nach Merge: Branch wird gelöscht
+
+### Bug Branches
+
+**Lebenszyklus:** Sehr kurzlebig
+
+**CI-Verhalten:**
+- ✅ Pipeline läuft bei jedem Push
+- ✅ Schnelle Validierung, ob Bug behoben ist
+- ✅ Gleiche Tests wie bei Feature Branches
+
+**Workflow:**
+1. Bug wird entdeckt
+2. Branch wird erstellt: `bug/micro-service-not-responding`
+3. Bugfix wird implementiert
+4. CI validiert, dass Tests wieder erfolgreich sind
+5. Pull Request → Merge → Branch löschen
+
+## Pipeline-Phasen und deren Zweck
+
+### Phase 1: Unit Tests (`test` Job)
+
+**Wann:** Immer als erstes
+
+**Zweck:**
+- Sicherstellen, dass der Code funktional korrekt ist
+- Frühes Feedback bei Fehlern
+- Verhindert unnötige Build-Prozesse bei fehlerhaften Tests
+
+**Parallel-Strategie:**
+- Beide Services (`airport-service`, `flight-service`) werden **gleichzeitig** getestet
+- Spart Zeit (5 Min. statt 10 Min.)
+- `fail-fast: false` sorgt dafür, dass beide Services getestet werden, auch wenn einer fehlschlägt
+
+### Phase 2: Build Application (`build` Job)
+
+**Wann:** Nur wenn Tests erfolgreich waren (`needs: test`)
+
+**Zweck:**
+- Erstellt lauffähige Artefakte (JAR-Dateien)
+- Validiert, dass der Build-Prozess funktioniert
+- Stellt deploybare Artefakte bereit
+
+**Dependency:**
+- `needs: test` verhindert unnötige Builds bei fehlerhaften Tests
+- Spart CI-Minuten und gibt klares Feedback
+
+## Optimierungen und Best Practices
+
+### Caching-Strategie
+
+**Gradle Cache:**
+```yaml
+cache: 'gradle'
+```
+
+**Effekt:**
+- Dependencies werden zwischen Builds wiederverwendet
+- Erste Build: ~5-7 Min
+- Nachfolgende Builds: ~2-3 Min
+- Spart ~50% der Build-Zeit
+
+### Matrix-Strategie
+
+**Konfiguration:**
+```yaml
+strategy:
+  fail-fast: false
+  matrix:
+    service: [airport-service, flight-service]
+```
+
+**Vorteile:**
+- Beide Services werden parallel getestet/gebaut
+- Klare Trennung in den Logs
+- Skalierbar: Neuer Service? Einfach zur Matrix hinzufügen
+
+**`fail-fast: false`:**
+- Beide Services werden immer getestet, auch wenn einer fehlschlägt
+- Entwickler sieht alle Fehler auf einmal, nicht nur den ersten
+
+### Timeout-Konfiguration
+
+**Test Job:** 15 Minuten
+**Build Job:** 20 Minuten
+
+**Begründung:**
+- Verhindert, dass hängende Jobs CI-Minuten verschwenden
+- Normale Builds sollten deutlich schneller sein (5-10 Min.)
+- Bei Timeout: Hinweis auf Problem im Code oder der Infrastruktur
+
+## Artefakt-Management
+
+### Test Reports
+
+**Retention:** 7 Tage
+
+**Zweck:**
+- Detaillierte Analyse von Testfehlern
+- Coverage-Reports für Code-Qualität
+- Historische Vergleiche möglich
+
+**Zugriff:**
+- Download über Actions-Tab
+- Automatisch im Pull Request sichtbar (via `dorny/test-reporter`)
+
+### JAR-Dateien
+
+**Retention:** 30 Tage
+
+**Naming:** `<service>-<commit-hash>.jar`
+- Beispiel: `airport-service-a1b2c3d.jar`
+
+**Zweck:**
+- Manuelle Tests der gebauten Anwendung
+- Vorbereitung für zukünftiges Deployment (CD)
+- Versionierung über Commit-Hash
+
+## Monitoring und Feedback
+
+### Erfolgreiche Builds
+
+**Feedback-Kanäle:**
+1. ✅ Grünes Häkchen im Actions-Tab
+2. ✅ GitHub Notification (wenn aktiviert)
+3. ✅ Status im Pull Request (wenn applicable)
+4. ✅ Build-Summary mit Details (JAR-Grösse, Build-Zeit)
+
+### Fehlerhafte Builds
+
+**Feedback-Kanäle:**
+1. ❌ Rotes Kreuz im Actions-Tab
+2. ❌ GitHub Notification mit Fehlerdetails
+3. ❌ Blockierter Pull Request
+4. ❌ Test-Report zeigt fehlgeschlagene Tests
+
+**Workflow bei Fehlern:**
+1. Entwickler erhält Notification
+2. Öffnet Actions → Klickt auf fehlerhaften Lauf
+3. Identifiziert fehlerhaften Job/Service
+4. Öffnet Logs und analysiert Fehler
+5. Behebt Fehler lokal
+6. Pusht Fix → Pipeline läuft erneut
+
+## Branching-Strategie: Integration mit CI
+
+### Flow-Diagramm
+
+```
+main (immer grün)
+  ↑
+  └─ Pull Request (CI muss grün sein)
+      ↑
+      └─ feature/* oder bug/* (CI läuft bei jedem Push)
+```
+
+### Regeln und Konventionen
+
+1. **Main Branch Protection:**
+    - Direktes Pushen von Code verboten
+    - Pull Request erforderlich
+    - CI muss erfolgreich sein
+    - Mindestens 1 Approval erforderlich
+
+2. **Feature/Bug Branches:**
+    - CI läuft bei jedem Push
+    - Entwickler kann selbstständig iterieren
+    - Keine Approvals nötig während Entwicklung
+
+3. **Pull Requests:**
+    - CI läuft automatisch
+    - Test-Reports direkt sichtbar
+    - Merge nur möglich bei grüner CI
