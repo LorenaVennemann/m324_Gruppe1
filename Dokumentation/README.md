@@ -182,7 +182,7 @@ Für dieses Projekt werden **GitHub Actions** verwendet. Der Grund ist, dass das
 | **Übersicht**    | Weniger, alle Logs in einem Job | Klar getrennt, pro Job eigenes Log |
 | **Fehlererkennung** | Unklarer – Build-/Testfehler im selben Log | Sehr klar – Build- oder Testfehler sofort sichtbar |
 | **Komplexität**  | Einfach, wenig Setup nötig | Etwas komplexer (Artefakte, Dependencies) |
-| **Eignung**      | Kleine Projekte, PoCs | Mittlere/große Projekte, Teamarbeit |
+| **Eignung**      | Kleine Projekte, PoCs | Mittlere/grosse Projekte, Teamarbeit |
 
 ---
 
