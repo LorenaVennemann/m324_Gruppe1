@@ -189,3 +189,51 @@ Für dieses Projekt werden **GitHub Actions** verwendet. Der Grund ist, dass das
 ### Fazit
 - **Variante A**: Schnell eingerichtet, gut für kleine Projekte.  
 - **Variante B**: Langfristig die bessere Wahl → mehr Übersicht, parallele Tests, bessere Fehlerdiagnose.  
+
+## Umsetzung der CI-Pipeline
+
+Basierend auf unserer Evaluation haben wir uns für eine Pipeline mit getrennten Jobs für Tests und Builds entschieden (Variante B). Die Pipeline ist so konfiguriert, dass sie für unsere beiden Microservices (`airport-service` und `flight-service`) parallel ausgeführt wird, um Effizienz und Übersichtlichkeit zu gewährleisten.
+
+### Zweck und Trigger
+
+Die Pipeline verfolgt zwei Hauptziele:
+1.  **Qualitätssicherung**: Bei jedem Push wird sichergestellt, dass alle Unit Tests erfolgreich sind.
+2.  **Automatisierung**: Das manuelle Bauen der Applikation entfällt. Nach erfolgreichen Tests wird automatisch ein lauffähiges Artefakt (JAR-Datei) erstellt.
+
+Die Pipeline wird automatisch unter folgenden Bedingungen gestartet:
+* Bei einem **Push** auf den `main`-Branch oder einen `feature/*`-Branch.
+* Bei einem **Pull Request**, der auf den `main`-Branch abzielt.
+* **Wichtig**: Der Start erfolgt nur, wenn Änderungen in einem der Service-Verzeichnisse (`Code/airport-service/**` oder `Code/flight-service/**`) vorliegen. Änderungen an der Dokumentation lösen keinen Build aus.
+
+### Aufbau und Jobs
+
+Unsere Pipeline besteht aus zwei sequenziellen Phasen, die jeweils parallel für beide Services laufen:
+
+#### 1. Job: `test` (Unit Tests)
+Dieser Job ist für die Validierung des Codes zuständig.
+-   **Name:** `Unit Tests (<service-name>)`
+-   **Aufgaben:**
+    -   Checkt den Code aus dem Repository aus.
+    -   Richtet die korrekte Java-Version (JDK 21) ein.
+    -   Führt den Gradle-Task `test` aus, um alle Unit Tests des jeweiligen Services zu starten.
+    -   Erstellt einen **Test Report**, der direkt im Pull Request sichtbar ist, um Fehler schnell zu identifizieren.
+    -   Lädt die detaillierten Test-Coverage-Reports als **Artefakt** hoch, damit sie bei Bedarf analysiert werden können.
+
+#### 2. Job: `build` (Build Application)
+Dieser Job wird erst ausgeführt, nachdem der `test`-Job für den entsprechenden Service erfolgreich war (`needs: test`).
+-   **Name:** `Build Application (<service-name>)`
+-   **Aufgaben:**
+    -   Führt den Gradle-Task `build` aus, überspringt dabei aber die Tests (`-x test`), da diese bereits im vorherigen Job validiert wurden.
+    -   Nutzt den **Gradle-Cache**, um wiederholte Builds deutlich zu beschleunigen.
+    -   Benennt die erstellte JAR-Datei dynamisch um, sodass sie den Service-Namen und den kurzen Commit-Hash enthält (z.B. `airport-service-a1b2c3d.jar`).
+    -   Speichert die fertige JAR-Datei als **Artefakt** (`application-jar-<service-name>`), damit sie für manuelle Tests oder zukünftige Deployment-Schritte heruntergeladen werden kann.
+    -   Gibt eine Zusammenfassung der Build-Informationen (JAR-Grösse, Commit, Build-Zeit) im GitHub-Workflow-Log aus.
+
+### Wichtige Merkmale
+
+| Merkmal                  | Umsetzung und Begründung                                                                                                                                                       |
+| :----------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Multi-Service-Handling** | Wir verwenden eine **Matrix-Strategie** (`strategy: matrix`). Dadurch werden die `test`- und `build`-Jobs für jeden Service in der Liste (`airport-service`, `flight-service`) parallel gestartet. Das ist skalierbar und schnell. |
+| **Effizienz** | Durch die Nutzung des integrierten **Gradle-Cachings** (`cache: 'gradle'`) werden Abhängigkeiten zwischen den Pipeline-Läufen zwischengespeichert, was die Build-Zeiten erheblich verkürzt.       |
+| **Transparenz** | Die Test-Reports von `dorny/test-reporter` werden direkt in Pull Requests angezeigt. Fehlerhafte Tests sind so sofort ersichtlich, ohne die Logs durchsuchen zu müssen.           |
+| **Nachvollziehbarkeit** | Alle erstellten Artefakte (Test-Reports, JAR-Dateien) werden für eine bestimmte Zeit gespeichert und können bei Bedarf heruntergeladen und inspiziert werden.                        |
