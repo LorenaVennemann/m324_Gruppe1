@@ -182,7 +182,7 @@ LaunchDarkly, Unleash, Flagger
 
 **Nachteile:**  
 - Erhöhte Code-Komplexität durch viele toggles  
-- Gefahr, dass toggles im Code vergisst werden und ihn unnötig aufblähen
+- Gefahr, dass toggles im Code vergessen werden und ihn unnötig aufblähen
 
 ![Feature Toggles](./Images/1566785873763.jpg)  
 
