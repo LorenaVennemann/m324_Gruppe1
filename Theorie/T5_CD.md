@@ -7,11 +7,11 @@
 ### Umsetzung:
 - **Automatisierte Tests:** Der Grundstein für Continuous Deployment sind umfassende, automatisierte Tests. Diese umfassen Unit-Tests, um einzelne Komponenten zu prüfen, Integrationstests, die das Zusammenspiel verschiedener Module validieren, sowie End-to-End-Tests, die den Nutzerfluss simulieren (z.B. mit Cypress oder Selenium). Diese Tests werden in der CI/CD-Pipeline automatisch ausgeführt, um die Stabilität jedes Builds sicherzustellen.
 - **Automatisierte Deployment-Pipeline:** Plattformen wie Jenkins, GitLab CI/CD, GitHub Actions oder CircleCI orchestrieren den gesamten Prozess, vom Code-Commit bis zur Bereitstellung in der Produktionsumgebung. Nach erfolgreichem Testlauf erfolgt das automatische Deployment, was eine kontinuierliche Lieferung ohne Verzögerungen ermöglicht.
-- **Feature Toggles:** Mit Hilfe von Feature Flags, beispielsweise LaunchDarkly oder Unleash, können neue Funktionen im Code enthalten, aber erst bei Bedarf aktiviert werden. Das erlaubt es, Risiken zu minimieren, da neue Features gezielt ausgerollt und bei Problemen sofort deaktiviert werden können.
+- **Feature Toggles:** Mithilfe von Feature Flags, beispielsweise LaunchDarkly oder Unleash, können neue Funktionen im Code enthalten sein in der Produktion, aber erst bei Bedarf aktiviert werden. Das erlaubt es, Risiken zu minimieren, da neue Features gezielt ausgerollt und bei Problemen sofort deaktiviert werden können, wie bei einem Kill Switch.
 - **Monitoring:** Nach der automatischen Freigabe wird das System durch Monitoring-Tools wie Prometheus, Grafana oder Splunk überwacht. Diese erkennen Performance-Probleme, unerwartete Fehler oder Sicherheitsvorfälle frühzeitig, sodass schnelle Reaktionen möglich sind.
 
 ### Beispiel:
-In einem Cloud-basierten Microservices-Architektur-Setup auf Kubernetes wird für jede Codeänderung eine CI/CD-Pipeline gestartet, die den Code baut, testet und bei Erfolg automatisch in den Cluster deployed. Neue Features werden per Feature Toggle nur schrittweise für ausgewählte Nutzergruppen sichtbar gemacht, um Risiken zu minimieren und schnelle Rückkopplung zu ermöglichen.
+In einem Cloud-basierten Microservices-Architektur-Setup auf Kubernetes wird für jede Codeänderung eine CI/CD-Pipeline gestartet, die den Code baut, testet und bei Erfolg automatisch in den Cluster deployt. Neue Features werden per Feature Toggle nur schrittweise für ausgewählte Nutzergruppen sichtbar gemacht, um Risiken zu minimieren und schnelle Rückkopplung zu ermöglichen.
 
 ### Vorteile:
 - Durch die Automatisierung können Fehler bei manuellen Eingriffen vermieden und Reaktionszeiten bei Problemen deutlich verkürzt werden.
@@ -30,7 +30,7 @@ In einem Cloud-basierten Microservices-Architektur-Setup auf Kubernetes wird fü
 
 ## 2. Unterschied zwischen Continuous Deployment und Continuous Delivery
 
-![Continous Deployment vs Delivery](./Images/Continuous-delivery-and-deployment.png)  
+![Continuous Deployment vs Delivery](./Images/Continuous-delivery-and-deployment.png)  
 
 In der Praxis werden die Begriffe häufig synonym verwendet, jedoch gibt es klare Unterschiede:
 
@@ -96,10 +96,23 @@ https://entwickler.de/continuous-delivery/continuous-deployment-fluch-oder-segen
 **Beschreibung:**  
 Bei dieser Strategie existieren zwei identische Produktionsumgebungen, genannt „Blue“ und „Green“. Während die „Blue“-Umgebung den aktuellen Live-Betrieb führt, wird die „Green“-Umgebung mit der neuen Version vorbereitet. Nach erfolgreichen Tests wird der Traffic auf die „Green“-Umgebung umgeschaltet. Bei Problemen kann sofort wieder auf die alte Version umgeschaltet werden.
 
-**Vorteile:**  
-- Minimiert Ausfallzeiten, da der Traffic schnell umgeleitet werden kann.  
-- Schnelles Rollback möglich, falls Probleme auftreten.  
-- Keine Downtime während des Deployments, was besonders bei kritischen Anwendungen essenziell ist.
+**Vorteile:**
+- Minimiert Ausfallzeiten, da der Traffic schnell umgeleitet werden kann
+- Schnelles Rollback möglich, falls Probleme auftreten
+- Keine Downtime während des Deployments, was besonders bei kritischen Anwendungen essenziell ist
+- Ermöglicht ausführliche Tests in der Produktionsumgebung vor dem Switch
+- Reduziert Risiken durch klare Trennung der Umgebungen
+
+**Nachteile:**
+- Höhere Infrastrukturkosten durch doppelte Umgebung
+- Erhöhte Komplexität bei der Datenbankhandhabung
+- Ressourcenintensiv, da zwei vollständige Umgebungen benötigt werden
+
+**Best Practices**:
+- Automatisierte Smoke-Tests vor dem Switch
+- Synchronisation der Datenbanken zwischen Umgebungen
+- Monitoring beider Umgebungen während des Switches
+- Automatisierte Switch- und Rollback-Mechanismen
 
 ![Blue-Green Deployment](./Images/image-3.webp)  
 
@@ -163,7 +176,7 @@ VWO, Optimizely, Google Optimize
 ## 6. Was sind Feature Toggles?
 
 **Definition:**  
-Feature Toggles (auch Feature Flags) sind eine Technik, bei der einzelne Funktionen im laufenden Betrieb aktiviert oder deaktiviert werden können, ohne dass eine neue Version deployed werden muss. Damit lassen sich neue Features schrittweise ausrollen, Nutzergruppen gezielt ansprechen oder bei Problemen schnell reagieren.
+Feature Toggles (auch Feature Flags) sind eine Technik, bei der einzelne Funktionen im laufenden Betrieb aktiviert oder deaktiviert werden können, ohne dass eine neue Version deployt werden muss. Damit lassen sich neue Features schrittweise ausrollen, Nutzergruppen gezielt ansprechen oder bei Problemen schnell reagieren.
 
 **Nutzung:**  
 - Für A/B-Tests oder Nutzergruppen-spezifische Features  
