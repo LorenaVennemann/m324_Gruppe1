@@ -22,7 +22,7 @@ env:
   GRADLE_OPTS: '-Dorg.gradle.daemon=false -Dorg.gradle.parallel=true -Dorg.gradle.caching=true'
 
 jobs:
-  # Job 1
+  # Job 1: Unit Tests
   test:
     name: Unit Tests (${{ matrix.service }})
     runs-on: ubuntu-latest
@@ -71,7 +71,7 @@ jobs:
           path: ./Code/${{ matrix.service }}/build/reports/tests/test/
           retention-days: 7
 
-  # Job 2
+  # Job 2: Build Application
   build:
     name: Build Application (${{ matrix.service }})
     runs-on: ubuntu-latest
@@ -128,3 +128,95 @@ jobs:
           echo "- **Commit:** $(git rev-parse --short HEAD)" >> $GITHUB_STEP_SUMMARY
           echo "- **Build Time (UTC):** $(date -u '+%Y-%m-%d %H:%M:%S')" >> $GITHUB_STEP_SUMMARY
           echo "- **Build Time (CH):** $(TZ='Europe/Zurich' date '+%Y-%m-%d %H:%M:%S')" >> $GITHUB_STEP_SUMMARY
+
+  # Job 3: API Tests
+  api-tests:
+    name: API Tests (${{ matrix.service }})
+    runs-on: ubuntu-latest
+    needs: build
+    timeout-minutes: 10
+    permissions:
+      contents: read
+
+    strategy:
+      fail-fast: false
+      matrix:
+        service: [airport-service, flight-service]
+        include:
+          - service: airport-service
+            port: 8080
+          - service: flight-service
+            port: 8081
+
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@v4
+
+      - name: Java installieren
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: ${{ env.JAVA_VERSION }}
+          cache: 'gradle'
+
+      - name: Gradle Wrapper ausführbar machen
+        run: chmod +x ./Code/${{ matrix.service }}/gradlew
+
+      - name: Application starten (Hintergrund)
+        working-directory: ./Code/${{ matrix.service }}
+        run: |
+          ./gradlew bootRun > app.log 2>&1 &
+          echo $! > app.pid
+          echo "Started ${{ matrix.service }} with PID: $(cat app.pid)"
+
+      - name: Warten bis Service bereit ist
+        run: |
+          echo "⏳ Warte auf ${{ matrix.service }} auf Port ${{ matrix.port }}..."
+          for i in {1..30}; do
+            if curl -f http://localhost:${{ matrix.port }}/actuator/health 2>/dev/null; then
+              echo "✅ ${{ matrix.service }} ist bereit!"
+              exit 0
+            fi
+            echo "Versuch $i/30..."
+            sleep 2
+          done
+          echo "❌ ${{ matrix.service }} konnte nicht gestartet werden"
+          echo "=== Application Logs ==="
+          cat ./Code/${{ matrix.service }}/app.log
+          exit 1
+
+      - name: Newman installieren
+        run: npm install -g newman newman-reporter-htmlextra
+
+      - name: Postman Collection ausführen
+        working-directory: ./Code/${{ matrix.service }}
+        run: |
+          newman run REST API- ${{ matrix.service }}.postman_collection.json \
+            --reporters cli,htmlextra \
+            --reporter-htmlextra-export postman-report.html \
+            --reporter-htmlextra-title "${{ matrix.service }} API Tests"
+
+      - name: Service stoppen
+        if: always()
+        working-directory: ./Code/${{ matrix.service }}
+        run: |
+          if [ -f app.pid ]; then
+            kill $(cat app.pid) || true
+            echo "✅ ${{ matrix.service }} gestoppt"
+          fi
+
+      - name: Application Logs hochladen
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: logs-${{ matrix.service }}
+          path: ./Code/${{ matrix.service }}/app.log
+          retention-days: 3
+
+      - name: Postman Report hochladen
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: postman-report-${{ matrix.service }}
+          path: ./Code/${{ matrix.service }}/postman-report.html
+          retention-days: 7
