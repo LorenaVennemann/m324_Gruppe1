@@ -101,8 +101,6 @@ Bei dieser Strategie existieren zwei identische Produktionsumgebungen, genannt �
 - Schnelles Rollback möglich, falls Probleme auftreten.  
 - Keine Downtime während des Deployments, was besonders bei kritischen Anwendungen essenziell ist.
 
-**Abbildung 3: Blue/Green Deployment**
-
 ![Blue-Green Deployment](./Images/image-3.webp)  
 
 **Quellen:**  
