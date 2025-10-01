@@ -71,7 +71,7 @@ jobs:
           path: ./Code/${{ matrix.service }}/build/reports/tests/test/
           retention-days: 7
 
-  # Job 2: Build Application
+  # Job 2
   build:
     name: Build Application (${{ matrix.service }})
     runs-on: ubuntu-latest
@@ -83,23 +83,22 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        service: [ airport-service, flight-service ]
+        service: [airport-service, flight-service]
         include:
           - service: airport-service
             db_name: airports_db
           - service: flight-service
             db_name: flights_db
-
+      
     services:
       mysql:
         image: mysql:8.0
         env:
           MYSQL_ROOT_PASSWORD: root
-          MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
         ports:
           - 3306:3306
         options: >-
-          --health-cmd="mysqladmin ping"
+          --health-cmd="mysqladmin ping -proot"
           --health-interval=10s
           --health-timeout=5s
           --health-retries=3
@@ -117,8 +116,8 @@ jobs:
 
       - name: Leere Datenbank erstellen
         run: |
-          mysql -h 127.0.0.1 -u root -e "CREATE DATABASE IF NOT EXISTS ${{ matrix.db_name }};"
-          mysql -h 127.0.0.1 -u root -e "SHOW DATABASES;"
+          mysql -h 127.0.0.1 -u root -proot -e "CREATE DATABASE IF NOT EXISTS ${{ matrix.db_name }};"
+          mysql -h 127.0.0.1 -u root -proot -e "SHOW DATABASES;"
 
       - name: Gradle Wrapper ausführbar machen
         run: chmod +x ./Code/${{ matrix.service }}/gradlew
@@ -129,7 +128,7 @@ jobs:
         env:
           SPRING_DATASOURCE_URL: jdbc:mysql://127.0.0.1:3306/${{ matrix.db_name }}?useSSL=false&serverTimezone=UTC
           SPRING_DATASOURCE_USERNAME: root
-          SPRING_DATASOURCE_PASSWORD: ""
+          SPRING_DATASOURCE_PASSWORD: root
 
       - name: JAR-Datei umbenennen (mit Version)
         working-directory: ./Code/${{ matrix.service }}/build/libs
