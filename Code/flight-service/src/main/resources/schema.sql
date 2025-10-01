@@ -15,4 +15,4 @@ CREATE TABLE `flights` (
     CHECK (`arrival_datetime` > `departure_datetime`),
     CHECK (LENGTH(`departure_airport_code`) = 3),
     CHECK (LENGTH(`arrival_airport_code`) = 3)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
