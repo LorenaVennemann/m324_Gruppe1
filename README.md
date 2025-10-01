@@ -12,6 +12,7 @@
 
 [T4 Continues Integration](/Theorie/T4_CI.md)
 
+[T5CD](/Theorie/T5_CD.md)
 ## Lernjournal
 
 [Linus](/Lernjournal/Linus.md)
