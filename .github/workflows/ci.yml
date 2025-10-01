@@ -215,7 +215,7 @@ jobs:
       - name: Postman Collection ausführen
         working-directory: ./Code/${{ matrix.service }}
         run: |
-          newman run ./Code/${{ matrix.service }}/REST-API_${{ matrix.service }}.postman_collection.json \
+          newman run REST-API_${{ matrix.service }}.postman_collection.json \
             --reporters cli,htmlextra \
             --reporter-htmlextra-export postman-report.html \
             --reporter-htmlextra-title "${{ matrix.service }} API Tests"
