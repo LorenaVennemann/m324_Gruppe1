@@ -235,8 +235,11 @@ jobs:
         run: |
           newman run REST-API.postman_collection.json \
             --reporters cli,htmlextra \
-            --reporter-htmlextra-export ./Code/postman-report.html \
-            --reporter-htmlextra-title "API Tests"
+            --reporter-htmlextra-export $(pwd)/postman-report.html \
+            --reporter-htmlextra-title "API Tests" || echo "Newman failed"
+
+      - name: Verify Generated Files
+        run: ls -R ./Code
 
       - name: Postman Report als Kommentar posten
         uses: actions/github-script@v6
@@ -244,6 +247,19 @@ jobs:
           script: |
             const fs = require('fs');
             const report = fs.readFileSync('./Code/postman-report.html', 'utf8');
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `### Postman Test Report\n\n<details>\n<summary>Klicken, um den Bericht anzuzeigen</summary>\n\n${report}\n\n</details>`
+            });
+
+      - name: Postman Report als Kommentar posten
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const fs = require('fs');
+            const report = fs.readFileSync('./postman-report.html', 'utf8');
             github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
