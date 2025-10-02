@@ -1,133 +1,315 @@
 {
-	"info": {
-		"_postman_id": "99f557f8-251f-4acf-b880-85c72154391e",
-		"name": "REST API: airport_service",
-		"description": "# 🚀 Get started here\n\nThis template guides you through CRUD operations (GET, POST, PUT, DELETE), variables, and tests.\n\n## 🔖 **How to use this template**\n\n#### **Step 1: Send requests**\n\nRESTful APIs allow you to perform CRUD operations using the POST, GET, PUT, and DELETE HTTP methods.\n\nThis collection contains each of these [request](https://learning.postman.com/docs/sending-requests/requests/) types. Open each request and click \"Send\" to see what happens.\n\n#### **Step 2: View responses**\n\nObserve the response tab for status code (200 OK), response time, and size.\n\n#### **Step 3: Send new Body data**\n\nUpdate or add new data in \"Body\" in the POST request. Typically, Body data is also used in PUT request.\n\n```\n{\n    \"name\": \"Add your name in the body\"\n}\n\n ```\n\n#### **Step 4: Update the variable**\n\nVariables enable you to store and reuse values in Postman. We have created a [variable](https://learning.postman.com/docs/sending-requests/variables/) called `base_url` with the sample request [https://postman-api-learner.glitch.me](https://postman-api-learner.glitch.me). Replace it with your API endpoint to customize this collection.\n\n#### **Step 5: Add tests in the \"Scripts\" tab**\n\nAdding tests to your requests can help you confirm that your API is working as expected. You can write test scripts in JavaScript and view the output in the \"Test Results\" tab.\n\n<img src=\"https://content.pstmn.io/fa30ea0a-373d-4545-a668-e7b283cca343/aW1hZ2UucG5n\" width=\"2162\" height=\"1530\">\n\n## 💪 Pro tips\n\n- Use folders to group related requests and organize the collection.\n    \n- Add more [scripts](https://learning.postman.com/docs/writing-scripts/intro-to-scripts/) to verify if the API works as expected and execute workflows.\n    \n\n## 💡Related templates\n\n[API testing basics](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9a37a28-055b-49cd-8c7e-97494a21eb54&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[API documentation](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9c28f47-1253-44af-a2f3-20dce4da1f18&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[Authorization methods](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=31a9a6ed-4cdf-4ced-984c-d12c9aec1c27&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "40138852"
-	},
-	"item": [
-		{
-			"name": "Get data",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"type": "text/javascript",
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});"
-						]
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{base_url}}/info?id=1",
-					"host": [
-						"{{base_url}}"
-					],
-					"path": [
-						"info"
-					],
-					"query": [
-						{
-							"key": "id",
-							"value": "1"
-						}
-					]
-				},
-				"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
-			},
-			"response": []
-		},
-		{
-			"name": "Post data",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Statuscode ist 200\", () => {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"",
-							"pm.test(\"Response enthält ID\", () => {",
-							"    const jsonData = pm.response.json();",
-							"    pm.expect(jsonData.id).to.exist;",
-							"});",
-							"",
-							"pm.test(\"Airport-Code ist großgeschrieben\", () => {",
-							"    const jsonData = pm.response.json();",
-							"    pm.expect(jsonData.code).to.match(/^[A-Z]{3}$/);",
-							"});",
-							""
-						],
-						"type": "text/javascript",
-						"packages": {},
-						"requests": {}
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n  \"name\": \"Berlin Brandenburg Airport\",\n  \"code\": \"ZRH\",\n  \"capacity\": 45000\n}\n",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8080/airports",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"airports"
-					]
-				},
-				"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
-			},
-			"response": []
-		}
-	],
-	"event": [
-		{
-			"listen": "prerequest",
-			"script": {
-				"type": "text/javascript",
-				"exec": [
-					""
-				]
-			}
-		},
-		{
-			"listen": "test",
-			"script": {
-				"type": "text/javascript",
-				"exec": [
-					""
-				]
-			}
-		}
-	],
-	"variable": [
-		{
-			"key": "id",
-			"value": "1"
-		},
-		{
-			"key": "base_url",
-			"value": "https://template.postman-echo.com"
-		}
-	]
+  "info": {
+    "_postman_id": "b82f7253-b550-4670-89de-12718df8fe9f",
+    "name": "Airport Service",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "26885583"
+  },
+  "item": [
+    {
+      "name": "CREATE AIRPORT BER",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Response status code is 200\", function () {\r",
+              "    pm.expect(pm.response.code).to.equal(200);\r",
+              "});\r",
+              "\r",
+              "\r",
+              "pm.test(\"Response time is less than 500\", function () {\r",
+              "    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+              "});\r",
+              "\r",
+              "\r",
+              "pm.test(\"Response has required fields\", function () {\r",
+              "    const responseData = pm.response.json();\r",
+              "    \r",
+              "    pm.expect(responseData).to.be.an('object');\r",
+              "    pm.expect(responseData).to.have.all.keys('id', 'name', 'code', 'capacity', 'createdAt');\r",
+              "});\r",
+              "\r",
+              "\r",
+              "pm.test(\"The 'id' must be a non-negative integer\", function () {\r",
+              "    const responseData = pm.response.json();\r",
+              "    \r",
+              "    pm.expect(responseData).to.be.an('object');\r",
+              "    pm.expect(responseData.id).to.be.a('number').and.to.satisfy(function(value) {\r",
+              "        return Number.isInteger(value) && value >= 0;\r",
+              "    }, \"The 'id' should be a non-negative integer\");\r",
+              "});\r",
+              "\r",
+              "\r",
+              "pm.test(\"The createdAt field is in a valid date format\", function () {\r",
+              "    const responseData = pm.response.json();\r",
+              "    \r",
+              "    pm.expect(responseData).to.be.an('object');\r",
+              "    pm.expect(responseData.createdAt).to.exist;\r",
+              "    pm.expect(new Date(responseData.createdAt).getTime()).to.not.be.NaN;\r",
+              "});\r",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"Flughafen Berlin\",\r\n    \"code\": \"BER\",\r\n    \"capacity\": 300000\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrlAirports}}",
+          "host": [
+            "{{baseUrlAirports}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "CREATE AIRPORT ZRH",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Response status code is 200\", function () {\r",
+              "    pm.expect(pm.response.code).to.eql(200);\r",
+              "});\r",
+              "\r",
+              "\r",
+              "pm.test(\"Response time is less than 500ms\", function () {\r",
+              "    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+              "});\r",
+              "\r",
+              "\r",
+              "pm.test(\"Response has required fields\", function () {\r",
+              "    const responseData = pm.response.json();\r",
+              "    \r",
+              "    pm.expect(responseData).to.be.an('object');\r",
+              "    pm.expect(responseData).to.have.all.keys('id', 'name', 'code', 'capacity', 'createdAt');\r",
+              "});\r",
+              "\r",
+              "\r",
+              "pm.test(\"The id must be a non-negative integer\", function () {\r",
+              "    const responseData = pm.response.json();\r",
+              "    \r",
+              "    pm.expect(responseData).to.have.property('id').that.is.a('number').and.is.at.least(0);\r",
+              "});\r",
+              "\r",
+              "\r",
+              "pm.test(\"The createdAt field must be in a valid date format\", function () {\r",
+              "    const responseData = pm.response.json();\r",
+              "    \r",
+              "    pm.expect(responseData).to.be.an('object');\r",
+              "    pm.expect(responseData.createdAt).to.exist;\r",
+              "    pm.expect(new Date(responseData.createdAt).toString()).to.not.equal(\"Invalid Date\", \"createdAt is not in a valid date format\");\r",
+              "});\r",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"Flughafen Zürich\",\r\n    \"code\": \"ZRH\",\r\n    \"capacity\": 350000\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrlAirports}}",
+          "host": [
+            "{{baseUrlAirports}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "READ ALL AIRPORTS",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Response status code is 200\", function () {\r",
+              "    pm.expect(pm.response.code).to.eql(200);\r",
+              "});\r",
+              "\r",
+              "\r",
+              "pm.test(\"Response content type is application/json\", function () {\r",
+              "    pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json');\r",
+              "});\r",
+              "\r",
+              "\r",
+              "pm.test(\"Response time is less than 500ms\", function () {\r",
+              "    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+              "});\r",
+              "\r",
+              "\r",
+              "pm.test(\"Response is an array with the expected structure\", function () {\r",
+              "    const responseData = pm.response.json();\r",
+              "    \r",
+              "    pm.expect(responseData).to.be.an('array');\r",
+              "    \r",
+              "    responseData.forEach(function(item) {\r",
+              "        pm.expect(item).to.be.an('object');\r",
+              "        pm.expect(item).to.have.all.keys('id', 'name', 'code', 'capacity', 'createdAt');\r",
+              "        pm.expect(item.id).to.be.a('number');\r",
+              "        pm.expect(item.name).to.be.a('string');\r",
+              "        pm.expect(item.code).to.be.a('string');\r",
+              "        pm.expect(item.capacity).to.be.a('number');\r",
+              "        pm.expect(item.createdAt).to.be.a('string');\r",
+              "    });\r",
+              "});\r",
+              "\r",
+              "\r",
+              "pm.test(\"Validate properties of the airports response\", function () {\r",
+              "    const responseData = pm.response.json();\r",
+              "\r",
+              "    pm.expect(responseData).to.be.an('array').that.is.not.empty;\r",
+              "\r",
+              "    responseData.forEach(function(airport) {\r",
+              "        pm.expect(airport.id).to.be.a('number').and.to.be.at.least(0, \"ID must be a non-negative integer\");\r",
+              "        pm.expect(airport.name).to.exist.and.to.be.a('string').and.to.have.lengthOf.at.least(1, \"Name should not be empty\");\r",
+              "        pm.expect(airport.code).to.exist.and.to.be.a('string').and.to.have.lengthOf.at.least(1, \"Code should not be empty\");\r",
+              "    });\r",
+              "});\r",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrlAirports}}",
+          "host": [
+            "{{baseUrlAirports}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "READ AIRPORT BY CODE",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Response status code is 200\", function () {\r",
+              "    pm.expect(pm.response.code).to.equal(200);\r",
+              "});\r",
+              "\r",
+              "\r",
+              "pm.test(\"Response time is less than 500ms\", function () {\r",
+              "    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+              "});\r",
+              "\r",
+              "\r",
+              "pm.test(\"Response has the required fields\", function () {\r",
+              "    const responseData = pm.response.json();\r",
+              "\r",
+              "    pm.expect(responseData).to.be.an('object');\r",
+              "    pm.expect(responseData).to.have.all.keys('id', 'name', 'code', 'capacity', 'createdAt');\r",
+              "});\r",
+              "\r",
+              "\r",
+              "pm.test(\"Validate that the 'id' is a non-negative integer\", function () {\r",
+              "    const responseData = pm.response.json();\r",
+              "    \r",
+              "    pm.expect(responseData).to.be.an('object');\r",
+              "    pm.expect(responseData.id).to.be.a('number').and.to.be.at.least(0);\r",
+              "});\r",
+              "\r",
+              "\r",
+              "pm.test(\"Validate that 'createdAt' is in a valid date format\", function () {\r",
+              "    const responseData = pm.response.json();\r",
+              "    \r",
+              "    pm.expect(responseData).to.be.an('object');\r",
+              "    pm.expect(responseData.createdAt).to.exist;\r",
+              "\r",
+              "    // Check if 'createdAt' is a valid date\r",
+              "    const date = new Date(responseData.createdAt);\r",
+              "    pm.expect(date.getTime()).to.not.be.NaN; // Ensure it's a valid date\r",
+              "});\r",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrlAirports}}/ZRH",
+          "host": [
+            "{{baseUrlAirports}}"
+          ],
+          "path": [
+            "ZRH"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrlAirports",
+      "value": "http://localhost:8080/airports"
+    }
+  ]
 }

@@ -1,26 +1,209 @@
 {
-	"info": {
-		"_postman_id": "6f55c821-7528-4572-b2fe-a24a1170df22",
-		"name": "REST API: flight_service",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "40138852"
-	},
-	"item": [
-		{
-			"name": "New Request",
-			"request": {
-				"method": "GET",
-				"header": []
-			},
-			"response": []
-		},
-		{
-			"name": "New Request",
-			"request": {
-				"method": "GET",
-				"header": []
-			},
-			"response": []
-		}
-	]
+  "info": {
+    "_postman_id": "e0c1654a-6f43-4d1c-9ce5-3336a43f2fc6",
+    "name": "Flight Service",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "26885583"
+  },
+  "item": [
+    {
+      "name": "CREATE FLIGHT",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              "const futureDate = new Date();\r",
+              "futureDate.setDate(futureDate.getDate() + 30); // Set date 30 days in the future\r",
+              "pm.environment.set(\"futureDepartureDateTime\", futureDate.toISOString());\r",
+              "\r",
+              "// Set future arrival time to 2 hours later than future departure time\r",
+              "const futureArrivalDate = new Date(futureDate);\r",
+              "futureArrivalDate.setHours(futureArrivalDate.getHours() + 2); // Add 2 hours to the future date\r",
+              "pm.environment.set(\"futureArrivalDateTime\", futureArrivalDate.toISOString());\r",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Response status code is 200\", function () {\r",
+              "    pm.expect(pm.response.code).to.eql(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Response time is less than 500ms\", function () {\r",
+              "    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Response body contains expected fields\", function () {\r",
+              "    const responseData = pm.response.json();\r",
+              "    \r",
+              "    pm.expect(responseData).to.be.an('object');\r",
+              "    pm.expect(responseData).to.have.all.keys('id', 'departureAirportCode', 'arrivalAirportCode', 'departureDatetime', 'arrivalDatetime', 'aircraftType', 'createdAt');\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Departure and arrival airport codes must be non-empty strings\", function () {\r",
+              "    const responseData = pm.response.json();\r",
+              "\r",
+              "    pm.expect(responseData).to.be.an('object');\r",
+              "    pm.expect(responseData.departureAirportCode).to.exist.and.to.be.a('string').and.to.have.lengthOf.at.least(1, \"Departure airport code should not be empty\");\r",
+              "    pm.expect(responseData.arrivalAirportCode).to.exist.and.to.be.a('string').and.to.have.lengthOf.at.least(1, \"Arrival airport code should not be empty\");\r",
+              "});\r",
+              "\r",
+              "// Updated regex for ISO 8601 validation to allow optional timezone information\r",
+              "pm.test(\"Datetime fields are in a valid ISO 8601 format\", function () {\r",
+              "    const responseData = pm.response.json();\r",
+              "\r",
+              "    pm.expect(responseData).to.be.an('object');\r",
+              "    const iso8601Regex = /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,3})?(Z|[+-]\\d{2}:\\d{2})?$/;\r",
+              "\r",
+              "    pm.expect(responseData.departureDatetime).to.match(iso8601Regex, \"Departure Datetime is not in valid ISO 8601 format\");\r",
+              "    pm.expect(responseData.arrivalDatetime).to.match(iso8601Regex, \"Arrival Datetime is not in valid ISO 8601 format\");\r",
+              "});\r",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"departureAirportCode\": \"ZRH\",\r\n  \"arrivalAirportCode\": \"BER\",\r\n  \"departureDatetime\": \"{{futureDepartureDateTime}}\",\r\n  \"arrivalDatetime\": \"{{futureArrivalDateTime}}\",\r\n  \"aircraftType\": \"Boeing 737\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrlFlights}}",
+          "host": [
+            "{{baseUrlFlights}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "READ ALL FLIGHTS",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Response status code is 200\", function () {\r",
+              "    pm.expect(pm.response.code).to.eql(200);\r",
+              "});\r",
+              "\r",
+              "\r",
+              "pm.test(\"Response time is less than 500ms\", function () {\r",
+              "    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+              "});\r",
+              "\r",
+              "\r",
+              "pm.test(\"Response has the required fields\", function () {\r",
+              "    const responseData = pm.response.json();\r",
+              "    \r",
+              "    pm.expect(responseData).to.be.an('array').that.is.not.empty;\r",
+              "    \r",
+              "    responseData.forEach(function(item) {\r",
+              "        pm.expect(item).to.have.all.keys('id', 'departureAirportCode', 'arrivalAirportCode', 'departureDatetime', 'arrivalDatetime', 'aircraftType', 'createdAt');\r",
+              "    });\r",
+              "});\r",
+              "\r",
+              "\r",
+              "pm.test(\"Validate that id is a non-negative integer\", function () {\r",
+              "    const responseData = pm.response.json();\r",
+              "    \r",
+              "    pm.expect(responseData).to.be.an('array').that.is.not.empty;\r",
+              "    \r",
+              "    responseData.forEach(function(item) {\r",
+              "        pm.expect(item.id).to.be.a('number').that.is.at.least(0);\r",
+              "    });\r",
+              "});\r",
+              "\r",
+              "\r",
+              "pm.test(\"Validate that departureDatetime and arrivalDatetime are in a valid date-time format\", function () {\r",
+              "    const responseData = pm.response.json();\r",
+              "    \r",
+              "    pm.expect(responseData).to.be.an('array').that.is.not.empty;\r",
+              "    \r",
+              "    responseData.forEach(flight => {\r",
+              "        pm.expect(flight.departureDatetime).to.match(/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$/, \"departureDatetime is not in valid date-time format\");\r",
+              "        pm.expect(flight.arrivalDatetime).to.match(/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$/, \"arrivalDatetime is not in valid date-time format\");\r",
+              "    });\r",
+              "});\r",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"Test Flughafen\",\r\n    \"code\": \"TST\",\r\n    \"capacity\": 51\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrlFlights}}",
+          "host": [
+            "{{baseUrlFlights}}"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrlFlights",
+      "value": "http://localhost:8081/flights"
+    }
+  ]
 }
