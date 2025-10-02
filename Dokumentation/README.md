@@ -239,70 +239,47 @@ Dieser Job wird erst ausgeführt, nachdem der `test`-Job für den entsprechenden
 | **Nachvollziehbarkeit** | Alle erstellten Artefakte (Test-Reports, JAR-Dateien) werden für eine bestimmte Zeit gespeichert und können bei Bedarf heruntergeladen und inspiziert werden.                        |
 
 
-## Systemtests – Airport & Flight APIs
+# Systemtests – Airport & Flight APIs
 
-### Tool
-- **Postman**: Erstellung und Ausführung der Tests
+## Tools
+- **Postman**: Erstellung und Ausführung der API-Tests  
+- **Newman**: Einbindung der Postman-Collection in CI/CD-Pipeline
 
-### Getestete Endpunkte & Tests
+## Getestete Endpunkte
 
-#### Airport API
-- **POST /airports**
+### Airport API
+- **POST /airports** – Neuen Flughafen erstellen
   - Statuscode 200 prüfen
   - Response enthält ID
-  - Airport-Code korrekt grossgeschrieben (3 Grossbuchstaben)
-- **GET /airports**
+  - Airport-Code korrekt in 3 Großbuchstaben
+  - Name und Kapazität korrekt gesetzt
+- **GET /airports** – Alle Flughäfen abrufen
   - Statuscode 200 prüfen
   - Response ist ein Array
   - Jedes Objekt hat ID und Code
   - Name und Capacity vorhanden und gültig
 
-#### Flight API
-- **POST /flights**
+### Flight API
+- **POST /flights** – Neuen Flug erstellen
   - Statuscode 200 prüfen
-  - Response enthält ID
-  - Departure- und Arrival-Airport korrekt gesetzt
-  - Abflug- und Ankunftszeit korrekt gesetzt
+  - Response enthält ID (optional: für weitere Tests speichern)
+  - Departure- und Arrival-Airport korrekt gesetzt (3 Großbuchstaben)
+  - Abflug- und Ankunftszeit korrekt gesetzt (Abflug < Ankunft, in der Zukunft)
   - AircraftType korrekt gesetzt
-  - Optional: ID für weitere Tests speichern
-- **GET /flights**
+- **GET /flights** – Alle Flüge abrufen
   - Statuscode 200 prüfen
   - Response ist ein Array
   - Jede Flug-Entität hat eine ID
-  - Departure- und Arrival-Airport-Code korrekt formatiert (3 Grossbuchstaben)
+  - Departure- und Arrival-Airport-Code korrekt formatiert
 
-### Pipeline-Integration
-- Postman-Collection kann mit **Newman** in CI/CD eingebunden werden
-- Dynamische IDs werden über Environment-Variablen gehandhabt
-- End-to-End-Szenarien werden nach jedem Build automatisch geprüft
+## Fehlerfälle prüfen
+- Ungültige Daten → Status 400 Bad Request  
+- Identische Abflugs- und Ankunftsflughäfen → Status 400 Bad Request  
 
-
-Für unsere Flight- und Airport-APIs wurden folgende Systemtests eingebunden:
-
-### Tools
-- **Postman**: zur Erstellung und Ausführung der API-Tests
-
-### Endpunkte getestet
-- **POST /airports**: Neuen Flughafen erstellen
-- **GET /airports**: Alle Flughäfen abrufen
-- **POST /flights**: Neuen Flug erstellen
-- **GET /flights**: Alle Flüge abrufen
-
-### Testinhalte
-- Statuscodes prüfen (200 OK, 400 Bad Request)
-- Response-Felder prüfen:
-  - IDs vorhanden
-  - Codes korrekt formatiert (z. B. 3 Grossbuchstaben)
-  - Zeiten gültig (Abflug vor Ankunft, in der Zukunft)
-  - Name und Kapazität korrekt gesetzt
-- Fehlerfälle prüfen:
-  - Ungültige Daten → BadRequest
-  - Identische Abflugs- und Ankunftsflughäfen → BadRequest
-
-### Pipeline-Integration
-- Postman-Collection kann mit **Newman** in CI/CD-Pipeline eingebunden werden
-- Tests prüfen End-to-End-Szenarien automatisch nach jedem Build
-- Dynamische IDs werden über Environment-Variablen gehandhabt, um Abhängigkeiten zwischen Tests zu vermeiden
+## Pipeline-Integration
+- Postman-Collection kann mit Newman in CI/CD-Pipeline eingebunden werden  
+- Dynamische IDs werden über Environment-Variablen gehandhabt  
+- End-to-End-Szenarien werden automatisch nach jedem Build geprüft
 
 # CI-Integration und Event-Strategie
 
