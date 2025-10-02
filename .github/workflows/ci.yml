@@ -228,7 +228,7 @@ jobs:
           exit 1
 
       - name: Newman installieren
-        run: npm install -g newman newman-reporter-htmlextra html-to-markdown
+        run: npm install -g newman newman-reporter-htmlextra
 
       - name: Postman Collection ausführen
         working-directory: ./Code
@@ -237,17 +237,6 @@ jobs:
             --reporters cli,htmlextra \
             --reporter-htmlextra-export $(pwd)/postman-report.html \
             --reporter-htmlextra-title "API Tests" || echo "Newman failed"
-
-      - name: HTML-Report in Markdown konvertieren
-        working-directory: ./Code
-        run: html-to-markdown postman-report.html > postman-report.md
-
-      - name: Markdown-Report in GitHub Actions anzeigen
-        working-directory: ./Code
-        run: |
-          echo "### Postman Test Report" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          cat postman-report.md >> $GITHUB_STEP_SUMMARY
 
       - name: Services stoppen
         if: always()
