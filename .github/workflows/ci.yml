@@ -235,7 +235,7 @@ jobs:
         run: |
           newman run REST-API.postman_collection.json \
             --reporters cli,htmlextra \
-            --reporter-htmlextra-export postman-report.html \
+            --reporter-htmlextra-export ./Code/postman-report.html \
             --reporter-htmlextra-title "API Tests"
 
       - name: Postman Report als Kommentar posten
@@ -243,7 +243,7 @@ jobs:
         with:
           script: |
             const fs = require('fs');
-            const report = fs.readFileSync('postman-report.html', 'utf8');
+            const report = fs.readFileSync('./Code/postman-report.html', 'utf8');
             github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
