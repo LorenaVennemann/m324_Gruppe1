@@ -1,0 +1,151 @@
+{
+	"info": {
+		"_postman_id": "6f55c821-7528-4572-b2fe-a24a1170df22",
+		"name": "REST API: flight_service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40138852"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Prüfen, ob der Statuscode 200 ist (Erstellung erfolgreich)\r",
+							"pm.test(\"Statuscode ist 200\", () => {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Prüfen, ob die Response eine ID enthält\r",
+							"pm.test(\"Response enthält ID\", () => {\r",
+							"    const jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.id, \"Die ID sollte existieren\").to.exist;\r",
+							"});\r",
+							"\r",
+							"// Prüfen, ob der Abflughafen korrekt ist\r",
+							"pm.test(\"Departure Airport korrekt\", () => {\r",
+							"    const jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.departureAirportCode, \"Abflughafen-Code\").to.eql(\"ZRH\");\r",
+							"});\r",
+							"\r",
+							"// Prüfen, ob der Zielflughafen korrekt ist\r",
+							"pm.test(\"Arrival Airport korrekt\", () => {\r",
+							"    const jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.arrivalAirportCode, \"Zielflughafen-Code\").to.eql(\"MLI\");\r",
+							"});\r",
+							"\r",
+							"// Prüfen, dass die Abflugzeit korrekt gesetzt ist\r",
+							"pm.test(\"DepartureDatetime korrekt\", () => {\r",
+							"    const jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.departureDatetime).to.eql(\"2025-10-01T10:00:00\");\r",
+							"});\r",
+							"\r",
+							"// Prüfen, dass die Ankunftszeit korrekt gesetzt ist\r",
+							"pm.test(\"ArrivalDatetime korrekt\", () => {\r",
+							"    const jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.arrivalDatetime).to.eql(\"2025-10-01T11:30:00\");\r",
+							"});\r",
+							"\r",
+							"// Prüfen, dass der AircraftType korrekt gesetzt ist\r",
+							"pm.test(\"AircraftType korrekt\", () => {\r",
+							"    const jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.aircraftType).to.eql(\"Boeing 737\");\r",
+							"});\r",
+							"\r",
+							"// ID für spätere Tests speichern\r",
+							"pm.environment.set(\"flightId\", pm.response.json().id);\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"departureAirportCode\": \"ZRH\",\r\n  \"arrivalAirportCode\": \"MLI\",\r\n  \"departureDatetime\": \"2025-10-01T10:00:00\",\r\n  \"arrivalDatetime\": \"2025-10-01T11:30:00\",\r\n  \"aircraftType\": \"Boeing 737\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/flights",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"flights"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Statuscode prüfen\r",
+							"pm.test(\"Statuscode ist 200\", () => {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// Prüfen, ob Response ein Array ist\r",
+							"pm.test(\"Response ist ein Array\", () => {\r",
+							"    const jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.be.an('array');\r",
+							"});\r",
+							"\r",
+							"// Prüfen, ob jedes Objekt eine ID hat\r",
+							"pm.test(\"Jeder Flug hat eine ID\", () => {\r",
+							"    const flights = pm.response.json();\r",
+							"    flights.forEach(f => pm.expect(f.id, \"Flug-ID sollte existieren\").to.exist);\r",
+							"});\r",
+							"\r",
+							"// Prüfen, dass Departure- und Arrival-Airport-Code gesetzt sind\r",
+							"pm.test(\"Airport-Codes sind gesetzt\", () => {\r",
+							"    const flights = pm.response.json();\r",
+							"    flights.forEach(f => {\r",
+							"        pm.expect(f.departureAirportCode).to.match(/^[A-Z]{3}$/);\r",
+							"        pm.expect(f.arrivalAirportCode).to.match(/^[A-Z]{3}$/);\r",
+							"    });\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/flights",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"flights"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
