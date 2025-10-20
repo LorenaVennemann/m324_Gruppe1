@@ -14,6 +14,8 @@ Zum ersten Mal habe ich die Matrix in der Pipeline verwendet, so kann ich die Un
 
 Beim Projekt wo wir bisher mit SVN gearbeitet haben, arbeiten wir mit einem Trunk-Based-Workflow, so kommen Commits immer direkt in den „Main“-Branch, wobei es eben keine Branches gibt, also eigentlich perfekt für CI/CD aber bevor wir diesen Step wagen, sollte der Umstieg auf GitHub gelingen. Falls dies so sein sollte kann ich in diesem Projekt evt. die Pipeline bauen, mit den Erfahrungen welche ich jetzt sammeln konnte. 
 
+**Feedback YN**: OK
+
 ## 22.09.2025
 
 Heute habe ich mich irgendwie nicht so produktiv gefühlt oder jedenfalls nicht so produktiv wie ich gerne gewesen wäre. Auch bei mir in der Firma gibt es Tage, an denen ich nicht so produktiv bin oder auch einfach nicht so produktiv fühle.
