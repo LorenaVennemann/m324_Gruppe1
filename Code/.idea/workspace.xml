@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c3d29ea5-8644-49dc-839f-f36e47d0b771" name="Changes" comment="" />
+    <list default="true" id="c3d29ea5-8644-49dc-839f-f36e47d0b771" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -57,7 +59,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/.." value="7b610f72671c255686e9ab92fc3ee640db0f5213" />
+        <entry key="$PROJECT_DIR$/.." value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -115,7 +117,7 @@
     "Spring Boot.FlightApplication.executor": "Run",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "feature/t5__theorie__cd",
+    "git-widget-placeholder": "feature/61-environments-infrastructure-setup",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/Jilve/TBZ/m324_Gruppe1/Code",
     "node.js.detected.package.eslint": "true",
@@ -255,11 +257,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.FlightApplicationTests" />
         <item itemvalue="JUnit.FlightApplicationTests.contextLoads" />
+        <item itemvalue="JUnit.FlightApplicationTests" />
+        <item itemvalue="Gradle.FlightApplicationTests" />
         <item itemvalue="Gradle.C:/Users/Jilve/TBZ/m324_Gruppe1/Code/flight-service [dependencies]" />
         <item itemvalue="Gradle.AirportApplicationTests" />
-        <item itemvalue="Gradle.FlightApplicationTests" />
       </list>
     </recent_temporary>
   </component>
