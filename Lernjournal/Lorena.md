@@ -161,3 +161,6 @@ Die verschiedenen Arten von Pipelines waren für mich sehr interessant. Auch bei
 - Mehr Übung mit Test-Frameworks
 - Pipeline-Dokumentation verbessern
 - Systematischer bei Fehlern in Tests vorgehen
+
+## Feedback YN
+Inhaltlich keine Reflektion, wahrscheinlich, weil nichts neues gemacht wurde.
