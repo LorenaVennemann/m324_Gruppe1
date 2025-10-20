@@ -1,5 +1,10 @@
 # Lernjournal von Sandro
 
+## 20.10.2025
+
+- P3 Integration Test gemacht, bei Loris nicht funktioniert, bei mir schon
+- P4 Tasks definiert, AWS down, angefangen mit Lorena
+
 ## 29.09.2025
 
 Heute konnte ich einige Tasks erledigen wie z.B. Datenformatierung, Response Struktur, Automatisiertes Building und angefangen Unit Tests in die Pipeline zu integrieren, dabei habe ich mich auf die Tasks mit der Pipeline gefreut, deshalb hat es mich wahrscheinlich schon am Sonntag Abend gepackt. 
