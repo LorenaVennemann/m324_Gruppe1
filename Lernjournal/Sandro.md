@@ -2,8 +2,11 @@
 
 ## 20.10.2025
 
-- P3 Integration Test gemacht, bei Loris nicht funktioniert, bei mir schon
-- P4 Tasks definiert, AWS down, angefangen mit Lorena
+Da wir praktisch mit P3 fertig waren, definierten Lorena und ich Tasks für P4, wobei AWS down war und wir somit nicht wirklich mit den Tasks starten konnten, weil das Lab nicht funktioniert hat, sowie viele andere Services die ausgefallen sind, da sie AWS nutzen. (Zum Glück viel das ganze am Montag Morgen aus und nicht in meiner Freizeit, das hätte mich mehr geärgert).
+
+Wöhrend wir eingentlich gewartet haben bis das Lab läuft habe ich Loris geholfen mit den Integration-Tests, da hatte ich länger als gedacht. Das kann passieren das Tasks länger dauern als geplant, das ist auch bei uns in der Firma so, dies sollte kommuniziert werden und im besten Fall plant man von Anfang an genügend Zeit ein, was eigentlich das Beste wäre, aber nicht so einfach ist.
+
+Komischerweise ist dann mein Pull-Request gefailt, beziehungsweise die Tests welche beim PR laufen sind gefailt, obwohl ich eigentlich nur Tests hinzugefügt habe, welche aber noch nicht in der Pipeline integriert sind. So konnten wir P3 leider immer noch nicht abschliessen, was eigentlich das Ziel für heute gewesen wäre.
 
 ## 29.09.2025
 
