@@ -2,11 +2,13 @@
 
 ## 20.10.2025
 
-Da wir praktisch mit P3 fertig waren, definierten Lorena und ich Tasks für P4, wobei AWS down war und wir somit nicht wirklich mit den Tasks starten konnten, weil das Lab nicht funktioniert hat, sowie viele andere Services die ausgefallen sind, da sie AWS nutzen. (Zum Glück viel das ganze am Montag Morgen aus und nicht in meiner Freizeit, das hätte mich mehr geärgert).
+Da wir praktisch mit P3 fertig waren, definierten Lorena und ich Tasks für P4, wobei AWS down war und wir somit nicht wirklich mit den Tasks starten konnten, weil das Lab nicht funktioniert hat, sowie viele andere Services die ausgefallen sind, da sie AWS nutzen. (Zum Glück fiel das Ganze am Montagmorgen aus und nicht in meiner Freizeit, das hätte mich mehr geärgert).
 
-Wöhrend wir eingentlich gewartet haben bis das Lab läuft habe ich Loris geholfen mit den Integration-Tests, da hatte ich länger als gedacht. Das kann passieren das Tasks länger dauern als geplant, das ist auch bei uns in der Firma so, dies sollte kommuniziert werden und im besten Fall plant man von Anfang an genügend Zeit ein, was eigentlich das Beste wäre, aber nicht so einfach ist.
+Während wir eigentlich gewartet haben bis das Lab läuft habe ich Loris geholfen mit den Integration-Tests, da hatte ich länger als gedacht. Das kann passieren, dass Tasks länger dauern als geplant, das ist auch bei uns in der Firma so, dies sollte kommuniziert werden und im besten Fall plant man von Anfang an genügend Zeit ein, was eigentlich das Beste wäre, aber nicht so einfach ist.
 
 Komischerweise ist dann mein Pull-Request gefailt, beziehungsweise die Tests welche beim PR laufen sind gefailt, obwohl ich eigentlich nur Tests hinzugefügt habe, welche aber noch nicht in der Pipeline integriert sind. So konnten wir P3 leider immer noch nicht abschliessen, was eigentlich das Ziel für heute gewesen wäre.
+
+Für Z1 nutzen wir GitHub Issues, dabei meinte ich im ersten Lernjournal Eintrag schon, dass GitHub einige Features für unser Projekt mitbringt, welche wir direkt nutzen können und somit nicht viele verschiedene Tools nutzen müssen. In meiner Firma arbeiten hauptsächlich mit Jira für die Tickets/Tasks und selten GitHub Projects. Es ist mir nicht so wichtig was für ein Tool/Software für das Projekt-Management verwendet wird, da mittlerweile die meisten ein vernünftiges UI und verschiedene tolle Features haben, daher finde ich ist eine gute Integration ins Projekt ist schon eher entscheidend.
 
 ## 29.09.2025
 
