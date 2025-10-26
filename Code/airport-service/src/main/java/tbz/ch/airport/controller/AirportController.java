@@ -1,6 +1,7 @@
 package tbz.ch.airport.controller;
 
 import jakarta.validation.Valid;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 import org.springframework.http.HttpStatus;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +43,32 @@ public class AirportController {
     public AirportResponse getAirportByCode(@PathVariable String code) {
         Airport airport = airportRepository.findByCode(code)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Airport not found with code: " + code));
+        return mapToResponse(airport);
+    }
+
+    @DeleteMapping("/{code}")
+    @Transactional
+    public void deleteAirportByCode(@PathVariable String code) {
+        long deleted = airportRepository.deleteByCode(code);
+        if (deleted == 0) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Airport not found with code: " + code);
+        }
+    }
+
+    @PutMapping("/{code}")
+    public AirportResponse updateAirportByCode(@PathVariable String code,  @Valid @RequestBody AirportRequest request) {
+
+        Airport airport = airportRepository.findByCode(code)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Airport not found with code: " + code));
+
+        Airport newAirport = new Airport();
+        newAirport.setId(airport.getId());
+        newAirport.setName(request.getName());
+        newAirport.setCode(request.getCode());
+        newAirport.setCapacity(request.getCapacity());
+
+        airportRepository.save(newAirport);
+
         return mapToResponse(airport);
     }
 

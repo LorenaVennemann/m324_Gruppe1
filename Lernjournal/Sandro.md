@@ -1,10 +1,30 @@
 # Lernjournal von Sandro
 
+## 20.10.2025
+
+Da wir praktisch mit P3 fertig waren, definierten Lorena und ich Tasks für P4, wobei AWS down war und wir somit nicht wirklich mit den Tasks starten konnten, weil das Lab nicht funktioniert hat, sowie viele andere Services die ausgefallen sind, da sie AWS nutzen. (Zum Glück fiel das Ganze am Montagmorgen aus und nicht in meiner Freizeit, das hätte mich mehr geärgert).
+
+Während wir eigentlich gewartet haben bis das Lab läuft habe ich Loris geholfen mit den Integration-Tests, da hatte ich länger als gedacht. Das kann passieren, dass Tasks länger dauern als geplant, das ist auch bei uns in der Firma so, dies sollte kommuniziert werden und im besten Fall plant man von Anfang an genügend Zeit ein, was eigentlich das Beste wäre, aber nicht so einfach ist.
+
+Komischerweise ist dann mein Pull-Request gefailt, beziehungsweise die Tests welche beim PR laufen sind gefailt, obwohl ich eigentlich nur Tests hinzugefügt habe, welche aber noch nicht in der Pipeline integriert sind. So konnten wir P3 leider immer noch nicht abschliessen, was eigentlich das Ziel für heute gewesen wäre.
+
+Für Z1 nutzen wir GitHub Issues, dabei meinte ich im ersten Lernjournal Eintrag schon, dass GitHub einige Features für unser Projekt mitbringt, welche wir direkt nutzen können und somit nicht viele verschiedene Tools nutzen müssen. In meiner Firma arbeiten hauptsächlich mit Jira für die Tickets/Tasks und selten GitHub Projects. Es ist mir nicht so wichtig was für ein Tool/Software für das Projekt-Management verwendet wird, da mittlerweile die meisten ein vernünftiges UI und verschiedene tolle Features haben, daher finde ich ist eine gute Integration ins Projekt ist schon eher entscheidend.
+
 ## 29.09.2025
 
-- Datenformatierung_und_Response_Struktur_Flughäfen: JSON sauber strukturiert, übersichtlich
-- Automatisches Bauen einrichten: Definiere, wie der Code gebaut wird (z. B. mvn package, gradle build). Baue Caching ein (Maven-, Gradle- oder npm-Cache), um Builds schneller zu machen.
-- Unit Tests integrieren: Binde die Unit Tests aus P2 in die Pipeline ein. Stelle sicher, dass sie bei jedem Commit/Pull Request automatisch laufen.
+Heute konnte ich einige Tasks erledigen wie z.B. Datenformatierung, Response Struktur, Automatisiertes Building und angefangen Unit Tests in die Pipeline zu integrieren, dabei habe ich mich auf die Tasks mit der Pipeline gefreut, deshalb hat es mich wahrscheinlich schon am Sonntag Abend gepackt. 
+
+So hatte ich den ersten Tasks eigentlich schon vor dem Start des Moduls absolviert und auch nach dem Modul noch weiter an Tasks gearbeitet, somit sind wir ende Woche mit P3 schon fast fertig, es fehlen noch die Integrationstests selbst, sowie die Implementation in die Pipeline und die dazugehörige Dokumentation. Ebenfalls wurde T5 unter der Woche erledigt, somit bleibt dann noch P4 und die zusätzlichen Aufgaben.
+
+Zum aktuellen Zeitpunkt gibt es noch 3 Modultage, wobei ich am letzten Tag an der Aushebung vom Militär bin, aber laut Plan sollten wir dann eigentlich sowieso schon „fertig“ sein. Ich glaube wirklich fertig kann man in diesem Modul nicht werden, da es immer noch mehr gibt das gemacht werden kann an der Pipeline.
+
+Bisher habe ich hauptsächlich bei einem Projekt in der Firma an der Pipeline gearbeitet und das fand ich eine gute Abwechslung zu den anderen „normalen“ Coding Tasks. Das Debugging an der Pipeline ist zwar nicht so lustig, aber es macht trotzdem irgendwie Spass zu hoffen das alle Jobs grün werden.
+
+Zum ersten Mal habe ich die Matrix in der Pipeline verwendet, so kann ich die Unit-Tests für die beiden Services parallel laufen lassen. Mir fällt gerade auf das die definierten Timeout Minuten ein bisschen sehr hoch sind und die Pipeline insgesamt nur ein paar wenige Minuten läuft. Bei den API Tests mit den Postman Collections funktioniert es nicht so optimal mit parallelen Läufen, da es in der Datenbank Flughäfen braucht bevor Flüge erstellt werden können.
+
+Beim Projekt wo wir bisher mit SVN gearbeitet haben, arbeiten wir mit einem Trunk-Based-Workflow, so kommen Commits immer direkt in den „Main“-Branch, wobei es eben keine Branches gibt, also eigentlich perfekt für CI/CD aber bevor wir diesen Step wagen, sollte der Umstieg auf GitHub gelingen. Falls dies so sein sollte kann ich in diesem Projekt evt. die Pipeline bauen, mit den Erfahrungen welche ich jetzt sammeln konnte. 
+
+**Feedback YN**: OK
 
 ## 22.09.2025
 
