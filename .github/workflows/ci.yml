@@ -35,7 +35,26 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        service: [airport-service, flight-service]
+        service: [ airport-service, flight-service ]
+
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: secret
+          MYSQL_DATABASE: testdb
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping -h 127.0.0.1 -psecret"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
+
+    env:
+      SPRING_DATASOURCE_URL: jdbc:mysql://127.0.0.1:3306/testdb?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: secret
 
     steps:
       - name: Repository auschecken
@@ -50,6 +69,16 @@ jobs:
 
       - name: Gradle Wrapper ausführbar machen
         run: chmod +x ./Code/${{ matrix.service }}/gradlew
+
+      - name: Wait for MySQL to be ready
+        run: |
+          for i in $(seq 1 60); do
+            (echo > /dev/tcp/127.0.0.1/3306) &>/dev/null && { echo "MySQL ready"; exit 0; }
+            echo "Waiting for MySQL..."
+            sleep 1
+          done
+          echo "MySQL did not become ready in time" >&2
+          exit 1
 
       - name: Unit Tests ausführen
         working-directory: ./Code/${{ matrix.service }}
