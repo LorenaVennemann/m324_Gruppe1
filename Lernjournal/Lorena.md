@@ -164,3 +164,20 @@ Die verschiedenen Arten von Pipelines waren für mich sehr interessant. Auch bei
 
 ## Feedback YN
 Inhaltlich keine Reflektion, wahrscheinlich, weil nichts neues gemacht wurde.
+---
+---
+**Datum:** 20.10.2025  
+**Modul / Thema:** m324
+---
+## Bezug zu eigenen Erfahrungen
+Heute habe ich gemeinsam mit Sandro in P4 die Subtask erstellt. Ausserdem habe ich mit dem Z1-Task begonnen und konnte diesen erfolgreich abschliessen. Dabei haben wir GitHub Issues verwendet. In meiner Firma nutzen wir kein GitHub, sondern GitLab in Kombination mit Jira als Ticketsystem. Persönlich bevorzuge ich Jira, da es für mich übersichtlicher ist, allerdings finde ich das UI von GitHub Issues ansprechender. Gegen Ende der Stunde konnte ich mit Task P4 starten. Dort habe ich mit der Einrichtung von VPCs sowie Security Groups in AWS begonnen. Mit AWS hatte ich bisher in meiner Firma keine praktischen Erfahrungen, mein Wissen stammt also hauptsächlich aus der Schule.
+
+## Reflektion und Feedback
+Was lief gut:
+Der Z1-Task lief sehr gut und ich konnte dabei viel über GitHub Issues lernen. Auch in AWS bin ich gut vorangekommen und konnte mein Wissen aus dem vorherigen Modul direkt anwenden.
+
+Herausforderungen:
+Leider konnte ich nicht direkt mit Z4 beginnen, da AWS zeitweise nicht erreichbar war. Deshalb habe ich zunächst mit Z1 gearbeitet und diesen abgeschlossen.
+
+Verbesserungspotenzial:
+Ich denke, dass wir im Team sehr gut vorankommen und die Zusammenarbeit effizient gestaltet ist.
