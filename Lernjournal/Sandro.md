@@ -10,6 +10,8 @@ Komischerweise ist dann mein Pull-Request gefailt, beziehungsweise die Tests wel
 
 Für Z1 nutzen wir GitHub Issues, dabei meinte ich im ersten Lernjournal Eintrag schon, dass GitHub einige Features für unser Projekt mitbringt, welche wir direkt nutzen können und somit nicht viele verschiedene Tools nutzen müssen. In meiner Firma arbeiten hauptsächlich mit Jira für die Tickets/Tasks und selten GitHub Projects. Es ist mir nicht so wichtig was für ein Tool/Software für das Projekt-Management verwendet wird, da mittlerweile die meisten ein vernünftiges UI und verschiedene tolle Features haben, daher finde ich ist eine gute Integration ins Projekt ist schon eher entscheidend.
 
+**Feedback YN**: OK
+
 ## 29.09.2025
 
 Heute konnte ich einige Tasks erledigen wie z.B. Datenformatierung, Response Struktur, Automatisiertes Building und angefangen Unit Tests in die Pipeline zu integrieren, dabei habe ich mich auf die Tasks mit der Pipeline gefreut, deshalb hat es mich wahrscheinlich schon am Sonntag Abend gepackt. 
