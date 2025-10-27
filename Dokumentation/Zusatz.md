@@ -19,7 +19,8 @@ Für die Aufgabenstellung wird GitHub Issues als Ticketsystem ausgewählt.
 
 ### 2.1 Ticket-Erstellung
 
-* Kunde erstellt ein GitHub Issue im Repository (`airport-service` oder `flight-service`)
+* Kunde erstellt ein GitHub Issue im Repository (`airport-service` oder `flight-service`) oder über den Slack Kanal.
+In Slack können direkt Issues erfasst werden, welche dann auf unserem Entwickler Board landen. Wenn es Kommentare auf dem Issue gibt, wird eine Benachrichtigung auf Slack geschickt und man sieht den Stand des Tickets.
 * Ticket enthält:
 
   * Beschreibung des Problems
