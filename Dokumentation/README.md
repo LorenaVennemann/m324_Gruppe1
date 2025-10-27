@@ -537,3 +537,51 @@ main (immer grün)
     - CI läuft automatisch
     - Test-Reports direkt sichtbar
     - Merge nur möglich bei grüner CI
+
+
+## Tests
+
+### **Airport-Service**
+
+#### [Unit Tests](/Code/airport-service/src/test/java/tbz/ch/airport/controller/AirportControllerTest.java)
+- Testet **nur** die Controller-Logik isoliert
+- **Kein** Spring Context
+- Verwendet reine Mockito-Mocks (`@Mock`, `@InjectMocks`)
+
+#### [Application Tests](Code/airport-service/src/test/java/tbz/ch/airport/AirportApplicationTests.java)
+- Testet Controller **mit** Spring MVC (MockMvc)
+- Testet HTTP-Request/Response, Validierung, JSON-Serialisierung
+- Repository wird gemockt (`@MockitoBean`)
+
+#### [Integration Tests](Code/airport-service/src/test/java/tbz/ch/airport/AirportIntegrationTests.java)
+- Testet die **gesamte** Anwendung inkl. echter Datenbank
+- Voller Spring Context (`@SpringBootTest`)
+
+---
+
+### **Flight-Service**
+
+#### [Application Tests](Code/flight-service/src/test/java/tbz/ch/flight/FlightApplicationTests.java)
+Was wird getestet:
+- Controller-Logik
+- HTTP-Requests/Responses (MockMvc)
+- JSON-Serialisierung/Deserialisierung
+- Validierung
+
+Was wird NICHT getestet:
+- Keine echte Service-Logik (Service ist gemockt mit `@MockitoBean`)
+- Keine Datenbank
+- Keine externen API-Calls
+
+#### [Integration Tests](Code/flight-service/src/test/java/tbz/ch/flight/FlightIntegrationTests.java)
+Was wird getestet:
+- **Kompletter Durchlauf:** Controller → Service → Repository → Datenbank
+- Echte Datenbank-Operationen (`flightRepository.save()`, `count()`)
+- **Externe API-Calls** zum Airport-Service (via WireMock simuliert)
+- Verifizierung der API-Calls: `WireMock.verify(...)`
+
+Besonderheiten:
+- `setupAirportMocks()` - Simuliert Antworten vom Airport-Service
+- `@TestPropertySource` - Setzt URL für gemockte API
+- Testet die **Integration mit externem Service**
+  
