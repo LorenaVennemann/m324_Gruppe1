@@ -22,7 +22,7 @@ jobs:
   deploy-dev:
     name: Deploy to Dev
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/develop'
+    if: startsWith(github.ref, 'refs/heads/feature/')
     environment:
       name: dev
       url: http://myapp-dev-alb-494890117.us-east-1.elb.amazonaws.com
