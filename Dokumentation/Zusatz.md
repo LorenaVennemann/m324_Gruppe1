@@ -142,7 +142,7 @@ Kunde 👤
        🌿 Branch erstellen (feature/bugfix)
            │
            ▼
-       💾 Commit & 🔀 Pull Request
+       💾 Commit & Pull Request
            │
            ▼
        ⚡ CI/CD Pipeline
