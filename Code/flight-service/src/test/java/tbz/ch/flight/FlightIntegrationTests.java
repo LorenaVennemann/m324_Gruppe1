@@ -121,6 +121,8 @@ public class FlightIntegrationTests {
                 .andExpect(jsonPath("$.length()").value(0));
     }
 
+    // --------- CREATE: Validierungs-/Fehlerfälle ---------
+
     @Test
     @DisplayName("POST /flights: 400, wenn Departure in der Vergangenheit")
     void shouldReturn400WhenDepartureInPast() throws Exception {
@@ -158,4 +160,3 @@ public class FlightIntegrationTests {
 
         assertThat(flightRepository.count()).isEqualTo(0);
     }
-}
