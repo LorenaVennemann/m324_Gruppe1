@@ -19,7 +19,7 @@ Dieses Dokument beschreibt, wie auf unsere CI-Pipeline zugegriffen und getestet 
     - Den Status jedes Laufs (✅ Success, ❌ Failed, 🟡 In Progress)
     - Welcher Branch/Commit den Lauf ausgelöst hat
 
-![img.png](Images/img.png)
+
 
 ### Einzelnen Pipeline-Lauf inspizieren
 

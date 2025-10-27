@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c3d29ea5-8644-49dc-839f-f36e47d0b771" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Dokumentation/ci.md" beforeDir="false" afterPath="$PROJECT_DIR$/../Dokumentation/ci.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,53 +84,53 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Gradle.AirportApplicationTests.contextLoads.executor": "Run",
-    "Gradle.AirportApplicationTests.executor": "Run",
-    "Gradle.AirportControllerTests (1).executor": "Run",
-    "Gradle.AirportControllerTests.executor": "Run",
-    "Gradle.AirportControllerTests.testGetAllAirports_returnsEmptyList.executor": "Run",
-    "Gradle.Build airport-service.executor": "Run",
-    "Gradle.Build flight-service.executor": "Run",
-    "Gradle.C:/Users/Jilve/TBZ/m324_Gruppe1/Code/flight-service [dependencies].executor": "Run",
-    "Gradle.CreateAirportTests.executor": "Run",
-    "Gradle.FlightApplicationTests.executor": "Run",
-    "JUnit.AirportControllerTest.testGetAllAirports_returnsEmptyList.executor": "Run",
-    "JUnit.AirportControllerTests.executor": "Run",
-    "JUnit.AirportControllerTests.testGetAllAirports_returnsEmptyList.executor": "Run",
-    "JUnit.FlightApplicationTests.contextLoads.executor": "Run",
-    "JUnit.FlightApplicationTests.executor": "Run",
-    "JUnit.FlightServiceTest.executor": "Run",
-    "JUnit.FlightTest.executor": "Run",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "Spring Boot.AirportApplication.executor": "Run",
-    "Spring Boot.FlightApplication.executor": "Run",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "feature/61-environments-infrastructure-setup",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Jilve/TBZ/m324_Gruppe1/Code",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.0",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Gradle.AirportApplicationTests.contextLoads.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.AirportApplicationTests.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.AirportControllerTests (1).executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.AirportControllerTests.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.AirportControllerTests.testGetAllAirports_returnsEmptyList.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Build airport-service.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Build flight-service.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.C:/Users/Jilve/TBZ/m324_Gruppe1/Code/flight-service [dependencies].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CreateAirportTests.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.FlightApplicationTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AirportControllerTest.testGetAllAirports_returnsEmptyList.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AirportControllerTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AirportControllerTests.testGetAllAirports_returnsEmptyList.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.FlightApplicationTests.contextLoads.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.FlightApplicationTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.FlightServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.FlightTest.executor&quot;: &quot;Run&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Spring Boot.AirportApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.FlightApplication.executor&quot;: &quot;Run&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/11-z2__ticketsystem__und__integration__von__tickets-zusatz&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Jilve/TBZ/m324_Gruppe1/Code&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
