@@ -1,0 +1,476 @@
+{
+	"info": {
+		"_postman_id": "218da70b-bf8f-4705-8c65-a6971e0946a0",
+		"name": "m324",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26885583"
+	},
+	"item": [
+		{
+			"name": "CREATE AIRPORT BER",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 200\", function () {\r",
+							"    pm.expect(pm.response.code).to.equal(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response time is less than 500\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response has required fields\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(responseData).to.be.an('object');\r",
+							"    pm.expect(responseData).to.have.all.keys('id', 'name', 'code', 'capacity', 'createdAt');\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"The 'id' must be a non-negative integer\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(responseData).to.be.an('object');\r",
+							"    pm.expect(responseData.id).to.be.a('number').and.to.satisfy(function(value) {\r",
+							"        return Number.isInteger(value) && value >= 0;\r",
+							"    }, \"The 'id' should be a non-negative integer\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"The createdAt field is in a valid date format\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(responseData).to.be.an('object');\r",
+							"    pm.expect(responseData.createdAt).to.exist;\r",
+							"    pm.expect(new Date(responseData.createdAt).getTime()).to.not.be.NaN;\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Flughafen Berlin\",\r\n    \"code\": \"BER\",\r\n    \"capacity\": 300000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrlAirports}}",
+					"host": [
+						"{{baseUrlAirports}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE AIRPORT ZRH",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 200\", function () {\r",
+							"    pm.expect(pm.response.code).to.eql(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response time is less than 500ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response has required fields\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(responseData).to.be.an('object');\r",
+							"    pm.expect(responseData).to.have.all.keys('id', 'name', 'code', 'capacity', 'createdAt');\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"The id must be a non-negative integer\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(responseData).to.have.property('id').that.is.a('number').and.is.at.least(0);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"The createdAt field must be in a valid date format\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(responseData).to.be.an('object');\r",
+							"    pm.expect(responseData.createdAt).to.exist;\r",
+							"    pm.expect(new Date(responseData.createdAt).toString()).to.not.equal(\"Invalid Date\", \"createdAt is not in a valid date format\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Flughafen Zürich\",\r\n    \"code\": \"ZRH\",\r\n    \"capacity\": 350000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrlAirports}}",
+					"host": [
+						"{{baseUrlAirports}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "READ ALL AIRPORTS",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 200\", function () {\r",
+							"    pm.expect(pm.response.code).to.eql(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response content type is application/json\", function () {\r",
+							"    pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json');\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response time is less than 500ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response is an array with the expected structure\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(responseData).to.be.an('array');\r",
+							"    \r",
+							"    responseData.forEach(function(item) {\r",
+							"        pm.expect(item).to.be.an('object');\r",
+							"        pm.expect(item).to.have.all.keys('id', 'name', 'code', 'capacity', 'createdAt');\r",
+							"        pm.expect(item.id).to.be.a('number');\r",
+							"        pm.expect(item.name).to.be.a('string');\r",
+							"        pm.expect(item.code).to.be.a('string');\r",
+							"        pm.expect(item.capacity).to.be.a('number');\r",
+							"        pm.expect(item.createdAt).to.be.a('string');\r",
+							"    });\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Validate properties of the airports response\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"\r",
+							"    pm.expect(responseData).to.be.an('array').that.is.not.empty;\r",
+							"\r",
+							"    responseData.forEach(function(airport) {\r",
+							"        pm.expect(airport.id).to.be.a('number').and.to.be.at.least(0, \"ID must be a non-negative integer\");\r",
+							"        pm.expect(airport.name).to.exist.and.to.be.a('string').and.to.have.lengthOf.at.least(1, \"Name should not be empty\");\r",
+							"        pm.expect(airport.code).to.exist.and.to.be.a('string').and.to.have.lengthOf.at.least(1, \"Code should not be empty\");\r",
+							"    });\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrlAirports}}",
+					"host": [
+						"{{baseUrlAirports}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "READ AIRPORT BY CODE",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 200\", function () {\r",
+							"    pm.expect(pm.response.code).to.equal(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response time is less than 500ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response has the required fields\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"\r",
+							"    pm.expect(responseData).to.be.an('object');\r",
+							"    pm.expect(responseData).to.have.all.keys('id', 'name', 'code', 'capacity', 'createdAt');\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Validate that the 'id' is a non-negative integer\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(responseData).to.be.an('object');\r",
+							"    pm.expect(responseData.id).to.be.a('number').and.to.be.at.least(0);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Validate that 'createdAt' is in a valid date format\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(responseData).to.be.an('object');\r",
+							"    pm.expect(responseData.createdAt).to.exist;\r",
+							"\r",
+							"    // Check if 'createdAt' is a valid date\r",
+							"    const date = new Date(responseData.createdAt);\r",
+							"    pm.expect(date.getTime()).to.not.be.NaN; // Ensure it's a valid date\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrlAirports}}/ZRH",
+					"host": [
+						"{{baseUrlAirports}}"
+					],
+					"path": [
+						"ZRH"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE FLIGHT",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const futureDate = new Date();\r",
+							"futureDate.setDate(futureDate.getDate() + 30); // Set date 30 days in the future\r",
+							"pm.environment.set(\"futureDepartureDateTime\", futureDate.toISOString());\r",
+							"\r",
+							"// Set future arrival time to 2 hours later than future departure time\r",
+							"const futureArrivalDate = new Date(futureDate);\r",
+							"futureArrivalDate.setHours(futureArrivalDate.getHours() + 2); // Add 2 hours to the future date\r",
+							"pm.environment.set(\"futureArrivalDateTime\", futureArrivalDate.toISOString());\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 200\", function () {\r",
+							"    pm.expect(pm.response.code).to.eql(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 500ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response body contains expected fields\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(responseData).to.be.an('object');\r",
+							"    pm.expect(responseData).to.have.all.keys('id', 'departureAirportCode', 'arrivalAirportCode', 'departureDatetime', 'arrivalDatetime', 'aircraftType', 'createdAt');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Departure and arrival airport codes must be non-empty strings\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"\r",
+							"    pm.expect(responseData).to.be.an('object');\r",
+							"    pm.expect(responseData.departureAirportCode).to.exist.and.to.be.a('string').and.to.have.lengthOf.at.least(1, \"Departure airport code should not be empty\");\r",
+							"    pm.expect(responseData.arrivalAirportCode).to.exist.and.to.be.a('string').and.to.have.lengthOf.at.least(1, \"Arrival airport code should not be empty\");\r",
+							"});\r",
+							"\r",
+							"// Updated regex for ISO 8601 validation to allow optional timezone information\r",
+							"pm.test(\"Datetime fields are in a valid ISO 8601 format\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"\r",
+							"    pm.expect(responseData).to.be.an('object');\r",
+							"    const iso8601Regex = /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,3})?(Z|[+-]\\d{2}:\\d{2})?$/;\r",
+							"\r",
+							"    pm.expect(responseData.departureDatetime).to.match(iso8601Regex, \"Departure Datetime is not in valid ISO 8601 format\");\r",
+							"    pm.expect(responseData.arrivalDatetime).to.match(iso8601Regex, \"Arrival Datetime is not in valid ISO 8601 format\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"departureAirportCode\": \"ZRH\",\r\n  \"arrivalAirportCode\": \"BER\",\r\n  \"departureDatetime\": \"{{futureDepartureDateTime}}\",\r\n  \"arrivalDatetime\": \"{{futureArrivalDateTime}}\",\r\n  \"aircraftType\": \"Boeing 737\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrlFlights}}",
+					"host": [
+						"{{baseUrlFlights}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "READ ALL FLIGHTS",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 200\", function () {\r",
+							"    pm.expect(pm.response.code).to.eql(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response time is less than 500ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response has the required fields\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(responseData).to.be.an('array').that.is.not.empty;\r",
+							"    \r",
+							"    responseData.forEach(function(item) {\r",
+							"        pm.expect(item).to.have.all.keys('id', 'departureAirportCode', 'arrivalAirportCode', 'departureDatetime', 'arrivalDatetime', 'aircraftType', 'createdAt');\r",
+							"    });\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Validate that id is a non-negative integer\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(responseData).to.be.an('array').that.is.not.empty;\r",
+							"    \r",
+							"    responseData.forEach(function(item) {\r",
+							"        pm.expect(item.id).to.be.a('number').that.is.at.least(0);\r",
+							"    });\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Test Flughafen\",\r\n    \"code\": \"TST\",\r\n    \"capacity\": 51\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrlFlights}}",
+					"host": [
+						"{{baseUrlFlights}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrlAirports",
+			"value": "http://localhost:8080/airports",
+			"type": "string"
+		},
+		{
+			"key": "baseUrlFlights",
+			"value": " http://localhost:8081/flights",
+			"type": "string"
+		}
+	]
+}

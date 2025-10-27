@@ -1,4 +1,4 @@
-# .gitignore for a Java project
+# gitignore
 HELP.md
 .gradle
 build/
