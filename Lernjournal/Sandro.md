@@ -1,5 +1,9 @@
 # Lernjournal von Sandro
 
+## 27.10.2025
+
+Mein Pull Request von letzter Woche bzw die Tests welche beim Pull Request gelaufen sind, sind gefailt weil die Integrationstests welche ich bei diesem Task erstellt habe auch gelaufen sind, weil sie im gleichen Ordner sind wie die Unit-Tests und somit auch ausgeführt wurden, da aber die Config in der Pipeline noch falsch war failte es.
+
 ## 20.10.2025
 
 Da wir praktisch mit P3 fertig waren, definierten Lorena und ich Tasks für P4, wobei AWS down war und wir somit nicht wirklich mit den Tasks starten konnten, weil das Lab nicht funktioniert hat, sowie viele andere Services die ausgefallen sind, da sie AWS nutzen. (Zum Glück fiel das Ganze am Montagmorgen aus und nicht in meiner Freizeit, das hätte mich mehr geärgert).
