@@ -163,6 +163,7 @@ Die verschiedenen Arten von Pipelines waren für mich sehr interessant. Auch bei
 - Systematischer bei Fehlern in Tests vorgehen
 
 ## Feedback YN
+
 Inhaltlich keine Reflektion, wahrscheinlich, weil nichts neues gemacht wurde.
 ---
 ---
@@ -181,3 +182,8 @@ Leider konnte ich nicht direkt mit Z4 beginnen, da AWS zeitweise nicht erreichba
 
 Verbesserungspotenzial:
 Ich denke, dass wir im Team sehr gut vorankommen und die Zusammenarbeit effizient gestaltet ist.
+
+## Feedback YN
+
+OK
+
