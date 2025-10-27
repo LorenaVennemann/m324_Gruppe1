@@ -1,0 +1,30 @@
+name: Deploy Pipeline
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+
+jobs:
+  deploy-dev:
+    name: Deploy to Dev
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/develop'
+    environment:
+      name: dev
+      url: http://myapp-dev-alb-494890117.us-east-1.elb.amazonaws.com
+    steps:
+      - name: Deploy to Dev
+        run: echo "Deploying to Dev Environment"
+
+  deploy-prod:
+    name: Deploy to Production
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    environment:
+      name: prod
+      url: http://myapp-prod-alb-180642296.us-east-1.elb.amazonaws.com
+    steps:
+      - name: Deploy to Prod (Manual Approval)
+        run: echo "Deploying to Production"
