@@ -2,9 +2,11 @@ package tbz.ch.flight.service;
 
 import org.apache.coyote.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 import tbz.ch.flight.dto.AirportResponse;
 import tbz.ch.flight.dto.FlightRequest;
@@ -30,6 +32,9 @@ public class FlightService {
     @Autowired
     private FlightValidator flightValidator;
 
+    @Value("${airport.service.url}")
+    private String airportServiceUrl;
+
     public FlightResponse createFlight(FlightRequest request) throws BadRequestException {
         Flight flight = new Flight();
         flight.setArrivalAirportCode(request.getArrivalAirportCode());
@@ -52,20 +57,27 @@ public class FlightService {
     }
 
     public AirportResponse getAirportByCode(String code) {
-        String uri = "http://localhost:8080/airports/" + code;
+        String uri = airportServiceUrl + "/airports/" + code;
 
         HttpHeaders headers = new HttpHeaders();
         headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
 
         HttpEntity<String> entity = new HttpEntity<>(headers);
-        ResponseEntity<AirportResponse> result = restTemplate.exchange(
-                uri,
-                HttpMethod.GET,
-                entity,
-                new ParameterizedTypeReference<>() {
-                }
-        );
-        return result.getBody();
+        try {
+            ResponseEntity<AirportResponse> result = restTemplate.exchange(
+                    uri,
+                    HttpMethod.GET,
+                    entity,
+                    new ParameterizedTypeReference<>() {
+                    }
+            );
+            return result.getBody();
+        } catch (HttpClientErrorException e) {
+            if (e.getStatusCode() == HttpStatus.NOT_FOUND) {
+                throw new IllegalArgumentException("Airport with code " + code + " not found");
+            }
+            throw e;
+        }
     }
 
     private FlightResponse mapToResponse(Flight flight) {
