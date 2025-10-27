@@ -4,18 +4,19 @@ on:
   push:
     branches:
       - main
-      - develop'
+      - develop
+      - feature/*
     paths:
       - 'Code/airport-service/**'
       - 'Code/flight-service/**'
   pull_request:
     branches:
       - main
-      - 'develop'
+      - develop
+      - feature/*
     paths:
       - 'Code/airport-service/**'
       - 'Code/flight-service/**'
-
 
 jobs:
   deploy-dev:
