@@ -160,3 +160,4 @@ public class FlightIntegrationTests {
 
         assertThat(flightRepository.count()).isEqualTo(0);
     }
+}
