@@ -2,7 +2,11 @@
 
 ## 27.10.2025
 
-Mein Pull Request von letzter Woche bzw die Tests welche beim Pull Request gelaufen sind, sind gefailt weil die Integrationstests welche ich bei diesem Task erstellt habe auch gelaufen sind, weil sie im gleichen Ordner sind wie die Unit-Tests und somit auch ausgeführt wurden, da aber die Config in der Pipeline noch falsch war failte es.
+Mein Pull-Request von letzter Woche bzw. die Tests, die beim Pull-Request ausgeführt wurden, sind fehlgeschlagen, weil die von mir bei diesem Task erstellten Integrationstests im gleichen Ordner wie die Unit-Tests liegen und somit auch ausgeführt wurden. Da die Konfiguration in der Pipeline aber noch falsch war, ist es fehlgeschlagen. So konnte ich meine Integrationstests gleich in die Pipeline integrieren und alles funktionierte wieder.
+
+Nachdem ich P3 abgeschlossen hatte, konnte ich mit P4 weitermachen. Dabei haben wir AWS-VPCs, Subnetze etc. konfiguriert. Es war anfangs etwas anstrengend, wieder in dieses AWS-UI hineinzukommen. Da ich den Grossteil des CI-YAML-Files geschrieben habe, konnte ich Lorena beim CD-YAML helfen, da dieses zuerst gar nicht ausgeführt wurde, weil der Trigger falsch war.
+
+In meiner Firma verwenden wir intern keine Cloud wie AWS oder Azure, da wir einiges On-Prem haben oder sich der Kunde selbst darum kümmert. Deshalb hatte ich bisher in der Firma nicht so viel mit „Cloud” zu tun, was das Deployment betrifft. Mittlerweile läuft jedoch relativ viel in der „Cloud”, weshalb ich privat teilweise meine Sachen auch selbst hoste.
 
 ## 20.10.2025
 
