@@ -186,4 +186,27 @@ Ich denke, dass wir im Team sehr gut vorankommen und die Zusammenarbeit effizien
 ## Feedback YN
 
 OK
+---
+---
+**Datum:** 27.10.2025  
+**Modul / Thema:** m324
+---
+## Bezug zu eigenen Erfahrungen
+Heute habe ich noch einige kleine Aufgaben im Z2 Task erledigt und bin danach zum P4 Task übergegangen. Dort habe ich an den Themen weitergearbeitet, an denen ich letzte Woche gearbeitet habe. Neu habe ich für DEV die Infrastruktur in AWS erstellt und dieselben Schritte für PROD durchgeführt. Ausserdem habe ich bereits die deploy.yml-Datei mit der Deploy-Stage fertiggestellt, die bei Bedarf noch angepasst werden kann. In meiner Firma arbeiten wir mit OCP (OpenShift). Anfangs fiel es mir schwerer, mich dort zurechtzufinden, als bei AWS, da OpenShift komplexer einzurichten ist. Sobald das Setup jedoch einmal vollständig steht, ist die Nutzung von OCP nicht mehr so schwierig.
+
+Vergleich:
+AWS: Einstieg schneller, da die Services einzeln und übersichtlich genutzt werden können.
+OCP: Anfangs aufwendiger, da alles in einem Cluster/Setup integriert wird, dafür aber langfristig konsistenter und effizienter im Team.
+
+## Reflektion und Feedback
+Was lief gut:
+Ich fand das morgendliche Meeting sehr erfolgreich, wir haben gleich zu Beginn Fortschritte erzielt. Ebenfalls positiv war, wie gut die Zusammenarbeit im Team funktioniert hat.
+
+Herausforderungen:
+Eine Herausforderung bestand darin herauszufinden, warum die Load Balancer in AWS nicht funktionierten. Schliesslich stellte sich heraus, dass die Availability Zones in zwei Public Subnets nicht identisch sein dürfen, zum Beispiel dürfen beide nicht eu-west-1b sein.
+
+Verbesserungspotenzial:
+Da eine Person im Team nur wenig kommuniziert, fehlt uns manchmal der Überblick über den Arbeitsstand. Das erschwert die Zusammenarbeit und verlangsamt unseren Fortschritt.
+
+
 
